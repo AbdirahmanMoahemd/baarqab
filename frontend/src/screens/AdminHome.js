@@ -106,8 +106,8 @@ const AdminHome = ({ history }) => {
                     </div>
                     {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
-                            {orders.filter(order => order.date === todydate).map(order => (
-                                <div className="recent-grid" key={order._id}>
+                            
+                                <div className="recent-grid" >
                                     <div className="projects">
                                         <div className="card">
                                             <div className="card-header">
@@ -129,7 +129,7 @@ const AdminHome = ({ history }) => {
                                                         <tbody>
                                                     
                                             
-                                            
+                                            {orders.filter(order => order.date === todydate).map(order => (
                                                             <tr key={order._id}>
                                                       
                                                                 <td>{order.user && order.user.name}</td>
@@ -154,7 +154,7 @@ const AdminHome = ({ history }) => {
                                                                 </td>
                                                  
                                                             </tr>
-                                         
+                                         ))}
                                                         </tbody>
                                                     </table>
                                    
@@ -164,42 +164,47 @@ const AdminHome = ({ history }) => {
                                         </div>
                                     </div>
                                     <div className="customers">
-                                        <div className="card">
+                                    <div className="card">
+                                       
                                             <div className="card-header">
                                                 <h3>New Customers</h3>
-                                                <button className="btn-dash" ><Link to={`/order/${order._id}`} style={{color: '#fff'}}> See all</Link><span className="las la-arrow-right"></span></button>
+                                                <button className="btn-dash" ><Link to={`/orderlist`} style={{color: '#fff'}}> See all</Link><span className="las la-arrow-right"></span></button>
                                             </div>
                                             <div className="card-body">
-                                                <div className="table-responsive">
+                                            <div className="table-responsive">
+                                                {orders.filter(order => order.date === todydate).map(order => (
                                                     <div className="customer">
-                                                        
-                                                            <>
+                                                   
+                                                        <>
                                                 
-                                                                <div className="info">
-                                                                    <div key={order._id}>
-                                                                        <h4>{order.user && order.user.name}</h4>
-                                                                        <small>{order.shippingAddress.phoneNumber}</small>
-                                                                    </div>
-                                                                </div> 
-                                                                <div className="contact"> 
-                                                                    <div>
-                                                                        <span className="las la-user-circle"></span>
-                                                                        <span className="las la-comment"></span>
-                                                                        <span className="las la-phone"></span>
-                                                                    </div>
+                                                            <div className="info">
+                                                            
+                                                                <div key={order._id}>
+                                                                    <h4>{order.user && order.user.name}</h4>
+                                                                    <small>{order.shippingAddress.phoneNumber}</small>
+                                                            </div>
+                                                            
+                                                            </div>
+                                                            <div className="contact">
+                                                                <div>
+                                                                    <span className="las la-user-circle"></span>
+                                                                    <span className="las la-comment"></span>
+                                                                    <span className="las la-phone"></span>
                                                                 </div>
-                                                            </>
-                                                        
+                                                            </div>
+                                                        </>
+                                                    
                                                     </div>
                                  
-                                
+                                ))}
                                                 </div>
                                             </div>
+                                        
                                         </div>
                                     </div>
            
                                 </div>
-                            ))}
+                            
                 </>
                     )}
             </main>
