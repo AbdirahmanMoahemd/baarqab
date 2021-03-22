@@ -24,7 +24,7 @@ const [productType, setProductType] = useState('All')
        <>
           <Header/>
             {loading ? <Loader/> : error ? <Message variant='warning'>{error}</Message> :
-            <div className="small-container">
+            <div className="s">
          <div className="row row-2">
             <h2>Herbal & Medicine</h2>
             

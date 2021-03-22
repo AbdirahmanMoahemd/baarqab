@@ -25,7 +25,7 @@ const ProductsScreen = ({ match }) => {
        <>
           <Header />
             {loading ? <Loader/> : error ? <Message variant='warning'>{error}</Message> :
-            <div className="small-container">
+            <div className="s">
          <div className="row row-2">
             <h2>{productType === 'All' ? 'Dhar' : `Dhar - ${productType}`}</h2>
              <span className="new-col">  

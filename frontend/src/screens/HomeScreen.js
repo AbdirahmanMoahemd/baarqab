@@ -18,7 +18,6 @@ import { listPromotions } from "../actions/promotionActions";
 
 const HomeScreen = ({ match }) => {
     const keyword = match.params.keyword
-    const pageNumber = match.params.pageNumber || 1
 
     const dispatch = useDispatch()
 
@@ -43,7 +42,7 @@ const HomeScreen = ({ match }) => {
       dispatch(listTopProducts())
       dispatch(listSlides())
       dispatch(listPromotions())
-    }, [dispatch, keyword, pageNumber])
+    }, [dispatch, keyword])
   
    
 

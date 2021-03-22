@@ -81,9 +81,8 @@ const App = () => {
         </>
       ) : ''} 
       <Route path='/page/:pageNumber' component={HomeScreen} exact />
-      <Route path='/search/:keyword/page/:pageNumber' component={HomeScreen} exact />
       <Route path='/search/:keyword' component={AllProductsScreen} exact />
-      <Route path='/' component={HomeScreen} exact />
+      <Route path='/' component={HomeScreen} exact /> 
     </Router> 
   );
 }  

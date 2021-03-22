@@ -181,6 +181,9 @@ const ProfileScreen = ({ location, history }) => {
     </div>
                 </div>
             </div>
+            <p className="wt"> .</p>
+            <p className="wt"> .</p>
+            <p className="wt"> .</p>
         </>
 
     )

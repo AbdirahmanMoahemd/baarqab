@@ -32,7 +32,7 @@ const products = [
   {
     
     name: 'Samsung',
-    image: '/images/Mob-3.jpeg',
+    image: '/images/mob-3.jpeg',
     description:
       'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
     brand: 'Sony',

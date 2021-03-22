@@ -26,7 +26,7 @@ const ElectronicsScreen = ({ match }) => {
        <>
           <Header/>
             {loading ? <Loader/> : error ? <Message someAlert="someAlert" variant='warning'>{error}</Message> :
-            <div className="small-container">
+            <div className="s">
          <div className="row row-2">
             <h2>Letest Products</h2>
          </div>
