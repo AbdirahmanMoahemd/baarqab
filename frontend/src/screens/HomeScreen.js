@@ -174,20 +174,20 @@ const HomeScreen = ({ match }) => {
     
         <div className="services-box">
             <i className="fas fa-shipping-fast"></i>
-            <span>Fast Shipping</span>
-            <p>in 24h</p>
+            <span>Keenis Degdega ah</span>
+            <p>24 saac kuduhood</p>
         </div>
 
         <div className="services-box">
             <i className="fas fa-headphones-alt"></i>
-            <span>Support 24/7</span>
+            <span>Caawin 24 saac</span>
             <p>We support 24h a day</p>
         </div> 
 
         <div className="services-box">
             <i className="fas fa-sync"></i>
-            <span>100% Money Back</span>
-            <p>You have 30 days to Return</p>
+            <span>Lacag celin</span>
+            <p>waxaa heysataa 2saacadood si lacagta lagugu celiyo</p>
         </div>
     </section>
         <Footer/> 

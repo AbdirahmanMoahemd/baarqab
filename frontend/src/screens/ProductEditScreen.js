@@ -90,7 +90,6 @@ const ProductEditScreen = ({ match, history }) => {
             type,
             price,
             countInStock
-
         }))
     }
     return (
@@ -99,7 +98,6 @@ const ProductEditScreen = ({ match, history }) => {
         <>
             <AdminScreen />
             <div className="main-content userlists">
-            
                 <div className="form">
                 <div className="login-form">
                     <strong>Edit Products</strong>
@@ -116,7 +114,7 @@ const ProductEditScreen = ({ match, history }) => {
                                     onChange={(e) => setImage(e.target.value)}
                                 />
                                 <label for="myfile">Select an image:</label>
-                                <input type="file" id="myfile" name="myfile" required
+                                <input type="file" id="myfile" name="myfile" 
                                     onChange={uploadFileHandler}
                                     />
                                 {uploading && <Loader/>}
@@ -135,15 +133,14 @@ const ProductEditScreen = ({ match, history }) => {
                                     <option value="Shoes">Shoes</option>
                                     <option value="herbal">Herbal</option>
                                     <option value="Cosmatics">Cosmatics</option>
+                                    <option value="alaab">Alaabta Guryaha</option> 
                                 </select>
                                <select name="" value={type} required
                                     onChange={(e) => setType(e.target.value)} >
                                     {category === 'Electronics' ?( 
-                                    
                                     <> <option value="Mobile">Mobile</option>
                                     <option value="Accessories">Accessories</option>
                                     <option value="Computers">Computers</option>       
-                                    
                                     </> 
                                     )        
                                     :category === 'Dhar' ?
@@ -178,19 +175,13 @@ const ProductEditScreen = ({ match, history }) => {
                                     name="countInStock" required
                                     onChange={(e) => setCountInStock(e.target.value)}
                                 />   
-                               
                                 <button type="submit" value="" >Update</button>
                             </form>
                         )}
                 </div>
-
-                
-                
-                            
                      <p className="wt"> .</p>
                      <p className="wt"> .</p>       
             </div>  
-       
             </div> 
         </>
     )  

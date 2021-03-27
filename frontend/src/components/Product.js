@@ -26,7 +26,7 @@ const Product = ({ product, history, match }) => {
                                 text={` ${product.numReviews} reviews`}
                             />
                         </div>
-                        <span className="p-price">{product.price}</span>
+                        <span className="p-price">${product.price}</span>
                     </div>
             
                 </>

@@ -22,7 +22,7 @@ const AdminScreen = ({ history }) => {
           <input type="checkbox" id="nav-toggle"/>
     <div className="sidebar">
         <div className="sidebar-brands">
-            <h2><span className="lab la-accusoft"></span><span><Link to="/" style={{color: '#fff'}}>Caawiye Souq</Link></span></h2>
+            <h2><span className="lab la-accusoft"></span><span><Link to="/" style={{color: '#fff'}}>Home</Link></span></h2>
         </div>
         <div className="sidebar-menu">
             <ul>

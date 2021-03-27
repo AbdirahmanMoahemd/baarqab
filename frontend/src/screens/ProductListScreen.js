@@ -83,6 +83,7 @@ const ProductListScreen = ({ history }) => {
                                         <tr>
                                             <td>ID</td>
                                             <td>NAME</td>
+                                            <td>IMAGE</td>
                                             <td>PRICE</td>
                                             <td>CATEGORY</td>
                                             <td>TYPE</td>        
@@ -96,8 +97,13 @@ const ProductListScreen = ({ history }) => {
                                        {products.map(product => (
                                             <tr key={product._id}>
                                                <td>{product._id.substring(15, )}</td>
-                                                <td>{product.name}</td>
-                                                <td>${product.price}</td>
+                                               <td>{product.name}</td>
+                                               <td> 
+                                                <div className="cart-info cart-info-pro">
+                                                    <img src={product.image} />
+                                                </div>
+                                               </td>
+                                               <td>${product.price}</td>
                                                 <td>{product.category}</td>  
                                                 <td>{product.type}</td>  
                                                 <td>{product.brand}

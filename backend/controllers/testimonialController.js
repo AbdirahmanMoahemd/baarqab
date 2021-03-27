@@ -6,7 +6,7 @@ import Testimonials from '../models/testimonialsModel.js'
 // @access  Private/Admin
 export const getTestimonials = asyncHandler(async (req, res) => {
     const testimonials = await Testimonials.find({})
-    
+    testimonials.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json(testimonials)
 
 })

@@ -6,7 +6,7 @@ import Promotions from '../models/promotionModel.js'
 // @access  Private/Admin
 export const getPromotions = asyncHandler(async (req, res) => {
     const promotions = await Promotions.find({})
-    
+    promotions.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json(promotions)
 
 })

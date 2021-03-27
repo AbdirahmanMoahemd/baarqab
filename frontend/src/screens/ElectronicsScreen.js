@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import { listProducts2 } from '../actions/productAction'
 import Products from '../components/Products'
 import Header from '../components/Header'
+import Meta from '../components/Meta'
 
 
 const ElectronicsScreen = () => {
@@ -23,7 +24,9 @@ const ElectronicsScreen = () => {
     }, [dispatch])
     return (
        <>
-          <Header/>
+          <Header />
+        <Meta/>
+          
             {loading ? <Loader/> : error ? <Message someAlert="someAlert" variant='warning'>{error}</Message> :
             <div className="s">
          <div className="row row-2">

@@ -17,7 +17,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     }, 
   } : {}
 
-  const products = await Product.find({ ...keyword })
+  const products = await Product.find({ ...keyword }).slice(-1)
     res.json({products})   
   
 })
@@ -29,7 +29,9 @@ export const getProducts2 = asyncHandler(async (req, res) => {
   
     
 
-  const products = await Product.find({ })
+  const products = await Product.find({})
+
+  products.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json({products})   
   
 })
@@ -197,6 +199,7 @@ export const createProductReview = asyncHandler (async (req, res) => {
 export const getTopProducts = asyncHandler (async (req, res) => {
   
   const products = await Product.find({}).sort({ rating: -1 }).limit(8)
+  products.sort((a, b) => (a._id > b._id) ? -1 : 1)
   res.json(products)
 })
 

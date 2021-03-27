@@ -6,7 +6,7 @@ import Slide from '../models/slidesModel.js'
 // @access  Private/Admin
 export const getSlides = asyncHandler(async (req, res) => {
     const slides = await Slide.find({})
-    
+    slides.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json(slides)
 
 })

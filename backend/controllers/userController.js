@@ -129,7 +129,7 @@ export const updateProfile = asyncHandler(async (req, res) => {
 // @access  Private/Admin
 export const getUsers = asyncHandler(async (req, res) => {
     const users = await User.find({})
-    
+    user.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json(users)
 
 })

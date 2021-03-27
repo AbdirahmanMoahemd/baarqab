@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import { listProducts2 } from '../actions/productAction'
 import Products from '../components/Products'
 import Header from '../components/Header'
+import Meta from '../components/Meta'
 
 
 const ProductsScreen = ({ match }) => {
@@ -24,6 +25,8 @@ const ProductsScreen = ({ match }) => {
     return (
        <>
           <Header />
+        <Meta/>
+
             {loading ? <Loader/> : error ? <Message variant='warning'>{error}</Message> :
             <div className="s">
          <div className="row row-2">
@@ -32,7 +35,7 @@ const ProductsScreen = ({ match }) => {
             <h3> Dooro Nuuca Dharka</h3>                
             <select name="" value={productType} 
                   onChange={(e) => setProductType(e.target.value)} >
-                            
+                             
                  <option value="All">All</option>
                  <option value="Rag">Rag</option>
                  <option value="Dumar">Dumar</option>

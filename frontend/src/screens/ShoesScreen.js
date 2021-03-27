@@ -7,6 +7,7 @@ import Message from '../components/Message'
 import { listProducts2 } from '../actions/productAction'
 import Products from '../components/Products'
 import Header from '../components/Header'
+import Meta from '../components/Meta'
 
 
 const ShoesScreen = () => {
@@ -24,12 +25,14 @@ const ShoesScreen = () => {
      return ( 
         <>
            <Header />
+           <Meta/>
+
             {loading ? <Loader/> : error ? <Message variant='warning'>{error}</Message> :
             <div className="s">
          <div className="row row-2">
             <h2>{productType === 'All' ? 'KABAHA' : `KABAHA - ${productType}`}</h2>
              <span className="new-col">  
-            <h3> Dooro Nuuca Dharka</h3>                
+            <h3> Dooro Nuuca kabaha</h3>                
             <select name="" value={productType} 
                   onChange={(e) => setProductType(e.target.value)} >
                             
@@ -68,7 +71,8 @@ const ShoesScreen = () => {
             }
             <p className="wt">.</p> 
           <p className="wt">.</p>  
-            
+             <p className="wt">.</p> 
+          <p className="wt">.</p>  
             </>
                     
     )
