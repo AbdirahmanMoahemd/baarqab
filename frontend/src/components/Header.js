@@ -85,8 +85,8 @@ const Header = () => {
                         {userInfo ? (
                             <Link to='/profile' ><p>{userInfo.name.split(' ')[0]}</p></Link>
                         ) :  <Link to="/login" className="user">
-                    <span className="loginSignUp ">Log In<span className="hideSignUp">/Sign Up</span></span>
-                </Link>} 
+                    <span className="loginSignUp ">Log In<span  className="hideSignUp">/Sign Up</span></span>
+                </Link>}  
                  
                 <Link to="/cart"> 
                     <i className="fas fa-shopping-cart">
