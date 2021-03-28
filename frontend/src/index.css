@@ -1031,7 +1031,7 @@ textarea {
     height: 150px;
   }
   .fix-nav .bar span {
-    top: -45px;
+    top: -35px;
   }
   .dropdown-content
   {
@@ -1040,7 +1040,7 @@ textarea {
   
   
   .fix-nav .right-menu {
-    top: 30px;
+    top: 35px;
   }
   nav .navigation {
         display: block;
@@ -1233,7 +1233,7 @@ textarea {
         right: 20px;
     }
   .fix-nav .right-menu {
-    top: 22px;
+    top: 28px;
   }
   .f-slider-text strong,
   .banner-text strong {
