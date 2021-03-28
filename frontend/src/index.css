@@ -12,6 +12,7 @@ body {
   padding: 0px;
   font-family: Poppins;
   background-color: #ffffff;
+  overflow-x: hidden;
 }
 * {
   box-sizing: border-box;
@@ -549,6 +550,9 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-weight: 500;
+}
+.loginSignUp {
+  font-size: .8rem;
 }
 textarea {
   resize: none;
@@ -1090,7 +1094,7 @@ textarea {
     nav .navigation .bar {
         display: block;
         position: fixed;
-        top: 85px;
+        top: 70px;
         right: 45%;
         font-size: 20px;
         cursor: pointer;
@@ -1099,7 +1103,7 @@ textarea {
         float: right;
         
         position: fixed;
-        top: 80px;
+        top: 70px;
         right: 20px;
     }
     .right-menu a{
@@ -1198,7 +1202,9 @@ textarea {
 }
 
 @media (max-width: 600px) {
-  
+  .hideSignUp {
+    display: none;
+  }
   .logo img {
     width: 60px;
   }
@@ -1214,7 +1220,7 @@ textarea {
   nav .navigation .bar {
         display: block;
         position: fixed;
-        top: 70px;
+        top: 65px;
         right: 45%;
         font-size: 20px;
         cursor: pointer;
@@ -1223,7 +1229,7 @@ textarea {
     .right-menu{
         float: right;
         position: fixed;
-        top: 65px;
+        top: 60px;
         right: 20px;
     }
   .fix-nav .right-menu {
