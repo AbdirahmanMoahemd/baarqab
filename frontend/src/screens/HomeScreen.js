@@ -67,134 +67,154 @@ const HomeScreen = ({ match }) => {
       slidesToScroll: 3
     };
     return (
-        <>
+      <>
         <Header />
-        <Meta/>
-       <ul className="slid">
-        
-            <Slider {...settings}>
-            
-            {slides.filter(slide => slide.pos === 0).map(slide => (
+        <Meta />
+        <ul className="slid">
+          <Slider {...settings}>
+            {slides
+              .filter((slide) => slide.pos === 0)
+              .map((slide) => (
                 <li className="item-a" key={slide._id}>
-                  <div className="full-slider-box f-slide-1" style={{backgroundImage: `url(${slide.image})`}}>
-                      <div className="slider-text-container"> 
-                          <div className="f-slider-text">   
-                              <span>{slide.title}</span>
-                            <strong>{slide.comment1}<br/><font>{slide.comment2}</font></strong>
-                              <a href="#promotion" className="f-slider-btn">Shop Now</a>
-                          </div>
+                  <div
+                    className="full-slider-box f-slide-1"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    <div className="slider-text-container">
+                      <div className="f-slider-text">
+                        <span>{slide.title}</span>
+                        <strong>
+                          {slide.comment1}
+                          <br />
+                          <font>{slide.comment2}</font>
+                        </strong>
+                        <a href="#promotion" className="f-slider-btn">
+                          Shop Now
+                        </a>
                       </div>
-                  </div>   
-                </li>   
-                )) 
-                }
-             {slides.filter(slide => slide.pos === 1).map(slide => (
+                    </div>
+                  </div>
+                </li>
+              ))}
+            {slides
+              .filter((slide) => slide.pos === 1)
+              .map((slide) => (
                 <li className="item-a" key={slide._id}>
-                  <div className="full-slider-box f-slide-2" style={{backgroundImage: `url(${slide.image})`}}>
-                      <div className="slider-text-container"> 
-                          <div className="f-slider-text">   
-                              <span>{slide.title}</span>
-                            <strong>{slide.comment1}<br/><font>{slide.comment2}</font></strong>
-                              <a href="#promotion" className="f-slider-btn">Shop Now</a>
-                          </div>
+                  <div
+                    className="full-slider-box f-slide-2"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    <div className="slider-text-container">
+                      <div className="f-slider-text">
+                        <span>{slide.title}</span>
+                        <strong>
+                          {slide.comment1}
+                          <br />
+                          <font>{slide.comment2}</font>
+                        </strong>
+                        <a href="#promotion" className="f-slider-btn">
+                          Shop Now
+                        </a>
                       </div>
-                  </div>   
-                </li>   
-                )) 
-            }
-            {slides.filter(slide => slide.pos === 2).map(slide => (
+                    </div>
+                  </div>
+                </li>
+              ))}
+            {slides
+              .filter((slide) => slide.pos === 2)
+              .map((slide) => (
                 <li className="item-a" key={slide._id}>
-                  <div className="full-slider-box f-slide-2" style={{backgroundImage: `url(${slide.image})`}}>
-                      <div className="slider-text-container"> 
-                          <div className="f-slider-text">   
-                              <span>{slide.title}</span>
-                            <strong>{slide.comment1}<br/><font>{slide.comment2}</font></strong>
-                              <a href="#promotion" className="f-slider-btn">Shop Now</a>
-                          </div>
-                      </div> 
-                  </div>   
-                </li>   
-                )) 
-                }
-            
-              
-          
-        </Slider>
-            </ul>
-         <section className="section promotion" id="promotion">
-    <div className="featured-heading">
-        <h2>new Arrival</h2>
+                  <div
+                    className="full-slider-box f-slide-2"
+                    style={{ backgroundImage: `url(${slide.image})` }}
+                  >
+                    <div className="slider-text-container">
+                      <div className="f-slider-text">
+                        <span>{slide.title}</span>
+                        <strong>
+                          {slide.comment1}
+                          <br />
+                          <font>{slide.comment2}</font>
+                        </strong>
+                        <a href="#promotion" className="f-slider-btn">
+                          Shop Now
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+          </Slider>
+        </ul>
+        <section className="section promotion" id="promotion">
+          <div className="featured-heading">
+            <h2>new Arrival</h2>
           </div>
-    {loadingpromotion ? <Loader /> : errorpromotion ? <Message variant='warning'>{errorpromotion}</Message> :
+          {loadingpromotion ? (
+            <Loader />
+          ) : errorpromotion ? (
+            <Message variant="warning">{errorpromotion}</Message>
+          ) : (
             <>
-              
               <div className="promotion-layout container">
                 {promotions.map((promotion) => (
                   <div className="promotion-item">
                     <img src={promotion.image} alt="" />
                     <div className="promotion-content">
-                      <h3>{promotion.name}</h3> 
+                      <h3>{promotion.name}</h3>
                       <Link to={`/search/${promotion.name}`}>SHOP NOW</Link>
                     </div>
                   </div>
-                  ))}
-                </div>
-              
-    </>
-}
-     
+                ))}
+              </div>
+            </>
+          )}
+        </section>
 
-        
-        
-  </section>
+        <div className="featured-heading">
+          <h2>Top Products</h2>
+        </div>
 
-          <div className="featured-heading">
-        <h2>Top Products</h2>
-            </div>  
-            
-          <div className="prodcut-container">
-          {loading ? <Loader /> : error ? <Message variant='warning'>{error}</Message> :
+        <div className="prodcut-container">
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="warning">{error}</Message>
+          ) : (
             <>
-            {products.map((product) => (
+              {products.map((product) => (
                 <div key={product._id} className="product-box">
                   <Product product={product} />
-                </div> 
-              ))
-            }
-             </>
-            }
-                    
-            </div>
-            
-            
-            {/* <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} /> */}
-            <Testimonials />
-            <section className="services">
-            
-    
-        <div className="services-box">
+                </div>
+              ))}
+            </>
+          )}
+        </div>
+
+        {/* <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} /> */}
+        <Testimonials />
+        <section className="services">
+          <div className="services-box">
             <i className="fas fa-shipping-fast"></i>
             <span>Keenis Degdega ah</span>
             <p>24 saac kuduhood</p>
-        </div>
+          </div>
 
-        <div className="services-box">
+          <div className="services-box">
             <i className="fas fa-headphones-alt"></i>
             <span>Caawin 24 saac</span>
-            <p>We support 24h a day</p>
-        </div> 
+            <p>Caawimaad 24saacadood</p>
+          </div>
 
-        <div className="services-box">
+          <div className="services-box">
             <i className="fas fa-sync"></i>
             <span>Lacag celin</span>
             <p>waxaa heysataa 2saacadood si lacagta lagugu celiyo</p>
-        </div>
-    </section>
-        <Footer/> 
-              
-                     
-     </>   
-    )
+          </div>
+        </section>
+        <Footer />
+      </>
+    );
 }
 
 
