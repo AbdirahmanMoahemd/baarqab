@@ -293,6 +293,7 @@ small {
 .footer-col-4 {
   min-width: 250px;
   margin-bottom: 20px;
+  padding: 10px;
   color: #fff;
 }
 .footer-col-2 {

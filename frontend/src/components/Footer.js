@@ -27,13 +27,7 @@ const Footer = () => {
                         goobtaada ganacsi iyo meelwaliba sida (alaabta guryaha, dharka, kabaha, alaabada leesku qurxiyo iyo electronicskaba).
                         Waxaa kalood kadalbankartaa alaabtaad doontid ee dibada lagaaga keenayo. </p>
                 </div>
-                <div className="footer-col-3">
-                    <h3>Useful Links</h3>
-                    <ul>
-                        <li><Link className="useful" to="/">Home</Link></li>
-                        <li><Link className="useful" to="/contact">Contact Us</Link></li>
-                    </ul>
-                </div>
+               
                 <div className="footer-col-4">
                     <h3>Follow Us</h3>
                     <ul>
