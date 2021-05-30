@@ -38,7 +38,7 @@ nav {
 }
 .social-call {
   height: 40px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid #703cdb;
   display: flex;
   justify-content: center;
   align-items: center;
