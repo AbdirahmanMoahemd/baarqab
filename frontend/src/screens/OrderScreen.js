@@ -229,6 +229,7 @@ const OrderScreen = ({ history, match }) => {
                     {paymentMethod != order.paymentMethod ? <center><h4 style={{ color: 'red' }}>please refresh the page to see the changes you made</h4></center> : ''}
                   </>
                 )}
+                
               </div>
             </div>
                  
