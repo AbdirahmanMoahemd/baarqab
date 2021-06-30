@@ -17,8 +17,9 @@ import products  from './data/products.js'
 dotenv.config()
 connectDB()  
 const app = express()
-
-if (process.env.NODE_ENV === 'development') {
+const NODE_ENV = 'development'
+const PAYPAL_CLIENT_ID = 'ATe2evqLhzMwvul-WeBEi3kKXeVFeVXIUBtorMlmeWnmIPH8elu1q-Kd2YTgDrDPBy_Fjwvm_PMTY9ah'
+if (NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
 
@@ -36,7 +37,7 @@ app.use('/api/promotions', promotionRoutes)
 app.use('/api/upload', uploadRoutes)
 
 app.get('/api/config/paypal', (req, res) =>
-    res.send(process.env.PAYPAL_CLIENT_ID)
+    res.send(PAYPAL_CLIENT_ID)
 )
 
 
@@ -44,7 +45,7 @@ app.get('/api/config/paypal', (req, res) =>
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/build')))
     app.get('*', (req, res) => 
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
@@ -60,7 +61,7 @@ else {
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
+const PORT =  5000
 
-app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+app.listen(PORT, console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`.yellow.bold))
 
