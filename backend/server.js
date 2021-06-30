@@ -17,7 +17,7 @@ import products  from './data/products.js'
 dotenv.config()
 connectDB()  
 const app = express()
-const NODE_ENV = 'development'
+const NODE_ENV = 'production'
 const PAYPAL_CLIENT_ID = 'ATe2evqLhzMwvul-WeBEi3kKXeVFeVXIUBtorMlmeWnmIPH8elu1q-Kd2YTgDrDPBy_Fjwvm_PMTY9ah'
 if (NODE_ENV === 'development') {
     app.use(morgan('dev'))
