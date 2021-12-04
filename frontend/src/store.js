@@ -12,7 +12,47 @@ import { slideListReducer, slideDeleteReducer, sildeDetailsReducer, slideUpdateR
 import { testimonialDeleteReducer, testimonialDetailsReducer, TestimonialListReducer, testimonialRegisterReducer, testimonialUpdateReducer } from './reducers/testimonialReducers.js'
 import { promotionDeleteReducer, promotionDetailsReducer, promotionListReducer, promotionRegisterReducer, promotionUpdateReducer } from './reducers/promotionReducers.js'
 
+import {
+    categoryListReducer,
+    categoryDetailsReducer,
+    categoryCreateReducer,
+    categoryDeleteReducer,
+    categoryUpdateReducer
+} from './reducers/categoryreducers'
+import {
+    colorListReducer ,
+    colorDetailsReducer,
+    colorDeleteReducer ,
+    colorCreateReducer ,
+    colorUpdateReducer 
+} from './reducers/colorReducers'
+
+import {
+    sizeListReducer ,
+    sizeDetailsReducer,
+    sizeDeleteReducer ,
+    sizeCreateReducer, 
+    sizeUpdateReducer ,
+} from './reducers/sizeReducers'
+
+
+
 const reducer = combineReducers({
+    categoryList: categoryListReducer,
+    categoryDetails: categoryDetailsReducer,
+    categoryCreate: categoryCreateReducer,
+    categoryDelete: categoryDeleteReducer,
+    categoryUpdate: categoryUpdateReducer,
+    colorList:  colorListReducer,
+    colorDetails: colorDetailsReducer,
+    colorDelete: colorDeleteReducer,
+    colorCreate: colorCreateReducer,
+    colorUpdate: colorUpdateReducer,
+    sizeList: sizeListReducer ,
+    sizeDetails: sizeDetailsReducer,
+    sizeCreate: sizeCreateReducer ,
+    sizeDelete: sizeDeleteReducer, 
+    sizeUpdate: sizeUpdateReducer ,
     productList: productListReducer,
     productList2: productListReducer2,
     productDetails: productDetailsReducer,

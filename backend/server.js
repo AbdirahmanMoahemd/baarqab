@@ -6,11 +6,14 @@ import morgan from 'morgan'
 import { notFound, errorHandler } from './middleware/errorMidlleware.js'
 import connectDB from './config/db2.js'
 import productRoutes from './routes/productRoutes.js'
+import categoryRoutes from './routes/categoryRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import slidesRoutes from './routes/slidesRoutes.js'
 import testimonialRoutes from './routes/testimonialRoutes.js'
 import promotionRoutes from './routes/promotionRoutes.js'
+import colorRoutes from './routes/colorRoutes.js'
+import sizeRoutes from './routes/sizeRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import products  from './data/products.js' 
 
@@ -27,8 +30,11 @@ app.use(express.json())
 
 
 
- 
+
 app.use('/api/products', productRoutes)
+app.use('/api/category', categoryRoutes)
+app.use('/api/colors', colorRoutes)
+app.use('/api/sizes', sizeRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/slides', slidesRoutes)

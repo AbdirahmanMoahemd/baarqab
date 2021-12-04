@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
-import AdminScreen from './AdminScreen'
+import AdminScreen from './adminScreens/AdminScreen'
 import { Link } from 'react-router-dom'
 
 const OrderListScreen = ({ history }) => {

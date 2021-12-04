@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import logo from '../logo.png';
+import logo from '../images/baarqab.png';
 import $ from 'jquery';
 import SearchBox from './SearchBox';
 
 
 
-const Header = () => {
+const Header = () => { 
 
     const dispatch  = useDispatch() 
   const userLogin = useSelector(state => state.userLogin)
@@ -34,7 +34,65 @@ const Header = () => {
     
     return (
          <>
-        <input type="checkbox" id="check"/>
+         <header class="header">
+    <div class="social-call">
+        <div class="social-out">
+            <div class="social">
+                            <a href="#"><i  className="lab la-facebook-f"></i></a>
+                <a href="#"><i  class="lab la-twitter"></i></a>
+                <a href="#"><i  class="lab la-youtube"></i></a>
+                <a href="#"><i  class="lab la-instagram"></i></a>
+            </div>
+            <div class="phone">
+                <span>Call +252 61 6132192</span>
+            </div>
+        </div>
+    <div class="search_box">
+                <input type="search"  placeholder="Search For a Product"/>
+                <span class="pi pi-search" style={{ fontSize: "1.4rem" }} ></span>
+    </div>
+    </div>
+    <div class="in-header">
+       <a href="#" class="logo"><img src={logo} routerLink="/"/> </a>
+        <input type="checkbox" class="menu-btn" id="menu-btn"/>
+        <label for="menu-btn" class="menu-icon">
+            <span class="nav-icon"></span>
+        </label>
+    
+        <ul class="menu">
+            <Link to='/'> <li><a class="active">Home</a></li></Link>
+            <Link to='/products'><li><a>Products </a></li></Link>
+            <Link to='/about'><li><a >About Us</a></li></Link>
+            {userInfo && userInfo.isAdmin && (
+                <Link to='/admin'><li><a >dashboard</a></li></Link>
+            )}
+        </ul>
+
+                    <div class="icons">
+                        <Link to="/cart" >
+                        <div style={{ fontSize: "1.8rem" }} class="pi pi-shopping-cart" id="login-btn">
+                            <span className="num-cart-product">
+                                    {qty}      
+                                </span>
+                        </div>
+                        </Link>
+                        {userInfo ? (
+                            <Link to='/profile' >
+                    <div style={{ fontSize: "0.8rem"  }} id="login-btn">
+                                <p>{userInfo.name.split(' ')[0]}</p>
+                           </div>
+                            </Link>
+                        ) :  <Link to="/login" className="user">
+                     <div style={{ fontSize: "1.8rem" }} class="pi pi-user" id="login-btn"></div>
+                </Link>}
+                       
+                        
+    </div>
+
+    </div>
+
+</header>
+        {/* <input type="checkbox" id="check"/>
     <nav>
         <div className="social-call">
                     <div className="social">
@@ -103,7 +161,7 @@ const Header = () => {
                         </label>
                        
         </div>
-    </nav>
+    </nav> */}
         </>
     )
 }

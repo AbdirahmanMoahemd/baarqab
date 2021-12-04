@@ -1,0 +1,339 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --primary: #FE7F10;
+  --white: #fff;
+  --black: #222;
+  --grey1: #3a3b3c;
+  --grey2: #828282;
+}
+
+
+.form {
+  width: 100%;
+  height: 100%;
+  margin-top: 165px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 102;
+}
+.main-content .form {
+  width: 100%;
+  height: 100%;
+  margin-top: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+} 
+.in-all2 {
+   width: 50%;
+  height: 100%;
+  margin-top: 55px;
+}
+.in-all{
+  width: 100%;
+  height: 100%;
+  margin-top: 35px;
+  margin-left: 2%;
+  
+
+}
+
+
+
+.placeorder {
+  width: 100%;
+  height: 100%;
+  margin-top: 45px;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.login-form,
+.sign-up-form {
+  width: 500px;
+  padding: 20px 10px;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  position: relative;
+  animation: fade 0.3s;
+}
+.login-form-palce {
+  width: 500px;
+  padding: 20px 10px;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  animation: fade 0.3s;
+}
+.box1 {
+  width: 700px;
+  padding: 20px 10px;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  animation: fade 0.3s;
+}
+.box1 .small-container{
+  width: 100%;
+  margin: 0px;
+  padding: 10px;
+}
+.box1 .small-container table p{
+  margin: auto 0;
+}
+.box2 {
+  width: 400px;
+  height: 100%;
+  padding: 20px 20px;
+  background-color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 5px;
+  animation: fade 0.3s;
+}
+.box2 span{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.box2 p .val{
+  text-align: left;
+} 
+.box2 th{
+  text-align: left;
+  padding: 5px;
+  color: #272727;
+  background: #c90d0d;
+  font-weight: normal;
+}
+.profile-form{
+  width: 350px;
+} 
+.login-form form,
+.sign-up-form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  animation: fade 0.3s;
+}
+.login-form strong,
+.sign-up-form strong, 
+.in-all strong,
+.box1 strong,
+.box2 strong,
+.cart-top strong{
+  color: #272727;
+  font-size: 2rem;
+  margin: 0px 7px 0px 7px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+.loginSignUp {
+  font-size: .8rem;
+}
+textarea {
+  resize: none;
+}
+
+
+.login-form input,
+.sign-up-form input,
+.userlists select,
+.single-product .from input,
+textarea {
+  width: 90%;
+  height: 45px;
+  margin: 6px 0px;
+  padding: 0px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  border-radius: 7px;
+  animation: fade 0.3s;
+}
+
+.login-form input::placeholder,
+.sign-up-form input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.login-form button,
+.sign-up-form button{
+  background-color: #FE7F10;
+  color: #ffffff;
+  border: none;
+  width: 90%;
+  height: 45px;
+  margin: 0px 0px;
+  padding: 0px 10px;
+  outline: none;
+  text-transform: uppercase;
+  margin-top: 10px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
+}
+.form-btns {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.form-btns a {
+  color: #4d4d4d;
+  font-size: 0.9rem;
+}
+.sign-up-btn {
+  border-bottom: 1px solid #868686;
+  line-height: 16px;
+}
+.form-cancel {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: #868686;
+}
+
+.login-active,
+.login-active .login-form {
+  display: flex;
+  animation: fade 0.3s;
+}
+.sign-up-active,
+.sign-up-active .sign-up-form {
+  display: flex;
+  animation: fade 0.3s;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 1170px){
+
+  .box1{
+    width: 600px;
+  }
+
+}
+
+
+
+
+@media (max-width: 1010px) {
+  
+  .box1 {
+  width: 450px;
+  } 
+  .all{
+  flex-direction: column;
+  
+  }
+  .in-all2 {
+   width: 100%;
+ 
+  }
+  .in-all{
+    margin-top: -50px;
+    margin-left: 0%;
+  }
+  .box2 {
+  width: 350px;
+  }
+
+  
+  
+  
+  
+  
+}
+@media screen and (max-width: 768px)
+{
+  
+  
+  .placeorder {
+    flex-direction: column;
+    justify-content: center;
+    
+  }
+  .box1{
+     width: 100%;
+  }
+  .box2{
+    width: 100%;
+    margin-top: 10px;
+  }
+  .steps {
+    padding: 0 6%;
+  }
+  .main-content .form {
+    margin-top: 9in0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hideSignUp {
+    display: none;
+  }
+
+
+  
+  .login-form,
+  .sign-up-form,
+  .in-all {
+    width: 90%;
+  }
+  
+}
+
+
+
+@media screen and (max-width: 440px)
+{
+ 
+  .login-form strong,
+.sign-up-form strong, 
+.in-all strong,
+.box1 strong,
+.box2 strong,
+.cart-top strong{
+  font-size: 1.5rem;
+}
+
+  
+}

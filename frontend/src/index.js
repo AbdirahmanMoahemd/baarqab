@@ -2,9 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import store from './store'
-import './index.css';
-import './App.css'
-import './style.css'
+
+
+import 'primeicons/primeicons.css';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeflex/primeflex.css';
+
+import './css/index.css';
+import './css/App.css';
+import './css/style.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';

@@ -18,17 +18,13 @@ const reviewSchema = mongoose.Schema({
         required: true,
         red: 'User'
     }
+    
 }, {
     timestamps: true
 })
 
 
 const productSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        required: true,
-        red: 'User'
-    },
     name: {
         type: String,
         required: true
@@ -37,17 +33,17 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    images:[{
+        type : String,
+    }],
     brand: {
         type: String,
         required: true
     },
     category: {
-        type: String,
-        required: true,
-    },
-    type: { 
-        type: String,
-        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category',
+        required:true
     },
     description: {
         type: String,
@@ -74,11 +70,20 @@ const productSchema = mongoose.Schema({
         required: true,
         default: 0
     },
+    isFeatured: {
+        type: Boolean,
+        default: false,
+    },
     
 }, {
     timestamps: true
 })
 
+productSchema.method('toJSON', function(){
+    const { __v, ...object } = this.toObject();
+    const { _id:id, ...result } = object;
+    return { ...result, id };
+});
 
 
 const Product = mongoose.model('Product', productSchema)

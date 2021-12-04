@@ -8,7 +8,10 @@ import Product from '../models/productModel.js'
 // @access  Public
 export const getProducts = asyncHandler(async (req, res) => {
   
-  
+  let filter = {};
+    if (req.query.categories) {
+        filter = { category: req.query.categories.split(',') };
+    } 
 
   const keyword = req.query.keyword ? {
     name: {
@@ -17,7 +20,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     }, 
   } : {}
 
-  const products = await Product.find({ ...keyword })
+  const products = await Product.find({ ...keyword }, filter).populate('category');
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
 
     res.json({products})   
@@ -31,7 +34,7 @@ export const getProducts2 = asyncHandler(async (req, res) => {
   
     
 
-  const products = await Product.find({})
+  const products = await Product.find({}).populate('category');
 
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json({products})   
@@ -91,16 +94,16 @@ export const deleteProduct = asyncHandler (async (req, res) => {
 // @access  Private/Admin
 export const createProduct = asyncHandler (async (req, res) => {
   const product = new Product({
-    name: 'Last Shoes',
-    user: req.user._id,
-    image: '/images/kr-3.jpg',
-    description: 'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
-    brand: 'Shoes', 
-    category: 'Shoes',
-    type: 'Rag',
-    price: 30,
-    countInStock: 15,
-    numReviews: 12,
+    name: req.body.name,
+    image: req.body.image,
+    images : ['/images/kr-3.jpg','/images/kr-3.jpg','/images/kr-3.jpg','/images/kr-3.jpg'],
+    brand: req.body.brand,
+    category: req.body.category,
+    description: req.body.description,
+    price: req.body.price,
+    countInStock: req.body.countInStock,
+    numReviews: req.body.numReviews,
+    isFeatured: req.body.isFeatured
     }
   )
   const createdProduct = await product.save()
@@ -115,7 +118,7 @@ export const createProduct = asyncHandler (async (req, res) => {
 // @access  Private/Admin
 export const updateProduct = asyncHandler (async (req, res) => {
   
-  const { name, image, description, brand, category,type, price, countInStock } = req.body
+  const { name, image, description, brand, category, price, countInStock , isFeatured} = req.body
   
   const product = await Product.findById(req.params.id)
 
@@ -126,7 +129,7 @@ export const updateProduct = asyncHandler (async (req, res) => {
     product.description = description
     product.brand = brand
     product.category = category
-    product.type = type
+    product.isFeatured = isFeatured
     product.price = price
     product.countInStock = countInStock
 

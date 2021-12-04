@@ -1,0 +1,115 @@
+.product-details {
+    font-size: 2rem;
+}
+
+.product-actions {
+    font-size: 2.3rem;
+}
+.product-actions .p-button {
+        background-color: #ff3a00;
+        border: 0;
+        font-size: 1.8rem;
+    }
+
+
+.product-actions .p-button:hover {
+        background-color: #ff3a00;
+        border: 0;
+    }
+
+
+.product-quantity {
+    margin: 25px 0;
+}
+
+.product-quantity label {
+        font-size: 2.2em;
+        margin-left: 4px;
+ }
+
+
+
+.two-h4 .h4-1 {
+    margin-bottom: -20px;
+}
+
+.circle {
+    position: relative;
+    display: inline-block;
+    padding: 0 8px;
+}
+
+.circle p {
+    width: 3px;
+    padding: 0 4px;
+}
+
+.circle span {
+    margin: 0 3px;
+}
+
+.circle-c-1 {
+    padding-left: -100px;
+}
+
+.a-sizes {
+    display: flex;
+    margin-left: 10px;
+}
+
+.a-sizes p {
+    width: 5px;
+}
+
+.a-sizes span {
+    margin-left: 5px;
+}
+
+.circle-colors2 {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    color: #ffffff;
+    display: inline-block;
+    justify-content: center;
+    align-items: bottom;
+    font-weight: 400;
+}
+
+.circle-colors {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    color: #ffffff;
+    display: inline-block;
+    justify-content: center;
+    align-items: bottom;
+    font-weight: 400;
+
+
+}
+
+
+.num-cart-product {
+    position: absolute;
+    top: -20px;
+    right: -24px;
+    width: 25px;
+    height: 25px;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    background-color: var(--orange);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+}
+
+@media (max-width:768px) {
+    .product-details {
+        padding-left: 20px;
+    }
+}
