@@ -40,8 +40,8 @@ const Footer = () => {
         <div class="footer-links">
             <strong>Contact</strong>
             <ul>
-                <li><a href="#">Phone : +123456789</a></li>
-                <li><a href="#">Email : Example@gmail.com</a></li>
+                <li><a href="#">Phone : +252 61 6132192</a></li>
+                <li><a href="#">Email : baarqab@gmail.com</a></li>
             </ul>
         </div>
         </div>

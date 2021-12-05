@@ -19,7 +19,7 @@ const Meta = ({ title, description, keywords, viewport }) => {
 }
 
 Meta.defaultProps = {
-    title: 'Welcome To Caawiye Souq',
+    title: 'Welcome To Baarqab Souq',
     keywords: 'caawiye, caawiye suuq, caawiye souq, electronics, cheap, suuq, souq, Dhar, kabo, somali online',
     description: 'We sell the best products for cheap',
     viewport: 'width=device-width, initial-scale=1.0',
