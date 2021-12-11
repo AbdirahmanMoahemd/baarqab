@@ -49,7 +49,7 @@ const HomeScreen = ({ match }) => {
   
 
     const dispatch = useDispatch()
-
+ 
     const productList = useSelector(state => state.productList)
     const { loading, error, products } = productList
     
@@ -134,53 +134,193 @@ const HomeScreen = ({ match }) => {
             <span>All</span>
         </div>
         <div class="product-container">
-            
-           {products.map(product => (
+                    {loading ? (<Loader />) : error ? (<Message variant='danger' > {error}</Message>) : (
+                        <>
+                        {
+                            products.map(product => (
                                 <div class="product-box">
-                                    <img  alt={product.name} src={product.image} />
+                                    <Link to={`/product/${product.id}`} className="add-cart">
+                                        <img alt={product.name} src={product.image} />
+                                    </Link>
                                     <strong>{product.name}</strong>
                                     <span class="price">{product.price}$</span>
                                     <Link to={`/product/${product.id}`} className="add-cart">
                                         <a href="#" class="cart-btn">
-                                        <i class="fas fa-shopping-bag"></i> Add Cart
-                                         </a>
+                                            <i class="fas fa-shopping-bag"></i> Add Cart
+                                        </a>
                                     </Link>
                                     <a href="#" class="like-btn">
                                         <i class="far fa-heart"></i>
                                     </a>
                                 </div>
                             ))}
+                            </>
+                       )}
             
         </div>
         </section>
-        <section id="popular-bundle-pack">
-        <div class="product-heading">
-            <h3>Men's Package</h3>
-        </div>
         
-           <TabView activeIndex={activeIndex}  className="tab-view-all"  onTabChange={(e) => setActiveIndex(e.index)}>
+            <div className="rev-style-2">
+                <div class="product-heading-package">
+                    <h3>Men's Package</h3>
+                </div>
+            <TabView activeIndex={activeIndex}   scrollable onTabChange={(e) => setActiveIndex(e.index)}>
              
-            <TabPanel header="SHIRTS">
+            <TabPanel header="SHOES">
                <div className="in-header-tab-1">
-                {products.map(product => (
-                                <div class="product-box">
-                                    <img  alt={product.name} src={product.image} />
-                                    <strong>{product.name}</strong>
-                                    <span class="price">{product.price}$</span>
-                                    <Link to={`/product/${product.id}`} className="add-cart">
-                                        <a href="#" class="cart-btn">
-                                        <i class="fas fa-shopping-bag"></i> Add Cart
-                                         </a>
-                                    </Link>
-                                    <a href="#" class="like-btn">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                </div>
-                            ))}
-            
+               <div class="product-box">
+                <img alt="pack" src={ppimg1}/>
+                <strong>Big Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                <span class="price">9$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+              <img alt="apple" src={ppimg2}/>
+                <strong>Large Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                <span class="price">5$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple" src={ppimg3}/>
+                <strong>Small Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato</span>
+                <span class="price">3$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="pack" src={ppimg1}/>
+                <strong>Big Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                <span class="price">9$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple"  src={ppimg2}/>
+                <strong>Large Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                <span class="price">5$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple"  src={ppimg3}/>
+                <strong>Small Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato</span>
+                <span class="price">3$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
             </div>
           </TabPanel>
+                    
+                    
           <TabPanel header="SHOES">
+               <div className="in-header-tab-1">
+               <div class="product-box">
+                <img alt="pack" src={ppimg1}/>
+                <strong>Big Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                <span class="price">9$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+              <img alt="apple" src={ppimg2}/>
+                <strong>Large Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                <span class="price">5$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple" src={ppimg3}/>
+                <strong>Small Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato</span>
+                <span class="price">3$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="pack" src={ppimg1}/>
+                <strong>Big Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+4</span>
+                <span class="price">9$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple"  src={ppimg2}/>
+                <strong>Large Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato,+2</span>
+                <span class="price">5$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            <div class="product-box">
+                <img alt="apple"  src={ppimg3}/>
+                <strong>Small Pack</strong>
+                <span class="quantity">Lemone, Tamato, Patato</span>
+                <span class="price">3$</span>
+                <a href="#" class="cart-btn">
+                    <i class="fas fa-shopping-bag"></i> Add Cart
+                </a>
+                <a href="#" class="like-btn">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            </div>
+                    </TabPanel>
+                    <TabPanel header="SHOES">
                <div className="in-header-tab-1">
                <div class="product-box">
                 <img alt="pack" src={ppimg1}/>
@@ -278,10 +418,8 @@ const HomeScreen = ({ match }) => {
             </TabPanel>
             
    
-      </TabView> 
-        
-        </section>
-
+      </TabView>     
+        </div>
       
         <Footer />
       </>

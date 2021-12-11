@@ -22,9 +22,27 @@
         }
        
 
-.checkout-button  button {
+.checkout-button  Button {
             width: 100%;
+            background-color: #FE7F10;
+            color: #ffffff;
+            border: none;
+            width: 90%;
+            height: 45px;
+            margin: 0px 0px;
+            padding: 0px 10px;
+            outline: none;
+            text-transform: uppercase;
+            margin-top: 10px;
+            border-radius: 3px;
+            box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
         }
+.checkout-button Button:hover {
+    background-color: #FE7F10;
+}
+.order-box {
+    width: 100%; 
+}
 
 @media (max-width:600px) {
     .summary-price span {

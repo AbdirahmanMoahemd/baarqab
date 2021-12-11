@@ -107,7 +107,7 @@ const ProductListScreen = ({ history }) => {
                                                     <img style={{width: "100%"}} src={product.image} />
                                                </td>
                                                <td>${product.price}</td>
-                                                <td>{product.category.name}</td>  
+                                                <td>{product.category ? product.category.name : 'not found'}</td>  
                                                 <td>{product.brand}</td>
                                                <td>{product.countInStock}</td>
                                                 <td>

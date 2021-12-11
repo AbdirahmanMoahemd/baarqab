@@ -78,8 +78,15 @@ export const logout = () => (dispatch) => {
     
 }
 
+export const RemoveCartFun = () => (dispatch) => {
+  localStorage.removeItem('cartItems')
+  localStorage.removeItem('shippingAddress')
+  localStorage.removeItem('paymentMethod')
 
-export const register = (name, email, password) => async (dispatch) => {
+    
+}
+
+export const register = (name, email, password, phone, street, apartment, zip, city, country) => async (dispatch) => {
     
     try {
         dispatch({
@@ -92,7 +99,7 @@ export const register = (name, email, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('api/users', {name, email, password },
+        const { data } = await axios.post('api/users', {name, email, password, phone, street, apartment, zip, city, country },
             config) 
         
         dispatch({

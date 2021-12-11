@@ -18,12 +18,11 @@ const SearchBox = ({ history }) => {
     
     return (
         <form onSubmit={submitHandler}>
-        <div className="search_box">
-                        <input type="search" id="inputText" placeholder="Search For a Product"
-                onChange={(e) => setKeyword(e.target.value)}
-                        />
-                        <span className="fa fa-search" onClick={submitHandler}></span>
-            </div>
+        <div class="search_box">
+                <input type="search" placeholder="Search For a Product"
+                    onChange={(e) => setKeyword(e.target.value)} />
+                <span class="pi pi-search" style={{ fontSize: "1.4rem" }} onClick={submitHandler} ></span>
+    </div>
         </form>
     )
 }

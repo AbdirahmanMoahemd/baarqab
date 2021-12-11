@@ -59,7 +59,7 @@ export const getProductsCount = asyncHandler(async (req, res) => {
 // @route   GET /api/product/:id
 // @access  Public
 export const getProductById = asyncHandler (async (req, res) => {
-  const product = await Product.findById(req.params.id)
+  const product = await Product.findById(req.params.id).populate('category');
 
     if (product) {
         res.json(product)
@@ -96,7 +96,9 @@ export const createProduct = asyncHandler (async (req, res) => {
   const product = new Product({
     name: req.body.name,
     image: req.body.image,
-    images : ['/images/kr-3.jpg','/images/kr-3.jpg','/images/kr-3.jpg','/images/kr-3.jpg'],
+    images: req.body.images,
+    colors: req.body.colors,
+    sizes: req.body.sizes,
     brand: req.body.brand,
     category: req.body.category,
     description: req.body.description,
@@ -118,7 +120,7 @@ export const createProduct = asyncHandler (async (req, res) => {
 // @access  Private/Admin
 export const updateProduct = asyncHandler (async (req, res) => {
   
-  const { name, image, description, brand, category, price, countInStock , isFeatured} = req.body
+  const { name, image,images,colors, sizes, description, brand, category, price, countInStock , isFeatured} = req.body
   
   const product = await Product.findById(req.params.id)
 
@@ -126,11 +128,14 @@ export const updateProduct = asyncHandler (async (req, res) => {
       
     product.name = name
     product.image = image
+    product.images = images
+    product.colors = colors 
+    product.sizes = sizes
     product.description = description
     product.brand = brand
     product.category = category
     product.isFeatured = isFeatured
-    product.price = price
+    product.price = price 
     product.countInStock = countInStock
 
     const updatedProduct = await product.save()

@@ -5,7 +5,9 @@ import Loader  from '../../../components/Loader.js'
 import Message from '../../../components/Message.js'
 import { listUsers, deleteUser } from '../../../actions/userActions.js'
 import AdminScreen from '../AdminScreen.js'
-
+import { Card } from 'primereact/card';
+import { Toolbar } from 'primereact/toolbar';
+import { Button } from 'primereact/button';
 
 const UserListScreen = ({ history }) => {
 
@@ -43,18 +45,19 @@ const UserListScreen = ({ history }) => {
         <div className="main-content">
            <main>
                    <>
-                                <div className="recent-grid testi" >
-                                    <div className="projects">
-                                        <div className="card">
-                                            <div className="card-header test-card-header">
-                                                <h3>Users</h3>
-                                            </div>
-                                            <div className="card-body">
-                                        {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                                            <div className="table-responsive">
-                                                <table style={{width: '100%'}}>
+                                 <Card title="Users" subTitle="List of all users">
+                <div className="p-grid">
+                    <div className="p-col-12">
+                        
+                    </div>
+                </div>
+                <div className ="p-grid">
+                                <div className="p-col-12">
+                            {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                                        <div className="table-responsive" style={{ overflowX: "auto" }}>
+                                                <table className="table" >
                                                     <thead>
-                                                        <tr>
+                                                        <tr> 
                                                             <td>ID</td> 
                                                             <td>NAME</td>
                                                             <td>EMAIL</td>
@@ -93,10 +96,10 @@ const UserListScreen = ({ history }) => {
                                             </div>
                                         )}
                         </div>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
+                </div>
+                
+               </Card>
+                    
                            
                 </>
                     

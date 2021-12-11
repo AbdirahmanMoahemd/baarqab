@@ -26,7 +26,7 @@ const importData = async () => {
         // await User.deleteMany()
         // await Slide.deleteMany()
 
-        // const createUsers = await User.insertMany(users)
+        const createUsers = await User.insertMany(users)
 
         // const adminUser = createUsers[0]._id
         // const sampleProducts = products.map(product => {

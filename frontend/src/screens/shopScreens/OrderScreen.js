@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
+import { Button } from 'primereact/button';
 import {
   getOrderDetails, 
   payOrder, 
@@ -106,87 +107,99 @@ const OrderScreen = ({ history, match }) => {
       {loading ? (<Loader />) : error ? (<Message variant='danger'>{error}</Message>) :
         (
           <>
-            <div className="placeorder">
-              <div className="box1">
-                <span className="order">
-                  <strong>Order Id: </strong>
-                  <p>{order._id}</p>
-                </span>
-                <strong>Shipping</strong>
-                    
-                <span>
-                  <h4>name:{' '}{order.user.name}</h4>
-                  <h4>Email:{' '}<a href={`mailto:${order.user.email}`}>{order.user.email}</a></h4>
-                  <h4>Address:{' '} {' '}
-                    {order.shippingAddress.address}, {order.shippingAddress.city},{' '}
-                    {order.shippingAddress.phoneNumber},{' '}
-                    {order.shippingAddress.country}</h4>
-                  <h4>{order.isDelivered ? (
-                    <Message variant='success'>
-                      Delivered on {order.deliveredAt}
-                    </Message>
+           <div className="cart-page-new">
+          <div class="cart-page">
+                            <div class="container-pages-cart">
+                           
+                                <div class="col-cart">
+                                    <div>
+                                        {/* <p-button
+                                        label="Continue shopping"
+                                        icon="pi pi-arrow-left"
+                                        ></p-button> */}
+                                    </div>
+                                <div>
+                             </div>
+                        
+                                        
+                <div class="cart-item p-mb-5" >
+                                                <div className="shipping-add">
+                                                  <strong>Shipping</strong>
+                                                    <span className="p-mt-2">
+                                                <h4>name:{' '}{order.user.name}</h4>
+                   <h4>Email:{' '}<a href={`mailto:${order.user.email}`}>{order.user.email}</a></h4>
+                   <h4>Address:{' '} {' '}
+                     {order.shippingAddress.address}, {order.shippingAddress.city},{' '}
+                     {order.shippingAddress.phoneNumber},{' '}
+                     {order.shippingAddress.country}</h4>
+                   <h4>{order.isDelivered ? (
+                     <Message variant='success'>
+                       Delivered on {order.deliveredAt}
+                     </Message>
+                   ) : (
+                       <Message variant='danger'>Not Delivered</Message>
+                     )}</h4>
+                                                  </span>
+                                                <strong className="p-mt-2">Payment Method</strong>
+                                                  <span className="p-mt-2">
+                                                    <h4>Method:{' '} {' '}
+                                                      {order.paymentMethod}</h4>
+                                                    <h4>{order.isPaid ? (
+                                                      <Message variant='success'>Paid on {order.paidAt}</Message>
+                                                    ) : (
+                                                        <Message variant='danger'>Not Paid</Message>
+                                                      )}</h4>
+                                            </span>
+                    <strong  className="p-mt-3">Order Items</strong> 
+                  </div>
+                  {cart.cartItems.length === 0 ? (
+                    <Message>Your cart is empty</Message>
                   ) : (
-                      <Message variant='danger'>Not Delivered</Message>
-                    )}</h4>
-                </span>
-                <strong>Payment Method</strong>
-                <span>
-                  <h4>Method:{' '} {' '}
-                    {order.paymentMethod}</h4>
-                  <h4>{order.isPaid ? (
-                    <Message variant='success'>Paid on {order.paidAt}</Message>
-                  ) : (
-                      <Message variant='danger'>Not Paid</Message>
-                    )}</h4>
-                </span>
-                <strong>Order Items</strong>
-                {order.orderItems.length === 0 ? (
-                  <Message>Order is empty</Message>
-                ) : (
-                    <div className="small-container cart-page">
-                                
-                      <table>
-                        <tbody>
-                          <tr>
-                            <th style={{ background: '#e5e5e5', color: '#272727' }}>Product</th>
-                            <th style={{ background: '#e5e5e5', color: '#272727' }}>Quantity</th>
-                            <th style={{ background: '#e5e5e5', color: '#272727' }}>Total</th>
-                          </tr>
-                          {order.orderItems.map((item, index) => (
-                            <tr key={index}>
-                              <td>
-                                <div className="cart-info">
-                                  <img src={item.image} />
-                                  <p ><Link to={`/product/${item.product}`}>{item.name}</Link></p>
-                                </div>
-                              </td>
-                              <td> {item.qty} x ${item.price}</td>
-                              <td>${item.qty * item.price}</td>
-                            </tr>
-                          ))}
-            
-                        </tbody>
-                      </table>
-                              
-        
-                    </div>)}
-             
-              </div>
-              <div className="box2">
-                <center> <strong>Order Summary</strong></center>
-                <span>
-                  <h4>Items:</h4>
-                  <h4 className='val'>${order.itemsPrice}</h4>
-                </span>
-                <span>
-                  <h4>Shipping:</h4>
-                  <h4 className='val'>${order.shippingPrice}</h4>
-                </span>
-                <span>
-                  <h4>Total:</h4>
-                  <h4 className='val'>${order.totalPrice}</h4>
-                </span>
-                {order.paymentMethod === 'payPal' ?
+                    <>
+                      {order.orderItems.map((item, index) => (
+                        <>
+                          <div class="p-grid p-fluid p-mt-2 order-box" key={index}>
+                            <div class="p-col-4 p-md-4 p-lg-2 cart-item-image">
+                              <img style={{ width: "100%", height: "100%" }} src={item.image} />
+                            </div>
+                            <div class="p-col-8 p-md-4 p-lg-3 ">
+                              <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">name</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.name}</div>
+                        
+                            </div>
+                            <div class="p-col-4 p-md-4 p-lg-3 p-fluid">
+                                                        
+                              <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Quantity</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.qty} x ${item.price}</div>
+                            </div>
+                            <div class="p-col-8 p-md-4 p-lg-4 p-fluid">
+                              <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Total:</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">${item.qty * item.price}</div>
+                            </div>
+                          </div>
+                        </>
+                      ))}
+                    </>)}
+                                            </div>
+                                     
+    </div>
+    <div class="co">
+                <div class="order-summary">
+                     <center> <strong>Order Summary</strong></center>
+                    <div class="summary-price">
+                        <span>Items</span>
+                         <span>${order.itemsPrice}</span>
+                    </div>
+                    <div class="summary-price"> 
+                        <span>Packing & Shipping</span>
+                        <span class="free">${order.shippingPrice}</span>
+                    </div>
+                    <div class="to-checkout">
+                        <div class="summary-price">
+                            <span>Total Price</span>
+                            <span>${order.totalPrice}</span>
+                        </div>
+                     {order.paymentMethod === 'payPal' ?
                   <>
                     {!order.isPaid && (
                       <>
@@ -201,28 +214,33 @@ const OrderScreen = ({ history, match }) => {
                           )}
                       </>
                     )}</> :
-                  <>
-                    <center><h3>Pay Options</h3> 
+                          <>
+                    
+                            <center>
+                              {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
+                                <>
+                              <h3>Pay Options</h3>
                       <div className="payop">
-                        <h4>Evc-Plus: 0615249030</h4>
-                        <h4>eDahab: 0615249030</h4>
-                        <h4>ZAAD: 0615249030</h4>
-                      </div>
+                        <h4>Evc-Plus: +252 61 6132192</h4>
+                        <h4>eDahab: +252 61 6132192</h4>
+                        <h4>ZAAD: +252 61 6132192</h4>
+                                  </div>
+                                  </>
+                     ) }
                       {loadingPay2 && <Loader />}
-                      {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
-                        <button className="btns" onClick={successPaymentHandler2}
-                        >
-                          Mark As Paid</button>
+                              {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
+                                <div class="checkout-button" >
+                            <Button label="Mark As Paid"   onClick={successPaymentHandler2}  />
+                        </div>
                       )}
                     </center>
                   </>
                 }
                 {loadingDeliver && <Loader />}
                 {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-
-                  <button className="btns" style={{width: '70%'}} onClick={deliverHandler}
-                  >
-                    Mark As Delivered</button>
+                 <div class="checkout-button" >
+                          <Button label=" Mark As Delivered" onClick={deliverHandler} />
+                </div>
                 )}
                 {!order.isPaid && (
                   <>
@@ -230,12 +248,18 @@ const OrderScreen = ({ history, match }) => {
                   </>
                 )}
                 
-              </div>
-            </div>
-                 
-            
-            <p className="wt">.</p>
-            <p className="wt">.</p>
+                    {error && <Message variant='danger'>{error}</Message>}
+                        
+                    </div>
+                </div>
+           
+    </div>
+                                       
+  </div> 
+  
+</div>
+ 
+        </div>
           </>
         )} </> )
        

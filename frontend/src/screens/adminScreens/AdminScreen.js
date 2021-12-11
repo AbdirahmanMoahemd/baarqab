@@ -47,16 +47,6 @@ const AdminScreen = ({ history }) => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/admin/colors"><span ><i className="las la-fill-drip"></i></span>
-                        <span>Colors</span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/admin/sizes" ><span ><i className="las la-sort-alpha-down"></i></span>
-                        <span>Sizes</span>
-                    </Link>
-                </li>
-                <li>
                     <Link to="/admin/orderlist"><span className="las la-receipt"></span>
                         <span>Orders</span>
                     </Link>

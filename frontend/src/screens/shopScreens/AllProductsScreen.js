@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Loader  from '../../components/Loader.js'
+import Message from '../../components/Message.js'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import '../../css/products.css'
@@ -11,8 +13,9 @@ import pimg3 from '../../images/imgae/onion.png';
 import pimg4 from '../../images/imgae/patato.png';
 import pimg5 from '../../images/imgae/garlic.png';
 import pimg6 from '../../images/imgae/tamato.png';
-import { listProducts2 } from '../../actions/productAction'
+import { listProducts } from '../../actions/productAction'
 import { listCategories } from '../../actions/categoryAction'
+import { Form } from 'react-bootstrap';
 
 const AllProductsScreen = ({ match }) => {
     
@@ -26,7 +29,7 @@ const AllProductsScreen = ({ match }) => {
     
 
     const categoryList = useSelector(state => state.categoryList) 
-    const {categories}  = categoryList
+    const { loading: loadingcat, error: errorCat, categories}  = categoryList
 //     cities = categories
 
 //     const onCityChange = (e) => {
@@ -44,25 +47,32 @@ const AllProductsScreen = ({ match }) => {
     
     useEffect(() => {
      dispatch(listCategories())
-     dispatch(listProducts2())
+     dispatch(listProducts(keyword))
      
-    }, [dispatch])
+    }, [dispatch, keyword])
     return (
        <>
-         <Header/>
+            <Header />
+             {errorCat && <Message variant='danger'>{errorCat}</Message>}
+            {loadingcat && <Loader/>}
+             {error && <Message variant='danger'>{error}</Message>}
+            {loading ? ( <Loader /> ) : error ? (<Message variant='danger'>{error}</Message>) : (
           <div className="all-products-page">
              <div className="all-products-page-con">
                 <div className="containter-pro-1">
                    <div className="containter-pro-1-title"><h3>Category</h3></div>
                    <div className="containter-pro-1-body">
                         <div className="p-grid  p-mt-4 p-mb-5">
-                                {categories.map(category => (
-                                    <div className="p-col-12 ">
-                                        {/* <Checkbox inputId={category.id} className="p-ml-4" value={category.name} onChange={onCityChange} ></Checkbox>
-                                        <label htmlFor={category.id} className="p-checkbox-label p-ml-2 ">{category.name}</label> */}
-                            
+                                    <div className="p-col-12">
+                                            {categories.map(category => (
+                                            <div key={category.id} >
+                                            <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked"/>
+                                             <label class="custom-control-label p-ml-2" for="defaultUnchecked">{category.name}</label>
+                                                    </div>
+                                                    </div>
+                                            ))}
                                     </div>
-                                ))} 
                       </div>
                    </div>
                 </div> 
@@ -71,11 +81,12 @@ const AllProductsScreen = ({ match }) => {
                         <div class="product-container">
                             {products.map(product => (
                                 <div class="product-box">
-                                
+                                <Link to={`/product/${product.id}`} className="add-cart">
                                          <img alt="apple" src={product.image} />
-                                    
-                                   
+                                    </Link> 
+                                    <Link to={`/product/${product.id}`} className="add-cart">
                                     <strong>{product.name}</strong>
+                                    </Link>
                                     <span class="price">{product.price}$</span>
                                     <Link to={`/product/${product.id}`} className="add-cart">
                                         <a href="#" class="cart-btn">
@@ -91,6 +102,7 @@ const AllProductsScreen = ({ match }) => {
                 </div>
              </div>
           </div>
+            )} 
           <Footer/>
            </>
                     

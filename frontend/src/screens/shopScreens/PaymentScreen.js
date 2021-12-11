@@ -28,43 +28,37 @@ const PaymentScreen = ({ history }) => {
         
         <>
          <Header />   
-        <CheckOutSteps step1 step2 step3/>
+        <div className="login-page-mt">
           <div className="form">
                 <div className="login-form">
                    
                     <strong>Payment Method</strong>
                     <form onSubmit={submitHandler}>
-                        <div className='pay'>
-                        <label className="payment">Paybal
-                            <input type="radio" required name="radio" value='payPal'
-                            onChange={(e) =>  setPaymentMethod(e.target.value)}
-                            />
-                            <span className="checkmark"></span>
-                            </label>
-                        <span className="dhax">bcj</span>
-                        <label className="payment payment2">Evc-Plus
-                            <input type="radio" required  name="radio" value='Evc Plus'
-                            onChange={(e) => setPaymentMethod(e.target.value)}
-                            />
-                            <span className="checkmark"></span>
-                        </label>
-                        </div>
+                       
+                            <div class="custom-control custom-checkbox">
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Paypal</label>
+                                <input type="radio" value='payPal' class="custom-control-input" id="defaultUnchecked" name="radio"
+                                onChange={(e) =>  setPaymentMethod(e.target.value)}/>
+                                             
+                            </div>
+                            <div class="custom-control custom-checkbox ">
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Evc-Plus</label>
+                                <input type="radio" value='Evc-Plus' class="custom-control-input" id="defaultUnchecked" name="radio"
+                                onChange={(e) =>  setPaymentMethod(e.target.value)}/>
+                            </div>
+                            <div class="custom-control custom-checkbox ">
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">E-Dahab</label>
+                                <input type="radio"  value='E-Dahab' class="custom-control-input" id="defaultUnchecked" name="radio"
+                                onChange={(e) =>  setPaymentMethod(e.target.value)}/>
+                            </div>
                         <button type="submit">Continue</button>
                     </form>
                     
                 </div>
-                <p className="wt"> .</p>
-                <p className="wt"> .</p>
-                <p className="wt"> .</p>
-                <p className="wt"> .</p>
-                <p className="wt"> .</p>
-
-                
-                
-                            
+                     
                             
             </div>  
-            
+            </div>
         </>
 
     

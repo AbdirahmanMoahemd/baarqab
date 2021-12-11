@@ -82,7 +82,7 @@ const CartScreen = ({ match, location, history }) => {
                                                         <div class="cart-item-name p-ml-3">{item.name}</div>
                                                         <div class="cart-item-price p-ml-3">${item.price}</div>
                                                         <div class="cart-item-remove p-ml-3">
-                                                            <Button icon="pi pi-trash " />
+                                                            <Button icon="pi pi-trash "  onClick={() => removeFromCartHandler(item.product)}/>
                                                         </div>
                                                     </div>
                                                     <div class="p-col-12 p-md-4 p-lg-4 p-fluid">
@@ -112,12 +112,12 @@ const CartScreen = ({ match, location, history }) => {
     </div>
     <div class="co">
                 <div class="order-summary">
-                    <h3>Order Summary</h3>
+                    <h3>Cart Summary</h3>
                     <div class="summary-price">
                         <span>Items</span>
                                                 <span>{itemqty}</span>
                     </div>
-                    <div class="summary-price">
+                    <div class="summary-price"> 
                         <span>Packing & Shipping</span>
                         <span class="free">Agreement<br />(Heshiis)</span>
                     </div>

@@ -31,7 +31,7 @@ const OrderSummaryScreen = ({ match, location, history }) => {
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
     
-    // const itemqty = cartItems.reduce((acc, item) => acc + item.qty, 0)
+    const itemqty = cartItems.reduce((acc, item) => acc + item.qty, 0)
 
     useEffect(() => {
         // if (productId) {
@@ -53,12 +53,12 @@ const OrderSummaryScreen = ({ match, location, history }) => {
 
     return (
         <>
-            {cartItems.map(item => (
+            
                 <div class="order-summary">
                     <h3>Order Summary</h3>
                     <div class="summary-price">
-                        <span>Items Price</span>
-                        <span>${item.price}</span>
+                        <span>Items Quantity</span>
+                        <span>{itemqty}</span>
                     </div>
                     <div class="summary-price">
                         <span>Packing & Shipping</span>
@@ -77,7 +77,6 @@ const OrderSummaryScreen = ({ match, location, history }) => {
                         </div>
                     </div>
                 </div>
-            ))}
         </>
     )
 }

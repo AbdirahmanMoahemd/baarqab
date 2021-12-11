@@ -47,16 +47,13 @@ const Header = () => {
                 <span>Call +252 61 6132192</span>
             </div>
         </div>
-    <div class="search_box">
-                <input type="search"  placeholder="Search For a Product"/>
-                <span class="pi pi-search" style={{ fontSize: "1.4rem" }} ></span>
-    </div>
+    <Route render={({ history }) => <SearchBox history={history} />}/>  
     </div>
     <div class="in-header">
        <a href="#" class="logo"><img src={logo} routerLink="/"/> </a>
         <input type="checkbox" class="menu-btn" id="menu-btn"/>
         <label for="menu-btn" class="menu-icon">
-            <span class="nav-icon"></span>
+            <span class="nav-icon"></span>     
         </label>
     
         <ul class="menu">
@@ -79,8 +76,8 @@ const Header = () => {
                         {userInfo ? (
                             <Link to='/profile' >
                     <div style={{ fontSize: "0.8rem"  }} id="login-btn">
-                                <p>{userInfo.name.split(' ')[0]}</p>
-                           </div>
+                                <p>{userInfo.name.substring(0,5)}-</p>
+                           </div> 
                             </Link>
                         ) :  <Link to="/login" className="user">
                      <div style={{ fontSize: "1.8rem" }} class="pi pi-user" id="login-btn"></div>

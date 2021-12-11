@@ -115,10 +115,10 @@ const SizeListScreen = ({ match, history }) => {
                                                <td>{size.size10}</td>
                                                <td>{size.size11}</td>
                                                <td>{size.size12} </td>
-                                               <td>{size.product.name} </td>
+                                               <td>{size.product ? size.product.name : 'not found'} </td>
                                                 <td style={{display: 'flex'}}>
                                                    <Button 
-                                                    icon="pi pi-trash"
+                                                    icon="pi pi-trash" 
                                                     className="p-button-danger p-mr-2"
                                                     onClick={() => deleteHandler(size.id)}
                                                    ></Button>

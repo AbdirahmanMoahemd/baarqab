@@ -6,7 +6,7 @@ import Message from '../../../components/Message.js'
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { listColors, deleteColor } from '../../../actions/colorActions.js'
-import AdminScreen from '../AdminScreen'
+import AdminScreen from '../AdminScreen' 
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
@@ -78,7 +78,7 @@ const ColorListScreen = ({ match, history }) => {
                                 <div className="p-col-12">
                                     {loadingDelete && <Loader />}
                             {errorDelete && <Message variant='danger'>{errorDelete}</Message>}
-                            
+                             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                              <div className="table-responsive " style={{overflowX:"auto"}}>
                                         <table className="table" >
                                     <thead>
@@ -106,9 +106,7 @@ const ColorListScreen = ({ match, history }) => {
                                             <tr key={color.id}>
                                                <td>{color.color1}</td>
                                                <td>{color.color2}</td>
-                                               {color.color3.value != null &&  
                                                <td>{color.color3} </td>
-                                               } 
                                                <td>{color.color4}</td>
                                                <td>{color.color5}</td>
                                                <td>{color.color6} </td>
@@ -118,7 +116,7 @@ const ColorListScreen = ({ match, history }) => {
                                                <td>{color.color10}</td>
                                                <td>{color.color11}</td>
                                                <td>{color.color12} </td>
-                                               <td>{color.product.name} </td>
+                                               <td>{color.product ? color.product.name : 'not found'} </td>
                                                 <td style={{display: "flex"}}>
                                                    <Button 
                                                     icon="pi pi-trash"
@@ -142,11 +140,12 @@ const ColorListScreen = ({ match, history }) => {
                                     </tbody>
                                 </table>         
                                         </div>
+                             )}
                                      
       </div>
                               
     </div>
-  </Card>
+  </Card> 
         </main>
     </div> 
 

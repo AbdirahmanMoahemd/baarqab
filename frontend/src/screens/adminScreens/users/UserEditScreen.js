@@ -51,6 +51,7 @@ const UserEditScreen = ({ match, history }) => {
     return (
         <>
             <AdminScreen />
+            <div className="login-page-mt">
             <div className="main-content userlists">
             
                 <div className="form">
@@ -70,22 +71,22 @@ const UserEditScreen = ({ match, history }) => {
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <label for="scales">Is Admin</label>
-                                <input type="checkbox" id="scales" name="isAdmin"
-                                    checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)}/>
+                                <input type="text" value={isAdmin}
+                                     name="isAdmin" required
+                                    onChange={(e) => setIsAdmin(e.target.value)}
+                                />
                                
                                 <button type="submit" value="" >Update</button>
-                            </form>
-                        )}
+                            </form> 
+                        )} 
                 </div>
 
                 
-                
-                            
-                     <p className="wt"> .</p>
-                     <p className="wt"> .</p>       
+                    
             </div>  
        
-            </div> 
+                </div>
+                </div>
         </>
     )
 }

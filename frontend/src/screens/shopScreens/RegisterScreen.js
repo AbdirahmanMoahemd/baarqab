@@ -12,6 +12,12 @@ const RegisterScreen = ({ location, history }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmpassword, setConfirmPassword] = useState('')
+    const [phone, setPhone] = useState('')
+    const [street, setStreet] = useState('')
+    const [apartment, setApartment] = useState('')
+    const [zip, setZip] = useState('')
+    const [city, setCity] = useState('')
+    const [country, setCountry] = useState('')
     const [message, setMessage] = useState(null)
 
 
@@ -35,7 +41,7 @@ const RegisterScreen = ({ location, history }) => {
             setMessage('Passwords do Not Match')
         }
         else {
-        dispatch(register(name, email, password))
+        dispatch(register(name, email, password, phone, street, apartment, zip, city, country))
              
         }
     }
@@ -55,6 +61,7 @@ const RegisterScreen = ({ location, history }) => {
     return (
         <>
             <Header />
+            <div className="login-page-mt">
             <div className="form">
                 <div className="login-form">
                    
@@ -79,6 +86,30 @@ const RegisterScreen = ({ location, history }) => {
                             placeholder="confirm password" name="confirmpassword" required
                             onChange={(e)=> setConfirmPassword(e.target.value)}    
                         />
+                        <input type="name" value={phone} placeholder="phone number"
+                            name="name" required
+                            onChange={(e) => setPhone(e.target.value)}
+                        />
+                        <input type="name" value={street} placeholder="street"
+                            name="name" required
+                            onChange={(e) => setStreet(e.target.value)}
+                        />
+                        <input type="name" value={apartment} placeholder="apartment"
+                            name="name" required
+                            onChange={(e) => setApartment(e.target.value)}
+                        />
+                        <input type="name" value={zip} placeholder="zip code"
+                            name="name" required
+                            onChange={(e) => setZip(e.target.value)}
+                        />
+                        <input type="name" value={city} placeholder="city"
+                            name="name" required
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <input type="name" value={country} placeholder="country"
+                            name="name" required
+                            onChange={(e) => setCountry(e.target.value)}
+                        />
                         <button type="submit">Login</button>
                     </form>
                     <div className="form-btns">
@@ -93,7 +124,8 @@ const RegisterScreen = ({ location, history }) => {
                 
                             
                             
-            </div>  
+                </div>
+                </div>
         </>
 
     )

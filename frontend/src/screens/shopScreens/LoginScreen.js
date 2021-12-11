@@ -47,7 +47,8 @@ const LoginScreen = ( { location, history } ) => {
 
     return (
         <>
-            <Header/>
+            <Header />
+            <div className="login-page-mt">
             <div className="form">
                 <div className="login-form">
                    
@@ -75,7 +76,8 @@ const LoginScreen = ( { location, history } ) => {
                             
                      <p className="wt"> .</p>
                      <p className="wt"> .</p>       
-            </div>  
+                </div>
+                </div>
         </>
 
     )

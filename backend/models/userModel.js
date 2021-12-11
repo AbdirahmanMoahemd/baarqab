@@ -20,6 +20,29 @@ const userSchema = mongoose.Schema({
         required: true,
         default: false
     },
+    phone: {
+        type: String,
+    },
+    street: {
+        type: String,
+        default: ''
+    },
+    apartment: {
+        type: String,
+        default: ''
+    },
+    zip :{
+        type: String,
+        default: ''
+    },
+    city: {
+        type: String,
+        default: ''
+    },
+    country: {
+        type: String,
+        default: ''
+    }
 }, {
     timestamps: true
 })

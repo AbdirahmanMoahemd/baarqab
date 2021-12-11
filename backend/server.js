@@ -15,6 +15,12 @@ import promotionRoutes from './routes/promotionRoutes.js'
 import colorRoutes from './routes/colorRoutes.js'
 import sizeRoutes from './routes/sizeRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
+import uploadRoutes7 from './routes/uploadRoutes-7.js'
+import uploadRoutes6 from './routes/uploadRoutes-6.js'
+import uploadRoutes2 from './routes/uploadRoutes-2.js'
+import uploadRoutes3 from './routes/uploadRoutes-3.js'
+import uploadRoutes4 from './routes/uploadRoutes-4.js'
+import uploadRoutes5 from './routes/uploadRoutes-5.js'
 import products  from './data/products.js' 
 
 dotenv.config()
@@ -25,7 +31,7 @@ const PAYPAL_CLIENT_ID = 'ATe2evqLhzMwvul-WeBEi3kKXeVFeVXIUBtorMlmeWnmIPH8elu1q-
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
-
+ 
 app.use(express.json()) 
 
 
@@ -41,6 +47,12 @@ app.use('/api/slides', slidesRoutes)
 app.use('/api/testimonials', testimonialRoutes)
 app.use('/api/promotions', promotionRoutes) 
 app.use('/api/upload', uploadRoutes)
+app.use('/api/upload7', uploadRoutes7)
+app.use('/api/upload6', uploadRoutes6)
+app.use('/api/upload2', uploadRoutes2)
+app.use('/api/upload3', uploadRoutes3)
+app.use('/api/upload4', uploadRoutes4)
+app.use('/api/upload5', uploadRoutes5)
 
 app.get('/api/config/paypal', (req, res) =>
     res.send(PAYPAL_CLIENT_ID)
@@ -55,7 +67,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/build')))
     app.get('*', (req, res) => 
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
-      )
+      ) 
 }
 else {
     app.get('/',(req, res) => {

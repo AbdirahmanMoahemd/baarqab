@@ -17,6 +17,12 @@ export const authUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            phone: user.phone,
+            street: user.street,
+            apartment: user.apartment,
+            zip: user.zip,
+            city: user.city,
+            country: user.country,
             token: generateToken(user._id),
         })
     }
@@ -33,7 +39,8 @@ export const authUser = asyncHandler(async (req, res) => {
 // @access  Public
 export const registerUser = asyncHandler(async (req, res) => {
     
-    const { name, email, password } = req.body
+    const { name, email, password,
+        phone, street, apartment, zip, city, country } = req.body
     const userExists = await User.findOne({ email })
 
     if (userExists) {
@@ -45,6 +52,12 @@ export const registerUser = asyncHandler(async (req, res) => {
         name,
         email,
         password,
+        phone,
+        street,
+        apartment,
+        zip,
+        city,
+        country
     })
     if (user) {
         res.status(201).json({
@@ -52,6 +65,12 @@ export const registerUser = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            phone: user.phone,
+            street: user.street,
+            apartment: user.apartment,
+            zip: user.zip,
+            city: user.city,
+            country: user.country,
             token: generateToken(user._id),
         })
     }
@@ -77,6 +96,12 @@ export const getUserProfile = asyncHandler(async (req, res) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
+            phone: user.phone,
+            street: user.street,
+            apartment: user.apartment,
+            zip: user.zip,
+            city: user.city,
+            country: user.country,
             
         })
     }
@@ -102,6 +127,12 @@ export const updateProfile = asyncHandler(async (req, res) => {
         
         user.name = req.body.name || user.name
         user.email = req.body.email || user.email
+        user.phone = req.body.phone || user.phone
+        user.street = req.body.street || user.street
+        user.apartment = req.body.apartment || user.apartment
+        user.zip = req.body.zip || user.zip
+        user.city = req.body.city || user.city
+        user.country = req.body.country || user.country
         
         if (req.body.password) {
             user.password = req.body.password
@@ -114,6 +145,12 @@ export const updateProfile = asyncHandler(async (req, res) => {
             name: updatedUser.name,
             email: updatedUser.email,
             isAdmin: updatedUser.isAdmin,
+            phone: updatedUser.phone,
+            street: updatedUser.street,
+            apartment: updatedUser.apartment,
+            zip: updatedUser.zip,
+            city: updatedUser.city,
+            country: updatedUser.country,
             token: generateToken(updatedUser._id),
         })
         
@@ -192,16 +229,15 @@ export const updateUser = asyncHandler(async (req, res) => {
 
     if (user) {
         
-        user.name = req.body.name || user.name
+       user.name = req.body.name || user.name
         user.email = req.body.email || user.email
         user.isAdmin = req.body.isAdmin || user.isAdmin
-        
         
 
         const updatedUser = await user.save() 
         
         res.json({
-            _id: updatedUser._id,
+             _id: updatedUser._id,
             name: updatedUser.name,
             email: updatedUser.email,
             isAdmin: updatedUser.isAdmin,

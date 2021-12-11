@@ -5,6 +5,7 @@ import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
 import AdminScreen from './adminScreens/AdminScreen'
 import { Link } from 'react-router-dom'
+import { Card } from 'primereact/card';
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch()
@@ -30,17 +31,18 @@ const OrderListScreen = ({ history }) => {
             <AdminScreen/>
                  <div className="main-content">
            <main>
-                   <>
-                                <div className="recent-grid testi" >
-                                    <div className="projects">
-                                        <div className="card">
-                                            <div className="card-header test-card-header">
-                                                <h3>Orders</h3>
-                                            </div>
-                                            <div className="card-body">
-                           {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                                <div className="table-responsive">
-                                    <table>
+                  
+                                 <Card title="Oders" subTitle="List of all oders">
+                                <div className="p-grid">
+                                    <div className="p-col-12">
+                                        
+                                    </div>
+                                </div>
+                                <div className ="p-grid">
+                                <div className="p-col-12">
+                            {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                                        <div className="table-responsive" style={{ overflowX: "auto" }}>
+                                                <table className="table" >
                                     <thead>
                                         <tr>
                                             <td>ID</td>
@@ -86,11 +88,10 @@ const OrderListScreen = ({ history }) => {
                                 </div>
                             )}
 
-                        </div>
-                    </div>
-                </div> 
-               </div>
-                    </>
+                           </div>
+                </div>
+                
+               </Card>
                     </main>
              </div>    
                         
