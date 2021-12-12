@@ -53,7 +53,7 @@ const AboutUsScreen = () => {
 			</div> 
 			{/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617006139"
+        href="https://wa.me/252617697873"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"
