@@ -144,80 +144,19 @@ const CartScreen = ({ match, location, history }) => {
                 )
         
                 }
-                </div>
+            </div>
+            {/* WhatsApp icon */}
+      <a
+        href="https://wa.me/252617006139"
+        class="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa fa-whatsapp whatsapp-icon"></i>
+      </a>
             <Footer/>
         </> 
     )
 }
 
 export default CartScreen 
-
-  {/* <div className="small-container cart-page">
-                            <span className="cart-top">
-                                <p><Link to="/">Home</Link> / <Link to="/cart">cart</Link></p>
-                                <strong>Items in Your cart</strong>
-                            </span>
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Quantity</th>
-                                        <th>Total</th>
-                                    </tr>
-                                    {cartItems.map(item => (
-                                    <tr key={item.product}>
-                                        <td>
-                                            <div className="product-per-image">
-                                                    <img src={item.image} style={{width: "100%"}}/>
-                                                <div>
-                                                        <p>{item.name}</p>
-                                                        <small>${item.price}</small>
-                                                    <br/>
-                                                    <Link to="/cart" onClick={() => removeFromCartHandler(item.product)}>Remove</Link>
-                                                </div>
-                                            </div>
-                                        </td>
-                                            <td><select value={item.qty}
-                                                onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}>
-                                        {[...Array(item.countInStock).keys()].map(
-                                            (x) => ( 
-                                                <option key={x + 1} value={x + 1}>
-                                                    {x + 1}
-                                                    {qty == item.qty} 
-                                                    
-                                                </option> 
-                                            )
-                                            )}
-                                    </select>  </td>
-                                        <td>${(item.price * item.qty).toFixed(2)}</td> 
-                                    </tr>  
-                                    ))} 
-                                    </tbody>
-                                </table>
-                                <div className="total-price">
-                                    <table>
-                                        <tbody>
-                                        <tr>
-                                            <td>Subtotal</td>
-                                            <td>{cartItems.reduce((acc, item) => acc + item.qty, 0)} items</td>
-                                        </tr>
-                                        
-                                        <tr>
-                                            <td>Total</td>
-                                            <td>${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).
-                            toFixed(2)
-                            }</td>
-                                        </tr>
-                                        <tr>
-                                            <td ><button className="btns ck" style={{width: '70%'}} disabled={cartItems.length === 0}
-                                            onClick={checkoutHandler}
-                                            >Proceed To Checkout</button></td>
-                                            
-                                        </tr>
-                                        
-                                        </tbody> 
-                                    </table>
-                                      
-                            </div>
-                            
-                        </div> */}
