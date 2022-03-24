@@ -56,17 +56,12 @@ const AdminHome = ({ history }) => {
             <div >
                 <Link to={'/admin/orderlist'}>
             <Button 
+            icon="pi pi-angle-double-right"
             label="See all"
             className="p-button-success  p-mr-2"
-            icon="pi pi-plus"
+            
             ></Button>
                 </Link>
-            <Button 
-            label="Refresh" 
-            className="p-button-primary"
-            icon="pi pi-refresh"
-            onClick={() => window.location.reload(false)}
-            ></Button>
           </div> 
     </React.Fragment>
 );
@@ -125,12 +120,13 @@ const AdminHome = ({ history }) => {
                     </div>
                 </div>
                     </div>
+                    <br></br>
                     {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
-                       <Card title="Categories" subTitle="List of all categories">
+                       <Card title="Recent Orders" subTitle="List of all Recent Orders">
     <div className="p-grid">
       <div className="p-col-12">
-        <Toolbar left={leftContents}/>
+        <Toolbar right={leftContents}/>
          
       </div>
     </div>
@@ -142,9 +138,9 @@ const AdminHome = ({ history }) => {
                                     <thead>
                                         <tr>
                                             <td>NAME</td>
-                                             <td>ICON</td>
-                                            <td>COLOR</td>
-                                            <td></td>
+                                                                 <td>PAID</td>
+                                                                 <td>DELIVERED</td>
+                                                                <td></td>
                                         </tr>
                                     </thead>
                                     <tbody>
