@@ -21,7 +21,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import './product.css'
 
 import Carousel from 'react-bootstrap/Carousel'
-
+ 
  
 
 const ProductScreen = ({ history, match }) => {

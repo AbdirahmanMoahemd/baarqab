@@ -12,6 +12,7 @@ import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
 import { Dropdown } from 'primereact/dropdown';
 import { listCategories } from '../../../actions/categoryAction'
+import { listSubCategories } from '../../../actions/subcategoryActions'
 import { InputSwitch } from 'primereact/inputswitch';
  
 
@@ -20,6 +21,7 @@ const ProductEditScreen = ({ match, history }) => {
     
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
+    const [subcategory, setSubCategory] = useState('')
     const [brand, setBrand] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
@@ -55,7 +57,9 @@ const ProductEditScreen = ({ match, history }) => {
 
     const categoryList = useSelector(state => state.categoryList)
     const { categories } = categoryList
-   
+
+    const subcategoryList = useSelector(state => state.subcategoryList)
+    const {loading:loadingSubcategories, error:errorSubcategories,  subcategories } = subcategoryList
     
    
     
@@ -71,6 +75,7 @@ const ProductEditScreen = ({ match, history }) => {
               dispatch(listProductDetails(productId))
                
               dispatch(listCategories())
+              dispatch(listSubCategories())
               
         }
         else {
@@ -91,6 +96,7 @@ const ProductEditScreen = ({ match, history }) => {
             setDescription(product.description)
             setBrand(product.brand)
             setCategory(product.category)
+            setSubCategory(product.subcategory)
             setPrice(product.price)
             setCountInStock(product.countInStock)
             setisFeatured(product.isFeatured)
@@ -313,6 +319,7 @@ const ProductEditScreen = ({ match, history }) => {
             description,
             brand,
             category, 
+            subcategory, 
             price,
             countInStock,
             isFeatured
@@ -352,7 +359,9 @@ const ProductEditScreen = ({ match, history }) => {
                         <div class="p-grid" > 
                                  <div class="p-col-12">
                                      {loadingUpdate && <Loader />}
-                                    {errorUpdate && <Message>{errorUpdate}</Message>}
+                                        {errorUpdate && <Message>{errorUpdate}</Message>}
+                                        {loadingSubcategories && <Loader />}
+                                    {errorSubcategories && <Message>{errorSubcategories}</Message>}
                                      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                                          <div class="p-fluid p-formgrid p-grid" >
                                              <div class="p-col-12 p-md-6 p-lg-4">
@@ -360,18 +369,33 @@ const ProductEditScreen = ({ match, history }) => {
                                                  <input value={name} id="name" type="text" style={{width: "80%", height: "30px"}}
                                                  className="p-mt-2"    onChange={(e) => setName(e.target.value)} />
                                              </div>
-                                                <div class="p-col-12 p-md-6 p-lg-4 ">
+                                               <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="icon">Category</label><br />
-                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"3%", width: "80%"}}
-                                                        onChange={(e) => setCategory(e.target.value)} className="p-mt-2" >
+                                                    
+                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                onChange={(e) => setCategory(e.target.value)} >
+                                                    <option>Select Category here</option>
                                                         {categories.map(cat => (
                                                             <>
                                                              <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
-                                                        </>
+                                                            </>
                                                         ))}
                                                     
                                                     </select>
-                                             </div>
+                                        </div> 
+                                                <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                    <label htmlFor="icon">Sub Category</label><br />
+                                                    <select name="" value={subcategory} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                onChange={(e) => setSubCategory(e.target.value)} >
+                                                    <option>Select Sub Category here</option>
+                                                        {subcategories.map(subcat => (
+                                                            <>
+                                                             <option value={subcat.id}>{subcat.name}</option>
+                                                            </> 
+                                                        ))}
+                                                    
+                                                    </select>
+                                        </div> 
                                              <div class="p-col-12 p-md-6 p-lg-4">
                                                     <label htmlFor="color">Price</label><br />
                                                      <input value={price} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"

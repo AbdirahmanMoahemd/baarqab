@@ -36,21 +36,17 @@ const PaymentScreen = ({ history }) => {
                     <form onSubmit={submitHandler}>
                        
                             <div class="custom-control custom-checkbox">
-                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Paypal</label>
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Paypal   </label>
                                 <input type="radio" value='payPal' class="custom-control-input" id="defaultUnchecked" name="radio"
                                 onChange={(e) =>  setPaymentMethod(e.target.value)}/>
                                              
                             </div>
                             <div class="custom-control custom-checkbox ">
-                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Evc-Plus</label>
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Evc-Plus / ZAAD</label>
                                 <input type="radio" value='Evc-Plus' class="custom-control-input" id="defaultUnchecked" name="radio"
                                 onChange={(e) =>  setPaymentMethod(e.target.value)}/>
                             </div>
-                            <div class="custom-control custom-checkbox ">
-                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">E-Dahab</label>
-                                <input type="radio"  value='E-Dahab' class="custom-control-input" id="defaultUnchecked" name="radio"
-                                onChange={(e) =>  setPaymentMethod(e.target.value)}/>
-                            </div>
+                            
                         <button type="submit">Continue</button>
                     </form>
                     

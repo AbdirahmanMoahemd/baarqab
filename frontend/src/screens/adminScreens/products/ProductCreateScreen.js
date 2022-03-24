@@ -10,6 +10,7 @@ import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
 import { listCategories } from '../../../actions/categoryAction'
+import { listSubCategories } from '../../../actions/subcategoryActions'
 import { InputSwitch } from 'primereact/inputswitch';
 import { Dropdown } from 'primereact/dropdown';
 import { Form } from 'react-bootstrap';
@@ -19,6 +20,7 @@ const ProductEditScreen = ({ match, history }) => {
     
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
+    const [subcategory, setSubCategory] = useState('')
     const [brand, setBrand] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState(0)
@@ -50,6 +52,9 @@ const ProductEditScreen = ({ match, history }) => {
 
     const categoryList = useSelector(state => state.categoryList)
     const { categories } = categoryList
+
+    const subcategoryList = useSelector(state => state.subcategoryList)
+    const { loading:loadingSubcategories, error:errorSubcategories, subcategories } = subcategoryList
 
     const submitHandler = (e) => {
         let size1 
@@ -148,13 +153,14 @@ const ProductEditScreen = ({ match, history }) => {
        
 
          e.preventDefault() 
-       dispatch(createProduct(name, category, brand, description,
+       dispatch(createProduct(name, category,subcategory, brand, description,
        price, countInStock, isFeatured, image, images, Colors, Sizes))
         }
    
     
     useEffect(() => {
         dispatch(listCategories())
+        dispatch(listSubCategories())
        if (successCreate) { 
            history.push('/admin/productlist') 
         }
@@ -277,12 +283,15 @@ const ProductEditScreen = ({ match, history }) => {
             className="p-button-primary p-mr-2"
                     icon="pi pi-plus"
             type="submit"
-            ></Button>
+                ></Button>
+            <Link to={'/admin/productlist/'}>   
             <Button 
             label="Cancle"
             className="p-button-secondary"
             icon="pi pi-arrow-circle-left"
             ></Button>
+            </Link> 
+           
           </div> 
     </React.Fragment>
 );
@@ -301,7 +310,8 @@ const ProductEditScreen = ({ match, history }) => {
                          </div>
                         <div class="p-grid" > 
                                  <div class="p-col-12">
-                                     
+                                     {loadingSubcategories && <Loader />}
+                                    {errorSubcategories && <Message>{errorSubcategories}</Message>}
                                     {loadingCreate && <Loader />}
                                      {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
                                          <div class="p-fluid p-formgrid p-grid" >
@@ -319,6 +329,19 @@ const ProductEditScreen = ({ match, history }) => {
                                                             <>
                                                              <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
                                                             </>
+                                                        ))}
+                                                    
+                                                    </select>
+                                        </div>  
+                                        <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                    <label htmlFor="icon">Sub Category</label><br />
+                                                    <select name="" value={subcategory} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                onChange={(e) => setSubCategory(e.target.value)} >
+                                                    <option>Select Sub Category here</option>
+                                                        {subcategories.map(subcat => (
+                                                            <>
+                                                             <option value={subcat.id}>{subcat.id.substring(1, 1)}{subcat.name}</option>
+                                                             </>
                                                         ))}
                                                     
                                                     </select>

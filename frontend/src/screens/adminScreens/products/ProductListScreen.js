@@ -93,6 +93,7 @@ const ProductListScreen = ({ history }) => {
                                             <td>IMAGE</td>
                                             <td>PRICE</td>
                                             <td>CATEGORY</td>
+                                            <td>SUB CATEGORY</td>
                                             <td>BRAND</td>
                                             <td>Stock</td>
                                             <td></td>
@@ -108,6 +109,7 @@ const ProductListScreen = ({ history }) => {
                                                </td>
                                                <td>${product.price}</td>
                                                 <td>{product.category ? product.category.name : 'not found'}</td>  
+                                                <td>{product.subcategory ? product.subcategory.name : 'not found'}</td>  
                                                 <td>{product.brand}</td>
                                                <td>{product.countInStock}</td>
                                                 <td>

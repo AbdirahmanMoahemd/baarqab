@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
 import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import AdminScreen from './AdminScreen'
+import { Card } from 'primereact/card';
+import { Toolbar } from 'primereact/toolbar';
+import { Button } from 'primereact/button';
 
 
 const AdminHome = ({ history }) => {
@@ -48,7 +51,25 @@ const AdminHome = ({ history }) => {
   },[dispatch, history, userInfo])
     var today = new Date(),
     todydate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-   
+   const leftContents = (
+    <React.Fragment>
+            <div >
+                <Link to={'/admin/orderlist'}>
+            <Button 
+            label="See all"
+            className="p-button-success  p-mr-2"
+            icon="pi pi-plus"
+            ></Button>
+                </Link>
+            <Button 
+            label="Refresh" 
+            className="p-button-primary"
+            icon="pi pi-refresh"
+            onClick={() => window.location.reload(false)}
+            ></Button>
+          </div> 
+    </React.Fragment>
+);
     
     return (
         <>
@@ -106,65 +127,129 @@ const AdminHome = ({ history }) => {
                     </div>
                     {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
-                            
-                                <div className="recent-grid" >
-                                    <div className="projects">
-                                    <div className="card">
-    
-       
-                                            {/* <div className="card-header">
-                                                <h3>Recent Orders</h3>
-                                                <button className="btn-dash" ><Link to={'/admin/orderlist'} style={{color: '#fff'}}> See all</Link><span className="las la-arrow-right"></span></button>
-                                            </div> */}
-                                            {/* <div className="card-body">
+                       <Card title="Categories" subTitle="List of all categories">
+    <div className="p-grid">
+      <div className="p-col-12">
+        <Toolbar left={leftContents}/>
+         
+      </div>
+    </div>
+    <div className ="p-grid">
+                                <div className="p-col-12">
+                            {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                             <div className="table-responsive " style={{overflowX:"auto"}}>
+                                        <table className="table" >
+                                    <thead>
+                                        <tr>
+                                            <td>NAME</td>
+                                             <td>ICON</td>
+                                            <td>COLOR</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       {orders.filter(order => order.date === todydate).map(order => (
+                                            <tr key={order.id}>
+                                               <td>{order.user && order.user.name}</td>
+                                               <td>{order.isPaid ? (
+                                                   order.paidAt.substring(0, 10)
+                                               ) : (
+                                                   <i className='fa fa-times' style={{ color: 'red' }}></i>
+                                               )}</td>
+                                               <td>
+                                                                     {order.isDelivered ? (
+                                                                         order.deliveredAt.substring(0, 10)
+                                                                     ) : (
+                                                                        <i className='fa fa-times' style={{ color: 'red' }}></i>
+                                                                     )}
+                                                                 </td>
+                                                <td>
+                                             <Link to={`/order/${order._id}`}> 
+                                                    Details 
+                                                 </Link>  
+                                                </td>
+                                                
+                                            </tr>
+                                         ))}
+                                    </tbody>
+                                </table>         
+                                        </div>
+                                  )}        
+      </div>
+                              
+    </div>
+  </Card>      
+                </>
+                    )}
+            </main>
+      </div>  
+        </>
+    )
+}
+
+export default AdminHome
+
+
+
+//  <div className="recent-grid" >
+//                                     <div className="projects">
+//                                     <div className="card">
+
+                                            
+
+//                                             <div className="card-header">
+//                                                 <h3>Recent Orders</h3>
+//                                                 <button className="btn-dash" ><Link to={'/admin/orderlist'} style={{color: '#fff'}}> See all</Link><span className="las la-arrow-right"></span></button>
+//                                             </div>
+//                                             <div className="card-body">
                                     
-                                                <div className="table-responsive">
-                                                    <table>
-                                                        <thead>
-                                                            <tr>
-                                                                <td>NAME</td>
-                                                                <td>PAID</td>
-                                                                <td>DELIVERED</td>
-                                                                <td></td>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
+//                                                 <div className="table-responsive">
+//                                                     <table>
+//                                                         <thead>
+//                                                             <tr>
+//                                                                 <td>NAME</td>
+//                                                                 <td>PAID</td>
+//                                                                 <td>DELIVERED</td>
+//                                                                 <td></td>
+//                                                             </tr>
+//                                                         </thead>
+//                                                         <tbody>
                                                     
                                             
-                                            {orders.filter(order => order.date === todydate).map(order => (
-                                                            <tr key={order._id}>
+//                                             {orders.filter(order => order.date === todydate).map(order => (
+//                                                             <tr key={order._id}>
                                                       
-                                                                <td>{order.user && order.user.name}</td>
-                                                                <td>
-                                                                    {order.isPaid ? (
-                                                                        order.paidAt.substring(0, 10)
-                                                                    ) : (
-                                                                        <i className='fa fa-times' style={{ color: 'red' }}></i>
-                                                                    )}
-                                                                </td>
-                                                                <td>
-                                                                    {order.isDelivered ? (
-                                                                        order.deliveredAt.substring(0, 10)
-                                                                    ) : (
-                                                                        <i className='fa fa-times' style={{ color: 'red' }}></i>
-                                                                    )}
-                                                                </td>
-                                                                <td>
-                                                                    <Link to={`/order/${order._id}`}>
-                                                                        Details
-                                                    </Link>
-                                                                </td>
+//                                                                 <td>{order.user && order.user.name}</td>
+//                                                                 <td>
+//                                                                     {order.isPaid ? (
+//                                                                         order.paidAt.substring(0, 10)
+//                                                                     ) : (
+//                                                                         <i className='fa fa-times' style={{ color: 'red' }}></i>
+//                                                                     )}
+//                                                                 </td>
+//                                                                 <td>
+//                                                                     {order.isDelivered ? (
+//                                                                         order.deliveredAt.substring(0, 10)
+//                                                                     ) : (
+//                                                                         <i className='fa fa-times' style={{ color: 'red' }}></i>
+//                                                                     )}
+//                                                                 </td>
+//                                                                 <td>
+//                                                                     <Link to={`/order/${order._id}`}>
+//                                                                         Details
+//                                                     </Link>
+//                                                                 </td>
                                                  
-                                                            </tr>
-                                         ))}
-                                                        </tbody>
-                                                    </table>
+//                                                             </tr>
+//                                          ))}
+//                                                         </tbody>
+//                                                     </table>
                                    
-                                                </div>
+//                                                 </div>
                                     
-                        </div> */}
-                                        </div>
-                                    </div>
+//                         </div>
+//                                         </div>
+//                                     </div>
                                     {/* <div className="customers">
                                     <div className="card">
                                        
@@ -205,14 +290,3 @@ const AdminHome = ({ history }) => {
                                         </div>
                                     </div> */}
            
-                                </div>
-                            
-                </>
-                    )}
-            </main>
-      </div>
-        </>
-    )
-}
-
-export default AdminHome

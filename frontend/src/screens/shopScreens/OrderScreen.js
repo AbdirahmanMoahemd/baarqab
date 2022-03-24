@@ -96,6 +96,62 @@ const OrderScreen = ({ history, match }) => {
      dispatch(payOrder2(orderId))
     
   }
+  // var amount  
+  // order.orderItems.map((item, index) => (
+  //  amount = item.qty * item.price
+    
+  // ))
+  // console.log(amount)
+  
+   const evcpayment = () => { 
+     var data = JSON.stringify({
+      "schemaVersion": "1.0",
+    "requestId": orderId,
+    "timestamp": Date.now(),
+    "channelName": "WEB",
+    "serviceName": "API_PURCHASE",
+    "serviceParams": {
+        "merchantUid": "M0910455",
+        "apiUserId": "1001052", 
+        "apiKey": "API-14003888AHX",
+        "paymentMethod": "mwallet_account",
+        "payerInfo": {
+            "accountNo": order.shippingAddress.phoneNumber
+        },
+        "transactionInfo": {
+            "referenceId": "REF8815718025",
+            "invoiceId": "INV8815718025",
+            "amount": order.totalPrice,
+            "currency": "USD",
+            "description": "test direct purchase"
+        }
+    }
+});
+var config = {
+  method: 'post',
+  url: 'https://api.waafipay.net/asm',
+  headers: { 
+    'Content-Type': 'application/json'
+  },
+  data : data
+};
+
+axios(config)
+  .then(function (response) {
+    if (response.data.responseCode == 5206) {
+    window.alert("not sent yet");
+    }
+    if (response.data.responseCode == 2001) {
+      dispatch(payOrder2(orderId))
+      window.alert("Paid successfully");
+    }
+  console.log(JSON.stringify(response.data.responseCode));
+})
+.catch(function (error) {
+  console.log(error);
+});
+
+  }
   
   const deliverHandler = () => {
     dispatch(deliverOrder(order))
@@ -219,18 +275,12 @@ const OrderScreen = ({ history, match }) => {
                             <center>
                               {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
                                 <>
-                              <h3>Pay Options</h3>
-                      <div className="payop">
-                        <h4>Evc-Plus: +252 61 6132192</h4>
-                        <h4>eDahab: +252 61 6132192</h4>
-                        <h4>ZAAD: +252 61 6132192</h4>
-                                  </div>
                                   </>
                      ) }
                       {loadingPay2 && <Loader />}
-                              {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
+                              {userInfo  && !order.isPaid && !order.isDelivered && (
                                 <div class="checkout-button" >
-                            <Button label="Mark As Paid"   onClick={successPaymentHandler2}  />
+                            <Button label="Pay / BIXI"   onClick={evcpayment}  />
                         </div>
                       )}
                     </center>

@@ -86,6 +86,12 @@ export const updateOrderToPaid2 = asyncHandler(async (req, res) => {
     if (order) {
       order.isPaid = true
       order.paidAt = Date.now()
+      // order.paymentResult = {
+      //   id: req.body.id,
+      //   status: req.body.status,
+      //   update_time: req.body.update_time,
+      //   phoneNumber: req.body.phoneNumber
+      // }
       const updatedOrder = await order.save() 
       
       res.json(updatedOrder)
@@ -159,6 +165,7 @@ export const getMyOrdersAll = asyncHandler(async (req, res) => {
 // @route   GET /api/orders
 // @access  Private/admin
 export const getOrders = asyncHandler(async (req, res) => {
-    const orders = await Order.find({}).populate('user')
+  const orders = await Order.find({}).populate('user')
+  orders.sort((a, b) => (a._id > b._id) ? -1 : 1);
     res.json(orders)
 })

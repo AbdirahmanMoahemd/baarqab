@@ -7,10 +7,11 @@ import { notFound, errorHandler } from './middleware/errorMidlleware.js'
 import connectDB from './config/db2.js'
 import productRoutes from './routes/productRoutes.js'
 import categoryRoutes from './routes/categoryRoutes.js'
+import filterRoutes from './routes/filter.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import slidesRoutes from './routes/slidesRoutes.js'
-import testimonialRoutes from './routes/testimonialRoutes.js'
+import testimonialRoutes from './routes/testimonialRoutes.js' 
 import promotionRoutes from './routes/promotionRoutes.js'
 import colorRoutes from './routes/colorRoutes.js'
 import sizeRoutes from './routes/sizeRoutes.js'
@@ -21,6 +22,8 @@ import uploadRoutes2 from './routes/uploadRoutes-2.js'
 import uploadRoutes3 from './routes/uploadRoutes-3.js'
 import uploadRoutes4 from './routes/uploadRoutes-4.js'
 import uploadRoutes5 from './routes/uploadRoutes-5.js'
+import iconupload from './routes/iconuploader.js'
+import subcategory from './routes/subcategory.js'
 import products  from './data/products.js' 
 
 dotenv.config()
@@ -31,7 +34,7 @@ const PAYPAL_CLIENT_ID = 'ATe2evqLhzMwvul-WeBEi3kKXeVFeVXIUBtorMlmeWnmIPH8elu1q-
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
- 
+  
 app.use(express.json()) 
 
 
@@ -53,6 +56,10 @@ app.use('/api/upload2', uploadRoutes2)
 app.use('/api/upload3', uploadRoutes3)
 app.use('/api/upload4', uploadRoutes4)
 app.use('/api/upload5', uploadRoutes5)
+app.use('/api/upload5', uploadRoutes5)
+app.use('/api/iconupload', iconupload)
+app.use('/api/subcategory', subcategory)
+app.use('/api/filter', filterRoutes); 
 
 app.get('/api/config/paypal', (req, res) =>
     res.send(PAYPAL_CLIENT_ID)

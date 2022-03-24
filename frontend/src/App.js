@@ -29,6 +29,9 @@ import ProductCreateScreen from './screens/adminScreens/products/ProductCreateSc
 import CategoryListScreen from './screens/adminScreens/category/CategoryListScreen';
 import CategoryCreateScreen from './screens/adminScreens/category/CategoryCreateScreen';
 import CategoryEditScreen from './screens/adminScreens/category/CategoryEditScreen';
+import SubCategoryListScreen from './screens/adminScreens/subcategory/SubCategoryListScreen';
+import SubCategoryCreateScreen from './screens/adminScreens/subcategory/SubCategoryCreateScreen';
+import SubCategoryEditScreen from './screens/adminScreens/subcategory/SubCategoryEditScreen';
 import colorListScreen from './screens/adminScreens/colors/colorListScreen';
 import colorEditScreen from './screens/adminScreens/colors/colorEditScreen';
 import colorCreateScreen from './screens/adminScreens/colors/colorCreateScreen';
@@ -68,6 +71,9 @@ const App = () => {
           <Route path='/admin/category' component={CategoryListScreen} exact /> 
           <Route path='/admin/category/create/new' component={CategoryCreateScreen} exact /> 
           <Route path='/admin/category/:id' component={CategoryEditScreen} exact /> 
+          <Route path='/admin/subcategory' component={SubCategoryListScreen} exact /> 
+          <Route path='/admin/subcategory/create/new' component={SubCategoryCreateScreen} exact /> 
+          <Route path='/admin/subcategory/:id' component={SubCategoryEditScreen} exact /> 
           <Route path='/admin/colors' component={colorListScreen} exact /> 
           <Route path='/admin/colors/:id' component={colorEditScreen} exact /> 
           <Route path='/admin/colors/create/new' component={colorCreateScreen} exact />

@@ -20,6 +20,13 @@ import {
     categoryUpdateReducer
 } from './reducers/categoryreducers'
 import {
+    subcategoryListReducer,
+    subcategoryDetailsReducer,
+    subcategoryCreateReducer,
+    subcategoryDeleteReducer,
+    subcategoryUpdateReducer
+} from './reducers/subcategoryReducers'
+import {
     colorListReducer ,
     colorDetailsReducer,
     colorDeleteReducer ,
@@ -43,6 +50,11 @@ const reducer = combineReducers({
     categoryCreate: categoryCreateReducer,
     categoryDelete: categoryDeleteReducer,
     categoryUpdate: categoryUpdateReducer,
+    subcategoryList: subcategoryListReducer,
+    subcategoryDetails: subcategoryDetailsReducer,
+    subcategoryCreate: subcategoryCreateReducer,
+    subcategoryDelete: subcategoryDeleteReducer,
+    subcategoryUpdate: subcategoryUpdateReducer,
     colorList:  colorListReducer,
     colorDetails: colorDetailsReducer,
     colorDelete: colorDeleteReducer,

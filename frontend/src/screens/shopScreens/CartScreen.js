@@ -37,7 +37,7 @@ const CartScreen = ({ match, location, history }) => {
 
     const updateQty = (qty) => {
     const newQty = Number(location.search.split('=')[1]) == qty  
-  }
+    }
 
     const removeFromCartHandler = (id) => {
         dispatch(removeFromCart(id))

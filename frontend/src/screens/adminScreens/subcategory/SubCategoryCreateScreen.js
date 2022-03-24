@@ -4,65 +4,46 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loader from '../../../components/Loader.js'
 import Message from '../../../components/Message.js'
-import { createCategory  } from '../../../actions/categoryAction.js'
+import { createSubCategory  } from '../../../actions/subcategoryActions.js'
 import AdminScreen from '../AdminScreen'
 import { ColorPicker } from 'primereact/colorpicker';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
+import { listCategories } from '../../../actions/categoryAction'
 
-
-const CategoryCreateScreen = ({ history }) => {
+const SubCategoryCreateScreen = ({ history }) => {
     
     
     const [name, setName] = useState('')
-    const [icon, setIcon] = useState('')
-    const [color, setColor] = useState('')
-    const [uploading, setUploading] = useState([])
+    const [category, setCategory] = useState('')
 
 
     const dispatch = useDispatch()
 
     
 
-    const categoryCreate = useSelector(state => state.categoryCreate)
-    const { loading: loadingCreate, error: errorCreate,success: successCreate, } = categoryCreate
+    const subcategoryCreate = useSelector(state => state.subcategoryCreate)
+    const { loading: loadingCreate, error: errorCreate,success: successCreate, } = subcategoryCreate
 
+    const categoryList = useSelector(state => state.categoryList)
+    const { categories } = categoryList
     
       const submitHandler = (e) => {
            
          e.preventDefault() 
-         dispatch(createCategory(name, icon, color))
+         dispatch(createSubCategory(name, category))
         }
     
     
     useEffect(() => {
-        
+        dispatch(listCategories())
        if (successCreate) { 
-           history.push('/admin/category/') 
+           history.push('/admin/subcategory/') 
         } 
     }, [ dispatch, history, successCreate])
     
-    const uploadFileHandler = async (e) => {
-        const file = e.target.files[0]
-        const formData = new FormData()
-        formData.append('icon', file)
-        setUploading(true)
-
-        try {
-            const config = {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-            const { data } = await axios.post('/api/iconupload', formData, config)
-            setIcon(data)
-            setUploading(false)
-        } catch (error) {
-            console.error(error)
-            setUploading(false)
-        }
-    }
+    
 
      
 
@@ -75,7 +56,7 @@ const CategoryCreateScreen = ({ history }) => {
                     icon="pi pi-plus"
             type="submit"
                 ></Button>
-            <Link to={'/admin/category/'}>   
+            <Link to={'/admin/subcategory/'}>   
             <Button 
             label="Cancle"
             className="p-button-secondary"
@@ -92,7 +73,7 @@ const CategoryCreateScreen = ({ history }) => {
              <AdminScreen />
              <div className="main-content">
                  <main>
-                     <Card title="Categories" subTitle="You can add categories here">
+                     <Card title="Sub Categories" subTitle="You can add sub categories here">
                           <form onSubmit={submitHandler}>
                           <div className="p-grid mb-5">
                                 <div class="p-col-12">
@@ -111,20 +92,18 @@ const CategoryCreateScreen = ({ history }) => {
                                                      onChange={(e) => setName(e.target.value)} />
                                              </div>
                                              <div class="p-col-12 p-md-6 p-lg-4 p-mt-3">
-                                                 <label htmlFor="icon">Icon</label><br />
-                                                 <input value={icon} id="icon" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
-                                                 onChange={(e) => setIcon(e.target.value)}
-                                             
-                                             />
-                                             <input type="file" id="myfile" name="myfile" 
-                                                        onChange={uploadFileHandler}
-                                                        />
-                                                    {uploading && <Loader/>}
-                                             </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-3">
-                                                 <label htmlFor="color" >Color</label><br />
-                                                 <ColorPicker value={color} style={{fontSize: ".9rem", height: "30px",width: "80%"}} onChange={(e) => setColor(e.value)} />
-                                             </div>
+                                                    <label htmlFor="icon">Category</label><br />
+                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                onChange={(e) => setCategory(e.target.value)} >
+                                                    <option>Select Category here</option>
+                                                        {categories.map(cat => (
+                                                            <>
+                                                             <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
+                                                            </>
+                                                        ))}
+                                                    
+                                                    </select>
+                                            </div>  
                                          </div>
                                   
                                 </div>
@@ -142,4 +121,4 @@ const CategoryCreateScreen = ({ history }) => {
 }
 
 
-export default CategoryCreateScreen
+export default SubCategoryCreateScreen

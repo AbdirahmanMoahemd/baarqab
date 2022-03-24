@@ -8,11 +8,6 @@ import Product from '../models/productModel.js'
 // @access  Public
 export const getProducts = asyncHandler(async (req, res) => {
   
-  let filter = {};
-    if (req.query.categories) {
-        filter = { category: req.query.categories.split(',') };
-    } 
-
   const keyword = req.query.keyword ? {
     name: {
       $regex: req.query.keyword,
@@ -20,7 +15,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     }, 
   } : {}
 
-  const products = await Product.find({ ...keyword }, filter).populate('category');
+  const products = await Product.find({ ...keyword }).populate('category');
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
 
     res.json({products})   
@@ -34,7 +29,7 @@ export const getProducts2 = asyncHandler(async (req, res) => {
   
     
 
-  const products = await Product.find({}).populate('category');
+  const products = await Product.find({}).populate('category').populate('subcategory');
 
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json({products})   
@@ -59,7 +54,7 @@ export const getProductsCount = asyncHandler(async (req, res) => {
 // @route   GET /api/product/:id
 // @access  Public
 export const getProductById = asyncHandler (async (req, res) => {
-  const product = await Product.findById(req.params.id).populate('category');
+  const product = await Product.findById(req.params.id).populate('category').populate('subcategory');
 
     if (product) {
         res.json(product)
@@ -101,6 +96,7 @@ export const createProduct = asyncHandler (async (req, res) => {
     sizes: req.body.sizes,
     brand: req.body.brand,
     category: req.body.category,
+    subcategory: req.body.subcategory,
     description: req.body.description,
     price: req.body.price,
     countInStock: req.body.countInStock,
@@ -120,7 +116,7 @@ export const createProduct = asyncHandler (async (req, res) => {
 // @access  Private/Admin
 export const updateProduct = asyncHandler (async (req, res) => {
   
-  const { name, image,images,colors, sizes, description, brand, category, price, countInStock , isFeatured} = req.body
+  const { name, image,images,colors, sizes, description, brand, category,subcategory, price, countInStock , isFeatured} = req.body
   
   const product = await Product.findById(req.params.id)
 
@@ -134,6 +130,7 @@ export const updateProduct = asyncHandler (async (req, res) => {
     product.description = description
     product.brand = brand
     product.category = category
+    product.subcategory = subcategory
     product.isFeatured = isFeatured
     product.price = price 
     product.countInStock = countInStock

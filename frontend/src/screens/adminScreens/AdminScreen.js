@@ -37,7 +37,7 @@ const AdminScreen = ({ history }) => {
                     </Link> 
                 </li>        
                 <li>
-                    <Link to="/admin/category"><span className="lab la-cuttlefish"></span>
+                    <Link to="/admin/subcategory"><span className="lab la-cuttlefish"></span>
                         <span>Sub Category</span>
                     </Link> 
                 </li>  

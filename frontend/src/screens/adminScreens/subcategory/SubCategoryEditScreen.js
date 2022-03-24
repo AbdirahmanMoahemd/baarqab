@@ -4,81 +4,60 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loader from '../../../components/Loader'
 import Message from '../../../components/Message'
-import {  listCategoryDetails, updateCategory} from '../../../actions/categoryAction'
+import {  listSubCategoryDetails, updateSubCategory} from '../../../actions/subcategoryActions'
 import AdminScreen from '../AdminScreen'
 import { ColorPicker } from 'primereact/colorpicker';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
-import { CATEGORY_UPDATE_RESET } from '../../../constants/categoryConstants'
+import { SUBCATEGORY_UPDATE_RESET } from '../../../constants/subcategory'
+import { listCategories } from '../../../actions/categoryAction'
 
-
-const CategoryEditScreen = ({ match, history }) => {
-    const categoryId = match.params.id
+const SubCategoryEditScreen = ({ match, history }) => {
+    const subcategoryId = match.params.id
    
     
     const [name, setName] = useState('')
-    const [icon, setIcon] = useState('')
-    const [color, setColor] = useState('')
-    const [uploading, setUploading] = useState([])
+    const [category, setCategory] = useState('')
 
     const dispatch = useDispatch()
 
     
 
-    const categoryDetails = useSelector(state => state.categoryDetails)
-    const { loading, error, category } = categoryDetails
+    const subcategoryDetails = useSelector(state => state.subcategoryDetails)
+    const { loading, error, subcategory } = subcategoryDetails
 
-    const categoryUpdate = useSelector(state => state.categoryUpdate)
-    const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = categoryUpdate
+    const subcategoryUpdate = useSelector(state => state.subcategoryUpdate)
+    const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = subcategoryUpdate
     
+    const categoryList = useSelector(state => state.categoryList)
+    const { categories } = categoryList
+
     useEffect(() => {
         if (successUpdate) {
-            dispatch({ type: CATEGORY_UPDATE_RESET })
-            history.push('/admin/category')
+            dispatch({ type: SUBCATEGORY_UPDATE_RESET })
+            history.push('/admin/subcategory')
         }
         else {
-            if (!category.name || category.id !== categoryId) {
-                dispatch(listCategoryDetails(categoryId))
+            if (!subcategory.name || subcategory.id !== subcategoryId) {
+                dispatch(listSubCategoryDetails(subcategoryId))
+                dispatch(listCategories())
             }
             else {
-                setName(category.name)
-                setIcon(category.icon)
-                setColor(category.color)
-             
+                setName(subcategory.name)
+                setCategory(subcategory.category)
             }
         }
     
-    }, [ dispatch, history, successUpdate, categoryId,category])
+    }, [ dispatch, history, successUpdate, subcategoryId,subcategory])
     
-    const uploadFileHandler = async (e) => {
-        const file = e.target.files[0]
-        const formData = new FormData()
-        formData.append('icon', file)
-        setUploading(true)
-
-        try {
-            const config = {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-            const { data } = await axios.post('/api/iconupload', formData, config)
-            setIcon(data)
-            setUploading(false)
-        } catch (error) {
-            console.error(error)
-            setUploading(false)
-        }
-    }
+    
 
     const updateCategoryFun = () => {
-    dispatch(updateCategory({
-            _id: categoryId,
+    dispatch(updateSubCategory({
+            _id: subcategoryId,
             name,
-            icon,
-            color,
-            
+            category,
         }))
     }
      const submitHandler = (e) => {
@@ -112,7 +91,7 @@ const CategoryEditScreen = ({ match, history }) => {
              <AdminScreen />
              <div className="main-content">
                  <main>
-                     <Card title="Categories" subTitle="You can edit categories here">
+                     <Card title="Sub Categories" subTitle="You can edit sub categories here">
                           <form onSubmit={submitHandler}>
                           <div className="p-grid mb-5">
                                 <div class="p-col-12">
@@ -130,19 +109,19 @@ const CategoryEditScreen = ({ match, history }) => {
                                                  <input value={name} id="name" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
                                                      onChange={(e) => setName(e.target.value)} />
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
-                                                 <label htmlFor="icon">Icon</label><br />
-                                                 <input value={icon} id="icon" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
-                                                     onChange={(e) => setIcon(e.target.value)} />
-                                                 <input type="file" id="myfile" name="myfile" 
-                                                        onChange={uploadFileHandler}
-                                                        />
-                                                    {uploading && <Loader/>}
+                                             <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                    <label htmlFor="icon">Category</label><br />
+                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"3%", width: "80%"}}
+                                                        onChange={(e) => setCategory(e.target.value)} className="p-mt-2" >
+                                                        {categories.map(cat => (
+                                                            <>
+                                                             <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
+                                                        </>
+                                                        ))}
+                                                    
+                                                    </select>
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
-                                                 <label htmlFor="color">Color</label><br />
-                                                 <ColorPicker value={color} style={{fontSize: ".9rem", height: "30px",width: "80%"}} onChange={(e) => setColor(e.value)} />
-                                             </div>
+                                            
                                          </div>
                                      )}
                                 </div>
@@ -160,4 +139,4 @@ const CategoryEditScreen = ({ match, history }) => {
 }
 
 
-export default CategoryEditScreen
+export default SubCategoryEditScreen

@@ -431,8 +431,8 @@ body {
 }
 
 .category-box img {
-  height: 35px;
-  width: 50px;
+  height: 55px;
+  width: 70px;
   object-fit: contain;
   object-position: center;
   transition: all ease 0.1s;
