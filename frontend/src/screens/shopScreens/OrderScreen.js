@@ -118,7 +118,7 @@ const OrderScreen = ({ history, match }) => {
         "transactionInfo": {
             "referenceId": "REF8815718025",
             "invoiceId": "INV8815718025",
-            "amount": order.totalPrice,
+            "amount": 0.01,
             "currency": "USD",
             "description": "test direct purchase"
         }
