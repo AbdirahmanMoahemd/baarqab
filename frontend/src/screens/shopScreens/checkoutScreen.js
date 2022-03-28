@@ -41,7 +41,8 @@ const CheckoutScreen = ({  history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
-   
+    const userDetails = useSelector((state) => state.userDetails)
+    const { loading, error, user } = userDetails
   
     
 
@@ -50,9 +51,24 @@ const CheckoutScreen = ({  history }) => {
          
         if (!userInfo) {
             history.push('/login')
-        } 
+        }
+        else {
+            if (!user || !user.name) {
+             
+                dispatch(getUserDetails('profile'))
+            } else {
+                if (!shippingAddress.address) {
+                    setAddress(user.street, user.apartment)
+                    setPhoneNumber(user.phone)
+                    setCity(user.city)
+                    setCountry(user.country)
+                }
+            }
+                
+            }
         
-    }, [dispatch, history, userInfo])
+        
+    }, [dispatch, history, userInfo, user])
 
   const submitHandler = (e) => {
     e.preventDefault() 
