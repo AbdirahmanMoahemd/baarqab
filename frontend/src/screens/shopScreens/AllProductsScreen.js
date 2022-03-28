@@ -19,11 +19,11 @@ import { getProductsByFilter } from '../../actions/filterActions';
 import { Form } from 'react-bootstrap';
 
 const AllProductsScreen = ({ match }) => {
-    
+  const catId = match.params.id
   const keyword = match.params.keyword
   const [categoryIds, setCategoryIds] = useState([]);
-let updatedCategoryIds;
-
+  let updatedCategoryIds;
+  console.log()
   
 
     const dispatch = useDispatch()
@@ -39,9 +39,10 @@ let updatedCategoryIds;
     useEffect(() => {
      dispatch(listProducts(keyword))
      
-    }, [dispatch, keyword ]) 
+    }, [dispatch, ]) 
     useEffect(() => {
-     dispatch(listCategories())
+      dispatch(listCategories())
+     
     }, [dispatch])
     
   const handleCategory = e => {
@@ -71,7 +72,7 @@ let updatedCategoryIds;
    
   const resetState = () => {
     
-		setCategoryIds([]);
+		setCategoryIds([catId]);
 	};
   
     
@@ -139,7 +140,7 @@ let updatedCategoryIds;
             )} 
             {/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617697873"
+        href="https://wa.me/252610872270"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"

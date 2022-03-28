@@ -12,7 +12,6 @@ import LoginScreen from './screens/shopScreens/LoginScreen';
 import RegisterScreen from './screens/shopScreens/RegisterScreen';
 import ProfileScreen from './screens/shopScreens/ProfileScreen';
 import PlaceOrderScreen from './screens/shopScreens/PlaceOrderScreen';
-import ShippingScreen from './screens/shopScreens/ShippingScreen';
 import PaymentScreen from './screens/shopScreens/PaymentScreen';
 import OrderScreen from './screens/shopScreens/OrderScreen';
 import CartScreen from './screens/shopScreens/CartScreen';
@@ -91,6 +90,7 @@ const App = () => {
       <Route path='/page/:pageNumber' component={HomeScreen} exact />
       <Route path='/search/:keyword' component={AllProductsScreen} exact />
       <Route path='/products' component={AllProductsScreen} exact />
+      <Route path='/products/:id' component={AllProductsScreen} exact />
       <Route path='/' component={HomeScreen} exact /> 
     </Router> 
   );

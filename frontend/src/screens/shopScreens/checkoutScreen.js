@@ -25,36 +25,23 @@ import { saveShippingAddress } from '../../actions/cartActions'
 const CheckoutScreen = ({  history }) => {
 
 
-
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState('')
-    const [street, setStreet] = useState('')
-    const [apartment, setApartment] = useState('')
-    const [city, setCity] = useState('')
-    const [country, setCountry] = useState('')
-    const [value, setValue] = useState('')
-    const options = useMemo(() => countryList().getData(), [])
-  
     const cart = useSelector((state) => state.cart)
     const { shippingAddress } = cart
 
     const [address, setAddress] = useState(shippingAddress.address)
-    const [cityAddress, setCityAdd] = useState(shippingAddress.cityAddress)
+    const [city, setCity] = useState(shippingAddress.city)
     const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber)
-    const [countryAddress, setCountryAdd] = useState(shippingAddress.countryAddress)
+    const [country, setCountry] = useState(shippingAddress.country)
   
   
     const dispatch = useDispatch() 
 
-    const userDetails = useSelector((state) => state.userDetails)
-    const { loading, error, user } = userDetails
+    
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
-    const userUpdate = useSelector((state) => state.userUpdate)
-    const { success } = userUpdate
+   
   
     
 
@@ -63,28 +50,11 @@ const CheckoutScreen = ({  history }) => {
          
         if (!userInfo) {
             history.push('/login')
-        } else {
-            if (!user || !user.name || success) {
-                dispatch({ type: USER_UPDATE_RESET })
-                dispatch(getUserDetails('profile'))
-            } else {
-                setName(user.name)
-                setEmail(user.email)
-                setPhone(user.phone)
-                setPhoneNumber(user.phone)
-                setStreet(user.street)
-                setApartment(user.apartment)
-                setAddress(user.street, user.apartment )
-                setCity(user.city)
-                setCountry(user.country)
-            }
-        }
+        } 
         
-    }, [dispatch, history, userInfo, user, success])
+    }, [dispatch, history, userInfo])
 
   const submitHandler = (e) => {
-    setAddress(street, apartment)
-    setPhoneNumber(phone)
     e.preventDefault() 
     
     dispatch(saveShippingAddress({ address, city, phoneNumber, country }))
@@ -96,74 +66,40 @@ const CheckoutScreen = ({  history }) => {
              <Header />
              <>
                  <div class="checkout-page"> 
-  <div>
-    <Link to='/cart' ><Button  label="Back to cart" icon="pi pi-arrow-left" ></Button></Link>
-  </div> 
-  <div class="p-grid checkout-form p-mt-4">
-    <div class="p-col-12 p-md-12 p-lg-8">
-      <form>
-        <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col-4 ">
-            <label for="name">Name</label>
-            <InputText style={{fontSize: "1rem"}} value={name} onChange={(e) => setName(e.value)} id="name"  />
-            
-          </div>
-          <div class="p-field p-col-4 ">
-            <label for="email">Email</label>
-            <InputText style={{fontSize: "1rem"}} value={email} onChange={(e) => setEmail(e.value)} id="email"  />
-            
-          </div>
-          <div class="p-field p-col-4">
-            <label for="color">Phone</label><br />
-            <InputText   style={{fontSize: "1rem"}}
-              value={phone} onChange={(e) => setPhone(e.value)}
-                         id="phone"
-            ></InputText>
-            
-          </div>
-        </div>
-        <div class="p-fluid p-formgrid p-grid">
-          <div class="p-field p-col-4">
-            <label for="street">Street</label>
-            <InputText  style={{fontSize: "1rem"}}
-            value={street} onChange={(e) => setStreet(e.value)} id="street"  />
-           
-          </div>
-          <div class="p-field p-col-4">
-            <label for="street">Apartment</label>
-            <InputText style={{fontSize: "1rem"}}
-            value={apartment} onChange={(e) => setApartment(e.value)} id="apartment"  />
-            
-          </div>
-          <div class="p-field p-col-4">
-            <label for="city">City</label>
-            <InputText  style={{fontSize: "1rem"}}
-            value={city} onChange={(e) => setCity(e.value)} id="city"  />
-           
-          </div>
-          <div class="p-field p-col-4">
-            <label for="country">Country</label><br />
-                       <Dropdown value={country} options={options}
-                         filter showClear 
-                         onChange={(e) => setCountry(e.value)}
-                         placeholder="Select a Country" />
-          </div>
-        </div> 
-      </form>
-    </div>
-    <div class="p-col-12 p-md-12 p-lg-4">
-     <OrderSummaryScreen/>
-      <div class="checkout-button">
-         <Button label="Continue" onClick={submitHandler}></Button> 
-      </div> 
-    </div>
-  </div>
+ <div className="form">
+                <div className="login-form">
+                   
+                    <strong>Shipping</strong>
+                    <form onSubmit={submitHandler}>
+                        <input type="text" value={address} placeholder="Address"
+                            name="Address" required
+                            onChange={(e) => setAddress(e.target.value)}
+                        />
+                        <input type="text" value={city} placeholder="City"
+                            name="city" required
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <input type="phone" value={phoneNumber}
+                            placeholder="Phone Number" name="phoneNumber" required
+                            onChange={(e)=> setPhoneNumber(e.target.value)}    
+                        />
+                        <input type="text" value={country}
+                            placeholder="Country" name="country" required
+                            onChange={(e)=> setCountry(e.target.value)}    
+                        />
+                        <button type="submit">Continue</button>
+                    </form>
+                    
+                </div>
+                
+     
+            </div>  
 </div>
 
          </>
          {/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617697873"
+        href="https://wa.me/252610872270"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"

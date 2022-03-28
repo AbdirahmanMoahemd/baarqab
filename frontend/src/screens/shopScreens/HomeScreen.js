@@ -116,7 +116,7 @@ const HomeScreen = ({ match }) => {
                         categories.map(category => (
                         <span key={category.id}>
                             <a href="#" class="category-box">
-                                <img alt="Fish" src={category.icon} />
+                                <Link to={`/products`}><img alt="Fish" src={category.icon} /></Link>
                                 <span>{category.name}</span>
                             </a>
                             </span>
@@ -175,13 +175,15 @@ const HomeScreen = ({ match }) => {
                                             <>
                                                 {products.map(product => (
                                                     <div class="product-box">
-                                                        <img alt="pack" src={product.image} />
+                                                        <Link to={`/product/${product.id}`}>
+                                                                <img src={product.image} />
+                                                        </Link>
                                                         <strong>{product.name}</strong>
                                                         <span class="quantity">{product.description}</span>
-                                                        <span class="price">{ product.price}$</span>
-                                                        <a href="#" class="cart-btn">
+                                                        <span class="price">{product.price}$</span>
+                                                        <Link to={`/product/${product.id}` } class="cart-btn">
                                                             <i class="fas fa-shopping-bag"></i> Add Cart
-                                                        </a>
+                                                        </Link>
                                                         <a href="#" class="like-btn">
                                                             <i class="far fa-heart"></i>
                                                         </a>
@@ -204,7 +206,7 @@ const HomeScreen = ({ match }) => {
                  
         {/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617697873"
+        href="https://wa.me/252610872270"
         class="whatsapp_float"
         target="_blank" 
         rel="noopener noreferrer"

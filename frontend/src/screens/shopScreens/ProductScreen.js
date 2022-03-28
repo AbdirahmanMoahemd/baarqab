@@ -200,10 +200,9 @@ const ProductScreen = ({ history, match }) => {
                                                 incrementButtonClassName="p-button-success"
                                                  decrementButtonIcon="pi pi-minus"
                                                             incrementButtonIcon="pi pi-plus"
-                                                            
                                                             max={product.countInStock}
                                                             min="1"
-                                                            onValueChange={(e) => setQty(e.target.value)} showButtons
+                                                            onValueChange={(e) => setQty(e.target.value)} 
                                              
                                             
                                         />

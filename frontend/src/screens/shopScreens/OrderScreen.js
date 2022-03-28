@@ -92,10 +92,7 @@ const OrderScreen = ({ history, match }) => {
     console.log(paymentResult)
     dispatch(payOrder(orderId, paymentResult))
   }
-  const successPaymentHandler2 = () => {
-     dispatch(payOrder2(orderId))
-    
-  }
+  
   // var amount  
   // order.orderItems.map((item, index) => (
   //  amount = item.qty * item.price
@@ -142,8 +139,8 @@ axios(config)
     window.alert("not sent yet");
     }
     if (response.data.responseCode == 2001) {
-      dispatch(payOrder2(orderId))
       window.alert("Paid successfully");
+      dispatch(payOrder2(orderId))
     }
   console.log(JSON.stringify(response.data.responseCode));
 })

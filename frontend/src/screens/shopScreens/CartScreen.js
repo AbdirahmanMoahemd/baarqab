@@ -94,7 +94,7 @@ const CartScreen = ({ match, location, history }) => {
                                                                 decrementButtonIcon="pi pi-minus"
                                                                 max={item.countInStock}
                                                                 min="1"
-                                                                onValueChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))} showButtons
+                                                                onValueChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))} 
                                                             />
 
                                                         </div>
@@ -147,7 +147,7 @@ const CartScreen = ({ match, location, history }) => {
             </div>
             {/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617697873"
+        href="https://wa.me/252610872270"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"
