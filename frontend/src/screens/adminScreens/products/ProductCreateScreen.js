@@ -327,7 +327,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                     <option>Select Category here</option>
                                                         {categories.map(cat => (
                                                             <>
-                                                             <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
+                                                             <option value={cat.id}>{cat.name}</option>
                                                             </>
                                                         ))}
                                                     
@@ -340,7 +340,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                     <option>Select Sub Category here</option>
                                                         {subcategories.map(subcat => (
                                                             <>
-                                                             <option value={subcat.id}>{subcat.id.substring(1, 1)}{subcat.name}</option>
+                                                             <option value={subcat.id}>{subcat.name}</option>
                                                              </>
                                                         ))}
                                                     

@@ -106,7 +106,7 @@ const ProductScreen = ({ history, match }) => {
                         <div className="img-display"> 
                             <div ref={imgShowcase}  className = "img-showcase">
                         {product.images.map(i => (
-                        <img src={i}    class="small-img" width="90%"  id="product-img"/>  
+                        <img src={i}    class="small-img" id="product-img"/>  
                         ))} 
 
               
@@ -271,7 +271,7 @@ const ProductScreen = ({ history, match }) => {
                         
                             <div class="product-box">
                                 
-                                         <img alt="apple" src={filteredproduct.image} />
+                                         <img alt="apple" src={filteredproduct.image}  />
                                     
                                    
                                     <strong>{filteredproduct.name}</strong>
@@ -292,11 +292,21 @@ const ProductScreen = ({ history, match }) => {
                         </div>
                        
      </div>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
+     <br></br>
                     </> 
             )}
             {/* WhatsApp icon */}
       <a
-        href="https://wa.me/252617697873"
+        href="https://wa.me/252610872270"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"

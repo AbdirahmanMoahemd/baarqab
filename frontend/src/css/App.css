@@ -468,6 +468,7 @@ body {
   grid-gap: 30px;
   align-items: center;
   margin: 40px 0px;
+  padding: 0 50px;
 }
 
 
@@ -485,7 +486,7 @@ body {
 
 .product-box img {
   width: 100%;
-  height: 180px;
+  height: 150px;
   object-fit: contain;
   object-position: center;
   margin: auto;
@@ -663,6 +664,7 @@ p-toast {
   cursor: pointer;
 }
 
+
 .col-2-d {
   flex-basis: 50%;
   min-width: 300px;
@@ -729,11 +731,14 @@ p-toast {
   font-size: 12px;
   margin: 12px 0;
   color: #777;
-}
+} 
 
 .single-product .col-2-d img {
-  padding: 0;
+  padding: 0px ;
 }
+
+
+
 
 .single-product .col-2-d {
   padding: 20px;
@@ -866,6 +871,13 @@ p-toast {
     font-size: 22px;
   }
 }
+
+
+.img-display {
+  width: 80%;
+  margin-left: 10%;
+}
+
 
 
 
@@ -1158,7 +1170,7 @@ p-toast {
   .cart-page,
   .checkout-page {
 
-    padding: 3rem 1rem;
+    padding: 3rem 10rem;
     background-color: #eee;
   }
 
@@ -1176,6 +1188,15 @@ p-toast {
   .products-page h4 {
     font-size: 2.5rem;
   }
+  .product-box img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    object-position: center;
+    margin: auto;
+    cursor: pointer;
+  }
+
 
   .product-box strong {
 
@@ -1282,7 +1303,8 @@ p-toast {
 
   .small-img {
     width: 100%;
-    height: 100%;
+    height: 70%;
+    padding: 100px 100px;
   }
 
   .small-img-row {

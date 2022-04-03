@@ -1,39 +1,15 @@
 import React, { useRef, useEffect , useState} from "react";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector , } from 'react-redux'
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Meta from '../../components/Meta'
-import { listSlides } from '../../actions/slideActions'
-import Product from '../../components/Product'
 import Footer from "../../components/Footer";
 import Banner from "../../components/banner";
 import { listProducts2 } from '../../actions/productAction'
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
 import Header from "../../components/Header";
-import Paginate from "../../components/Paginate";
-import { Toast } from 'primereact/toast';
-import { Button } from 'primereact/button';
-import image1 from '../../images/imgae/fish.png';
-import image2 from '../../images/imgae/Vegetables.png';
-import image3 from '../../images/imgae/medicine.png';
-import image4 from '../../images/imgae/baby.png';
-import image5 from '../../images/imgae/beauty.png';
-import image6 from '../../images/imgae/Gardening.png';
-import pimg1 from '../../images/imgae/apple.png';
-import pimg2 from '../../images/imgae/chili.png';
-import pimg3 from '../../images/imgae/onion.png';
-import pimg4 from '../../images/imgae/patato.png';
-import pimg5 from '../../images/imgae/garlic.png';
-import pimg6 from '../../images/imgae/tamato.png';
-import ppimg1 from '../../images/imgae/pack1.png';
-import ppimg2 from '../../images/imgae/pack2.jpg';
-import ppimg3 from '../../images/imgae/pack3.png';
-import ppimg4 from '../../images/imgae/pack1.png';
-import ppimg5 from '../../images/imgae/pack2.jpg';
-import ppimg6 from '../../images/imgae/pack3.png';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { listCategories } from '../../actions/categoryAction' 
 import { listSubCategories } from '../../actions/subcategoryActions' 
