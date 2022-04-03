@@ -39,8 +39,8 @@ Baarqab.com waxay leedahay adeeg Delivery ah oo ka caawin doona in lagu Qaado/Ra
 					</div>
 				</div>
 				<div class="social-about">
-					<a href="https://www.facebook.com/Baarqab.RetailCompany/"><i class="lab la-facebook-f"></i></a>
-					<a href="https://www.instagram.com/baarqabonline/"><i class="lab la-instagram"></i></a>
+					<a target="_blank" href="https://www.facebook.com/Baarqab.RetailCompany/"><i class="lab la-facebook-f"></i></a>
+					<a target="_blank" href="https://www.instagram.com/baarqabonline/"><i class="lab la-instagram"></i></a>
 				</div>
 			</div>
 			<div class="image-section-about">

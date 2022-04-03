@@ -13,8 +13,8 @@ const Footer = () => {
             <div class="footer-logo">
                 <a href="#"><span>Baarqab</span>.shop</a>
                 <div class="footer-social">
-                     <a href="https://www.facebook.com/Baarqab.RetailCompany/"><i  className="lab la-facebook-f"></i></a>
-                <a href="https://www.instagram.com/baarqabonline/"><i  class="lab la-instagram"></i></a>
+                     <a target="_blank" href="https://www.facebook.com/Baarqab.RetailCompany/"><i  className="lab la-facebook-f"></i></a>
+                <a target="_blank" href="https://www.instagram.com/baarqabonline/"><i  class="lab la-instagram"></i></a>
                 </div>
             </div>
         <div class="footer-links">
@@ -39,7 +39,7 @@ const Footer = () => {
             <strong>Contact</strong>
             <ul>
                 <li><a href="#">Phone : +252 610 872270</a></li>
-                <li><a href="#">Email : baarqab@info.com</a></li>
+                <li><a href="#">Email : info.baarqab@gmail.com</a></li>
             </ul>
         </div>
         </div>
