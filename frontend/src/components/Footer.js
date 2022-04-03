@@ -11,12 +11,10 @@ const Footer = () => {
         <footer>
         <div class="footer-container">
             <div class="footer-logo">
-                <a href="#"><span>Baarqab</span>.com</a>
+                <a href="#"><span>Baarqab</span>.shop</a>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                     <a href="https://www.facebook.com/Baarqab.RetailCompany/"><i  className="lab la-facebook-f"></i></a>
+                <a href="https://www.instagram.com/baarqabonline/"><i  class="lab la-instagram"></i></a>
                 </div>
             </div>
         <div class="footer-links">
@@ -40,8 +38,8 @@ const Footer = () => {
         <div class="footer-links">
             <strong>Contact</strong>
             <ul>
-                <li><a href="#">Phone : +252 61 6132192</a></li>
-                <li><a href="#">Email : baarqab@gmail.com</a></li>
+                <li><a href="#">Phone : +252 610 872270</a></li>
+                <li><a href="#">Email : baarqab@info.com</a></li>
             </ul>
         </div>
         </div>

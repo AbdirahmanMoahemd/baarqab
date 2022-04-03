@@ -38,10 +38,8 @@ const Header = () => {
     <div class="social-call">
         <div class="social-out">
             <div class="social">
-                            <a href="#"><i  className="lab la-facebook-f"></i></a>
-                <a href="#"><i  class="lab la-twitter"></i></a>
-                <a href="#"><i  class="lab la-youtube"></i></a>
-                <a href="#"><i  class="lab la-instagram"></i></a>
+                            <a href="https://www.facebook.com/Baarqab.RetailCompany/"><i  className="lab la-facebook-f"></i></a>
+                <a href="https://www.instagram.com/baarqabonline/"><i  class="lab la-instagram"></i></a>
             </div>
             <div class="phone">
                 <span>Call +252 610 872270</span>

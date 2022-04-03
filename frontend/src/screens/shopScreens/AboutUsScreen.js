@@ -32,18 +32,15 @@ const AboutUsScreen = () => {
 				</div>
 				<div class="content-about">
 					<h3>BAARQAB SOUQ</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
+					<p>Baarqab.shop Wa Suuq Online Ah, oo Ad Ka Iibsan Kartid Alaabta Ad Rabto, Sidoo Kale Ad Ku Iibin Kartid Alabta Ad Rabtid Inaad Iibisid.
+Baarqab.com waxay leedahay adeeg Delivery ah oo ka caawin doona in lagu Qaado/Raro alabtaada</p>
 					<div class="button-about">
 						<a href="">Read More</a>
 					</div>
 				</div>
 				<div class="social-about">
-					<a href=""><i class="lab la-facebook-f"></i></a>
-					<a href=""><i class="lab la-twitter"></i></a>
-					<a href=""><i class="lab la-instagram"></i></a>
+					<a href="https://www.facebook.com/Baarqab.RetailCompany/"><i class="lab la-facebook-f"></i></a>
+					<a href="https://www.instagram.com/baarqabonline/"><i class="lab la-instagram"></i></a>
 				</div>
 			</div>
 			<div class="image-section-about">
