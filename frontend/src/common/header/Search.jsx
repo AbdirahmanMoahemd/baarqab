@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import logo from "../../components/assets/images/logo.svg"
+import logo from "../../components/assets/images/baarqab.png"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import { InputText } from 'primereact/inputtext';
@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import $ from 'jquery';
 
 
-const Search = ({ CartItem }) => {
+const Search = ({ CartItem }) => { 
   // fixed Header
   $(window).scroll(function () {
             if($(document).scrollTop() > 25) {

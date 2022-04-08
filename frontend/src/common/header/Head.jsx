@@ -8,11 +8,11 @@ const Head = () => {
           <div className='left  left-flex'>
             <div>
             <i className='fa fa-phone'></i>
-              <label> +88012 3456 7894</label>
+              <label> +252 610 872270</label>
             </div>
             <div>
             <i className='fa fa-envelope'></i>
-              <label> support@ui-lib.com</label>
+              <label>info.baarqab@gmail.com</label>
               </div>
           </div>
          
