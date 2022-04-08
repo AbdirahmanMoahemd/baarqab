@@ -1,14 +1,10 @@
-import React from 'react'
-import playstore from '../images/play-store.png';
-import appstore from '../images/app-store.png';
-import { Link } from 'react-router-dom';
-import '../css/footer.css';
-
-
+import React from "react"
+import "./style.css"
 
 const Footer = () => {
-    return (
-        <footer>
+  return (
+    <>
+      <footer>
         <div class="footer-container">
             <div class="footer-logo">
                 <a href="#"><span>Baarqab</span>.shop</a>
@@ -41,10 +37,11 @@ const Footer = () => {
                 <li><a href="#">Phone : +252 610 872270</a></li>
                 <li><a href="#">Email : info.baarqab@gmail.com</a></li>
             </ul>
-        </div>
-        </div>
-    </footer>
-    )
+        </div> 
+        </div>  
+    </footer> 
+    </>
+  )
 }
 
 export default Footer

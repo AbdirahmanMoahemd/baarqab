@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import CheckOutSteps from '../../components/CheckOutSteps'
 import { savePaymentMethod } from '../../actions/cartActions'
-import Header from '../../components/Header'
+
+import Header from "../../common/header/Header"
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)

@@ -6,7 +6,9 @@ import Loader from '../../components/Loader'
 import Message from '../../components/Message'
 import { listProducts2 } from '../../actions/productAction'
 import Products from '../../components/Products'
-import Header from '../../components/Header'
+
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import Meta from '../../components/Meta'
 
 

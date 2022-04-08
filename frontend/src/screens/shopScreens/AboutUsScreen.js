@@ -1,10 +1,13 @@
 import React from 'react'
-import Header from '../../components/Header'
+
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
+
 import emailjs from 'emailjs-com';
 import Message from '../../components/Message';
 import image1 from '../../images/aboutpage.png';
 import '../../css/about.css'
-import Footer from '../../components/Footer';
+
 
 const AboutUsScreen = () => {
     let sent = false

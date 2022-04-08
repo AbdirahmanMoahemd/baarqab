@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import Footer from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../../actions/cartActions'
-import Header from '../../components/Header'
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import { Messages } from 'primereact/messages';
 import { Message } from 'primereact/message';
 import { InputNumber } from 'primereact/inputnumber';

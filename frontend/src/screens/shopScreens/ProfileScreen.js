@@ -9,7 +9,8 @@ import { logout } from '../../actions/userActions'
 import { updateUserProfile } from '../../actions/userActions'
 import { USER_UPDATE_RESET } from '../../constants/userConstants'
 import { mylistOrders } from '../../actions/orderActions'
-import Header from '../../components/Header.js'
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import { Card } from 'primereact/card';
 
 

@@ -1,0 +1,12 @@
+.flash {
+  background: #f6f9fc;
+  padding: 50px 0;
+}
+.img {
+  width: 240px;
+    height: 240px;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}

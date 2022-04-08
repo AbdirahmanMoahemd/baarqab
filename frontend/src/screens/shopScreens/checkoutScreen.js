@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import Footer from '../../components/Footer'
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../../actions/cartActions'
-import Header from '../../components/Header'
+
 import { Messages } from 'primereact/messages';
 import { Message } from 'primereact/message';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
-import '../../css/checkout.css';
+import '../../css/login.css';
 import pimg1 from '../../images/imgae/apple.png';
 import { InputMask } from 'primereact/inputmask';
 import { InputText } from 'primereact/inputtext';
@@ -81,7 +82,9 @@ const CheckoutScreen = ({  history }) => {
         <>
              <Header />
              <>
-                 <div class="checkout-page"> 
+                <div className="login-page">
+                
+                <div className="login-page-mt">
  <div className="form">
                 <div className="login-form">
                    
@@ -110,6 +113,7 @@ const CheckoutScreen = ({  history }) => {
                 
      
             </div>  
+</div>
 </div>
 
          </>

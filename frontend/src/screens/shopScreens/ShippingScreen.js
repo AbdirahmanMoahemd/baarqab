@@ -5,8 +5,9 @@ import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
 import CheckoutSteps from '../../components/CheckOutSteps'
 import { saveShippingAddress } from '../../actions/cartActions'
-import Header from '../../components/Header.js'
-
+ 
+import Header from "../../common/header/Header"
+  
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart)
   const { shippingAddress } = cart

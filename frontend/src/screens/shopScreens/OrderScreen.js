@@ -20,7 +20,8 @@ import {
   ORDER_DETAILS_REQUEST,
   ORDER_PAY_RESET2,
 } from '../../constants/orderConstants'
-import Header from '../../components/Header'
+
+import Header from "../../common/header/Header"
 
 
 const OrderScreen = ({ history, match }) => {

@@ -1,31 +1,33 @@
 import React, { useRef, useEffect , useState} from "react";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector , } from 'react-redux'
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 import Meta from '../../components/Meta'
-import Footer from "../../components/Footer";
-import Banner from "../../components/banner";
-import { listProducts2 } from '../../actions/productAction'
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
+
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
-import Header from "../../components/Header";
-import { TabView, TabPanel } from 'primereact/tabview';
-import { listCategories } from '../../actions/categoryAction' 
+
+import { listProducts2 } from '../../actions/productAction'
 import { listSubCategories } from '../../actions/subcategoryActions' 
+import { listCategories } from '../../actions/categoryAction'
 
 
 
-const HomeScreen = ({ match }) => {
-    const myToast = useRef(null);
+import Home from "../../components/MainPage/Home"
+import FlashDeals from "../../components/flashDeals/FlashDeals"
+import TopCate from "../../components/top/TopCate"
+import NewArrivals from "../../components/newarrivals/NewArrivals"
+import Discount from "../../components/discount/Discount"
+import Shop from "../../components/shops/Shop"
+import Annocument from "../../components/annocument/Annocument"
+import Wrapper from "../../components/wrapper/Wrapper"
+
+const HomeScreen = ({ match , CartItem}) => {
     const keyword = match.params.keyword
-    const showToast = (severityValue, summaryValue, detailValue) => {   
-    myToast.current.show({severity: severityValue, summary: summaryValue, detail: detailValue});   
-    }
-
-    const  showSuccess= () => {
-        myToast.current.show({severity: 'success', summary: 'Success Message', detail: 'Order submitted'});
-    }
+   
+ 
+   
     const [activeIndex, setActiveIndex] = useState(0);
   
 
@@ -45,7 +47,7 @@ const HomeScreen = ({ match }) => {
     
   
 
-    useEffect(() => {
+    useEffect(() => { 
       
         dispatch(listProducts2())
         dispatch(listCategories())
@@ -54,131 +56,19 @@ const HomeScreen = ({ match }) => {
   
    
 
-    // const mystyle = {
-    //   backgroundImage: {image},
-    // }; 
-     
-
-    const settings = {
-      dots: true,
-      infinite: true,
-      speed: 200,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true
-    };
-    const settings2 = {
-      dots: true,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    };
+  
     return (
       <>
         <Header />
         <Meta />
-        <Banner />
-        <section id="category">
-        <div class="category-heading">
-            <h2>Category</h2>
-            <span>All</span>
-                </div>
-                {loadingcat && Loader}
-                {errorCat && <Message variant='danger'>{errorCat}</Message>}
-                
-                <div class="category-container" >
-                    {categories &&
-                        categories.map(category => (
-                        <span key={category.id}>
-                            <a href="#" class="category-box">
-                                <Link to={`/products`}><img alt="Fish" src={category.icon} /></Link>
-                                <span>{category.name}</span>
-                            </a>
-                            </span>
-                            ))}
-                        </div>
-                    
-        </section>
-        <section id="popular-product">
-        <div class="product-heading">
-            <h3>Popular Product</h3>
-            <span>All</span>
-        </div>
-        <div class="product-container">
-                    {loading ? (<Loader />) : error ? (<Message variant='danger' > {error}</Message>) : (
-                        <>
-                        {
-                            products.map(product => (
-                                <div class="product-box">
-                                    <Link to={`/product/${product.id}`} className="add-cart">
-                                        <img alt={product.name} src={product.image} />
-                                    </Link>
-                                    <strong>{product.name}</strong>
-                                    <span class="price">{product.price}$</span>
-                                    <Link to={`/product/${product.id}`} className="add-cart">
-                                        <a href="#" class="cart-btn">
-                                            <i class="fas fa-shopping-bag"></i> Add Cart
-                                        </a>
-                                    </Link>
-                                    <a href="#" class="like-btn">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                </div>
-                            ))}
-                            </>
-                       )}
-            
-        </div>
-        </section>
-            {loading ? (<Loader />) : error ? (<Message variant='danger' > {error}</Message>) : (
-                <>
-            {loadingcat && Loader}
-            {categories &&
-                categories.map(category => (
-                    <div className="rev-style-2">
-                        <div class="product-heading-package">
-                            <h3>{category.name} Package</h3>
-                        </div>
-                        {loadingSubCat ? (<Loader />) : errorSubCat ? (<Message variant='danger' > {errorSubCat}</Message>) : (
-                            <>
-                        <TabView activeIndex={activeIndex} scrollable onTabChange={(e) => setActiveIndex(e.index)}>
-                            
-                            {subcategories &&
-                            subcategories.filter(subcat => subcat.category.name === category.name).map(subcategory => (
-                                <TabPanel header={subcategory.name}>
-                                    <div className="in-header-tab-1">
-                                            <>
-                                                {products.map(product => (
-                                                    <div class="product-box">
-                                                        <Link to={`/product/${product.id}`}>
-                                                                <img src={product.image} />
-                                                        </Link>
-                                                        <strong>{product.name}</strong>
-                                                        <span class="quantity">{product.description}</span>
-                                                        <span class="price">{product.price}$</span>
-                                                        <Link to={`/product/${product.id}` } class="cart-btn">
-                                                            <i class="fas fa-shopping-bag"></i> Add Cart
-                                                        </Link>
-                                                        <a href="#" class="like-btn">
-                                                            <i class="far fa-heart"></i>
-                                                        </a>
-                                                    </div>
-                                                ))}
-                                                </>
-                                       
-                                            
-                                        </div>
-                                    </TabPanel>
-                            ))}
-                               
-                            </TabView>
-                             </>
-                            )}
-                    </div>
-                    ))} 
-                    </>
-                )}
+        <Home CartItem={CartItem} />
+      <TopCate />
+      <FlashDeals productItems={products} />
+      <NewArrivals productItems={products} />
+      <Discount productItems={products}/>
+      <Shop shopItems={products} /> 
+      <Annocument />
+      <Wrapper />
                  
         {/* WhatsApp icon */}
       <a

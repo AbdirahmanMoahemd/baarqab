@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import axios  from 'axios'
 import emailjs from 'emailjs-com'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Message from '../../components/Message'
-import CheckOutSteps from '../../components/CheckOutSteps'
 import { createOrder } from  '../../actions/orderActions' 
 import { CART_SAVE_PAYMENT_METHOD, CART_SAVE_PAYMENT_METHOD_RESET } from '../../constants/cartConstants'
 import { ORDER_DETAILS_REQUEST, ORDER_DETAILS_RESET, ORDER_DETAILS_SUCCESS } from '../../constants/orderConstants'
-import Header from '../../components/Header'
-import nodemailer from 'nodemailer'
+
+import Header from "../../common/header/Header"
 import { Button } from 'primereact/button';
-import OrderSummaryScreen from './oderSummaryScreen'
 import { RemoveCartFun } from '../../actions/userActions'
 
 const PlaceOrderScreen = ({ history }) => {
@@ -192,7 +188,12 @@ const PlaceOrderScreen = ({ history }) => {
            
     </div>
                                        
-  </div> 
+            </div> 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+           
   
 </div>
  

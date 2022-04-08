@@ -1,10 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './App.css';
 import './css/App.css';
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import Header from './components/Header'
-import Footer from './components/Footer'
 import HomeScreen from './screens/shopScreens/HomeScreen';
 import ProductScreen from './screens/shopScreens/ProductScreen';
 import ProductsScreen from './screens/shopScreens/ProductsScreen';
@@ -42,6 +40,7 @@ import UserListScreen from './screens/adminScreens/users/UserListScreen'
 
 
 import ScrollToTop from './components/ScrollToTop';
+import Cart from './common/Cart/Cart';
 
 
 const App = () => {
@@ -91,7 +90,9 @@ const App = () => {
       <Route path='/search/:keyword' component={AllProductsScreen} exact />
       <Route path='/products' component={AllProductsScreen} exact />
       <Route path='/products/:id' component={AllProductsScreen} exact />
-      <Route path='/' component={HomeScreen} exact /> 
+     <ScrollToTop>
+        <Route path='/' component={HomeScreen} exact /> 
+      </ScrollToTop>
     </Router> 
   );
 }  

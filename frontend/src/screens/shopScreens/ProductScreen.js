@@ -7,7 +7,9 @@ import Message from '../../components/Message'
 import {
   listProductDetails, createProductReview, listProducts2
 } from '../../actions/productAction'
-import Header from '../../components/Header'
+
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import { listColors } from '../../actions/colorActions.js'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../../constants/productConstants'
 import Meta from '../../components/Meta'
@@ -99,9 +101,9 @@ const ProductScreen = ({ history, match }) => {
         
           <>
            <Meta title={product.name}/> 
-            
+            <div className='product-page'>
                 <div class="small-container single-product">
-         <div class="row">
+         <div class="product-row">
                             <div class="col-2-d">
                         <div className="img-display"> 
                             <div ref={imgShowcase}  className = "img-showcase">
@@ -259,32 +261,42 @@ const ProductScreen = ({ history, match }) => {
                          </div>
                       ): <Message>Please <Link to='/login'> sign in </Link> to write a review</Message>}
                     </div>  
-     <div class="small-container">
-         <div class="row row-2">
+     <div class="small-container2">
+         <div class="product-row row-2">
          <h2>Related Products</h2>
          <p>View More</p>
         </div>
      </div>
-     <div class="small-container">
+     <div class="small-container2">
                         <div class="product-container ">
                              {products.filter(pro => pro.category.name === product.category.name).map(filteredproduct => (
                         
-                            <div class="product-box">
-                                
-                                         <img alt="apple" src={filteredproduct.image}  />
-                                    
-                                   
-                                    <strong>{filteredproduct.name}</strong>
-                                    <span class="price">{filteredproduct.price}$</span>
-                                    <Link to={`/product/${filteredproduct.id}`} className="add-cart">
-                                        <a href="#" class="cart-btn">
-                                        <i class="fas fa-shopping-bag"></i> Add Cart
-                                         </a>
-                                    </Link> 
-                                    <a href="#" class="like-btn">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                </div>
+                             <div className='box'>
+            <div className='product mtop'>
+              <div className='img'>
+                <img src={filteredproduct.image} alt='' />
+              </div>
+              <div className='product-details'>
+                <h3>{filteredproduct.name}</h3>
+                <div className='rate'>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                  <i className='fa fa-star'></i>
+                </div>
+                <div className='price'>
+                  <h4>${filteredproduct.price}.00 </h4>
+                  {/* step : 3  
+                     if hami le button ma click garryo bahne 
+                    */}
+                  <button >
+                    <i className='fa fa-plus'></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
                         ))}
            
            
@@ -301,7 +313,8 @@ const ProductScreen = ({ history, match }) => {
      <br></br>
      <br></br>
      <br></br>
-     <br></br>
+                        <br></br>
+                        </div>
                     </> 
             )}
             {/* WhatsApp icon */}

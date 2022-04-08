@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from "../../common/header/Header"
+import Footer from "../../common/footer/Footer"
 import '../../css/products.css'
 import { Checkbox } from 'primereact/checkbox';
 import pimg1 from '../../images/imgae/apple.png';
@@ -84,8 +84,8 @@ const AllProductsScreen = ({ match }) => {
             {loadingcat && <Loader/>}
              {error && <Message variant='danger'>{error}</Message>}
             {loading ? ( <Loader /> ) : error ? (<Message variant='danger'>{error}</Message>) : (
-          <div className="all-products-page">
-             <div className="all-products-page-con">
+          <div className="all-products-page  background">
+             <div className="all-products-page-con container">
                 <div className="containter-pro-1">
                    <div className="containter-pro-1-title"><h3>Category</h3></div>
                    <div className="containter-pro-1-body">
@@ -112,7 +112,7 @@ const AllProductsScreen = ({ match }) => {
                 </div> 
                 <div className="containter-pro-2">
                    <h3>Products</h3>
-                        <div class="product-container">
+                        <div class="products-container">
                   { products &&
                     products.map(product => (
                                 <div class="product-box" key={product.id}>

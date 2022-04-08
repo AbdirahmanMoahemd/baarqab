@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom'
 import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
 import { login } from '../../actions/userActions'
-import $ from 'jquery';
 import { Button } from 'react-bootstrap'
-import Header from '../../components/Header.js'
+
+import Header from "../../common/header/Header"
+
 import '../../css/login.css';
 
 
@@ -33,22 +34,15 @@ const LoginScreen = ( { location, history } ) => {
     }
     
 
-    var close = document.getElementsByClassName("closebtn");
-    var i;
-
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function(){
-        var div = this.parentElement;
-        div.style.opacity = "0";
-        setTimeout(function(){ div.style.display = "none"; }, 5000);
-    }
-    }
+    
     
 
     return (
         <>
             <Header />
-            <div className="login-page-mt">
+            <div className="login-page">
+                
+                <div className="login-page-mt">
             <div className="form">
                 <div className="login-form">
                    
@@ -74,7 +68,8 @@ const LoginScreen = ( { location, history } ) => {
                             
                      <p className="wt"> .</p>
                      <p className="wt"> .</p>       
-                </div>
+                    </div>
+                    </div>
                 </div>
         </>
 

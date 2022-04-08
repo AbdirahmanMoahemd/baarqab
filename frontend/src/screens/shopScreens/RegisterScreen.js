@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
 import { register } from '../../actions/userActions'
-import Header from '../../components/Header.js'
+
+import Header from "../../common/header/Header"
 
 
 const RegisterScreen = ({ location, history }) => {
@@ -46,16 +47,7 @@ const RegisterScreen = ({ location, history }) => {
         }
     }
 
-    var close = document.getElementsByClassName("closebtn");
-    var i;
-
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function(){
-        var div = this.parentElement;
-        div.style.opacity = "0";
-        setTimeout(function(){ div.style.display = "none"; }, 5000);
-    }
-    }
+   
     
 
     return (
