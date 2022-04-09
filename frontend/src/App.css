@@ -5,7 +5,10 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+.toggle{
+  padding-left: 30px;
+  font-size: 18px; 
+}
 html {
   scroll-behavior: smooth;
 }

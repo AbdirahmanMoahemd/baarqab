@@ -5,6 +5,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import styled from 'styled-components';
 import logo from "../../components/assets/images/logo.svg"
+import SearchBoxx from "./SearchBoxx";
+import { Route } from 'react-router-dom'
 
 var isScorlling = false
 
@@ -13,6 +15,7 @@ const Navbar = () => {
   const [navbarState, setNavbarState] = useState(false);
   const [y, setY] = useState(window.scrollY);
 
+   
   const userLogin = useSelector(state => state.userLogin)
   const { userInfo } = userLogin
 
@@ -105,11 +108,7 @@ console.log(isScorlling)
               </a>
             </li>
           <li>
-        <div class="search_box-dd-2">
-                <input type="search" placeholder="Search here ..."
-                    />
-                <span class="fa fa-search" ></span>
-    </div>
+       <Route render={({ history }) => <SearchBoxx history={history} />}/>
         </li>
           </ul>
           

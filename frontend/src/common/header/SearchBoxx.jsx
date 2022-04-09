@@ -1,6 +1,6 @@
-import React, {useState} from "react"
+import React,{useState}  from 'react'
 
-const SearchBox =  ({ history }) => {
+const SearchBoxx = ({ history }) => {
     const [keyword, setKeyword] = useState('')
 
     const submitHandler = (e) => {
@@ -14,15 +14,14 @@ const SearchBox =  ({ history }) => {
         }
     }
     return (
-     <form onSubmit={submitHandler}>
-    <div class="search_box-dd">
+      <form onSubmit={submitHandler}>
+    <div class="search_box-dd-2">
                 <input type="search" placeholder="Search here ..."
-                onChange={(e) => setKeyword(e.target.value)} />
-            
-                <span class="fa fa-search" onClick={submitHandler} ></span>
+                 onChange={(e) => setKeyword(e.target.value)}    />
+                <span class="fa fa-search" onClick={submitHandler}></span>
             </div>
-            </form> 
+            </form>
   )
 }
 
-export default SearchBox
+export default SearchBoxx

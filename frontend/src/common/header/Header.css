@@ -189,7 +189,7 @@
 }
 @media (max-width: 768px) {
   .search.active {
-  height: 12vh;
+  height: 10vh;
   position: fixed;
   top: 0;
   z-index: 1000;

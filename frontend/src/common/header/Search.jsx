@@ -5,9 +5,10 @@ import Navbar from "./Navbar"
 import { InputText } from 'primereact/inputtext';
 import { useDispatch, useSelector } from 'react-redux'
 import $ from 'jquery';
+import { Route } from 'react-router-dom'
+import SearchBox from "./SearchBox";
 
-
-const Search = ({ CartItem }) => { 
+const Search = () => { 
   // fixed Header
   $(window).scroll(function () {
             if($(document).scrollTop() > 25) {
@@ -34,20 +35,14 @@ const userLogin = useSelector(state => state.userLogin)
             <img src={logo} alt=''/>
           </div>
           <Navbar />
-          <form>
-        <div class="search_box-dd">
-                <input type="search" placeholder="Search here ..."
-                    />
-                <span class="fa fa-search" ></span>
-    </div>
-        </form>
+           <Route render={({ history }) => <SearchBox history={history} />}/> 
           <div className='icon f_flex '>
             {userInfo ? (
               <Link to='/profile' >
                 <span className='user-name'>
                   <p>{userInfo.name.split(' ')[0]}</p>
                   </span>
-              </Link>
+              </Link> 
                         ) :   <Link to='/login'>
               <i className='fa fa-user icon-circle'></i>
               </Link>}  
