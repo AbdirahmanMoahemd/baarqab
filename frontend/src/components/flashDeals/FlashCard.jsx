@@ -3,6 +3,7 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { Link } from "react-router-dom"
+import Rating from "../Rating"
 
 const SampleNextArrow = (props) => {
   const { onClick } = props
@@ -29,11 +30,27 @@ const FlashCard = ({ productItems, addToCart }) => {
   const increment = () => {
     setCount(count + 1)
   }
+
+  var slideToShow = 1
+ 
+  if (productItems.length == 1) {
+    slideToShow = 1
+  }
+  else if (productItems.length == 2) {
+    slideToShow = 2
+  }
+  else if (productItems.length == 3) {
+    slideToShow = 3
+  }
+  else {
+    slideToShow = 4
+  } 
+  
   const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: slideToShow,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -62,11 +79,9 @@ const FlashCard = ({ productItems, addToCart }) => {
                 <div className='product-details'>
                   <h3>{productItems.name}</h3>
                   <div className='rate'>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
-                    <i className='fa fa-star'></i>
+                    <Rating
+                                value={productItems.rating}
+                                />
                   </div>
                   <div className='price'>
                     <h4>${productItems.price}.00 </h4>

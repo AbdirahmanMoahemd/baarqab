@@ -311,6 +311,11 @@ textarea {
   .main-content .form {
     margin-top: 9in0px;
   }
+  .login-page {
+  background: #f6f9fc;
+  height: 50vh;
+
+}
 }
 
 @media (max-width: 600px) {

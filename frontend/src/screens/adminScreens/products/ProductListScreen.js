@@ -90,29 +90,32 @@ const ProductListScreen = ({ history }) => {
                                     <thead>
                                         <tr>
                                             <td>NAME</td>
-                                            <td>IMAGE</td>
-                                            <td>PRICE</td>
                                             <td>CATEGORY</td>
                                             <td>SUB CATEGORY</td>
-                                            <td>BRAND</td>
-                                            <td>Stock</td>
+                                            <td>IMAGE</td>
+                                            <td>PRICE</td>
+                                            <td>isDISCOUNTED</td>
+                                            <td>NEW PRICE</td>
+                                            <td>isFEATURED</td>
+                                            <td>STOCK</td>
                                             <td></td>
-                                                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                        {products.map(product => (
                                             <tr key={product.id}>
                                                <td>{product.name}</td>
+                                               <td>{product.category ? product.category.name : 'not found'}</td>  
+                                                <td>{product.subcategory ? product.subcategory.name : 'not found'}</td>  
                                                <td className="product-per-image">
                                                     <img style={{width: "100%"}} src={product.image} />
-                                               </td>
+                                               </td> 
                                                <td>${product.price}</td>
-                                                <td>{product.category ? product.category.name : 'not found'}</td>  
-                                                <td>{product.subcategory ? product.subcategory.name : 'not found'}</td>  
-                                                <td>{product.brand}</td>
+                                                <td>{product.isDiscounted ? 'Yes': 'No'}</td>
+                                                <td>{product.newPrice}</td>
+                                                <td>{product.isFeatured ? 'Yes': 'No'}</td>
                                                <td>{product.countInStock}</td>
-                                                <td>
+                                                <td> 
                                                     <Button 
                                                     icon="pi pi-trash"
                                                     className="p-button-danger p-mr-2"

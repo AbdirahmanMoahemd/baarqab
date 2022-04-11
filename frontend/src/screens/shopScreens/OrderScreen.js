@@ -162,7 +162,7 @@ axios(config)
         (
           <>
            <div className="cart-page-new">
-          <div class="cart-page">
+          <div class="place-page">
                             <div class="container-pages-cart">
                            
                                 <div class="col-cart">

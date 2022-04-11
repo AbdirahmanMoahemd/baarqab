@@ -145,8 +145,8 @@ const ProductScreen = ({ history, match }) => {
              </div>
              <div class="col-2-d pro-info">
                  <p style={{fontSize: '1.5rem'}}>Home / {product.name}</p>
-                 <h1>Name: {product.name}</h1>
-                                <h4>Price: ${product.price}</h4>
+                 <h1 className='product-new-name'>Name: {product.name}</h1>
+                    <div className='price-flex'><h4>Price:<span className='prices-flex'><span style={{ textDecorationLine: 'line-through', }}>${product.price}</span> {product.isDiscounted && <span className='dis-price'>${product.newPrice}</span>}</span></h4></div>
                                 <h4><Rating
                                 value={product.rating}
                                 text={` ${product.numReviews} reviews`}
@@ -215,7 +215,7 @@ const ProductScreen = ({ history, match }) => {
                  <button  class="btn" disabled={product.countInStock === 0} onClick={addToCartHandler}>Add to cart</button>
                  <h3>Product Details <i class="fa fa-indent"></i></h3>
                  <br/>
-                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                 <p>{product.decription}.</p>
              </div>
          </div> 
      </div>

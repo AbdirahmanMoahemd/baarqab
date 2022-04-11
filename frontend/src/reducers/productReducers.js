@@ -21,8 +21,13 @@ import {
     PRODUCT_TOP_FAIL,
     PRODUCT_LIST_REQUEST2,
     PRODUCT_LIST_FAIL2,
-    PRODUCT_LIST_SUCCESS2
-} from '../constants/productConstants'
+    PRODUCT_LIST_SUCCESS2,PRODUCT_LIST_DISCOUNT_FAIL,
+  PRODUCT_LIST_DISCOUNT_REQUEST,
+  PRODUCT_LIST_DISCOUNT_SUCCESS,
+    PRODUCT_LIST_ARRAVEL_REQUEST,
+    PRODUCT_LIST_ARRAVEL_SUCCESS,
+    PRODUCT_LIST_ARRAVEL_FAIL 
+} from '../constants/productConstants' 
 
 export const productListReducer = (state = { products: [ { category: [], subcategory: [] }] }, action) => {
     switch (action.type) {
@@ -34,6 +39,39 @@ export const productListReducer = (state = { products: [ { category: [], subcate
                 products: action.payload.products,
             }
         case PRODUCT_LIST_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+
+export const productArravelListReducer = (state = { products: [ { category: [], subcategory: [] }] }, action) => {
+    switch (action.type) {
+        case PRODUCT_LIST_ARRAVEL_REQUEST:
+            return { loading: true, products: [] }
+        case PRODUCT_LIST_ARRAVEL_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            }
+        case PRODUCT_LIST_ARRAVEL_FAIL:
+            return { loading: false, error: action.payload }
+        default:
+            return state
+    }
+}
+
+export const producDistListReducer = (state = { products: [ { category: [], subcategory: [] }] }, action) => {
+    switch (action.type) {
+        case PRODUCT_LIST_DISCOUNT_REQUEST:
+            return { loading: true, products: [] }
+        case PRODUCT_LIST_DISCOUNT_SUCCESS:
+            return {
+                loading: false,
+                products: action.payload.products,
+            }
+        case PRODUCT_LIST_DISCOUNT_FAIL:
             return { loading: false, error: action.payload }
         default:
             return state

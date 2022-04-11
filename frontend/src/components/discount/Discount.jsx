@@ -8,9 +8,10 @@ const Discount = ({ productItems }) => {
       <section className='flash'>
         <div className='container'>
           <div className='heading f_flex'>
-            <i className='fa fa-bolt'></i>
+            <i class="fa-solid fa-percent"></i>
             <h1>Big Discounts</h1>
           </div>
+          
             <Dcard productItems={productItems} />
         </div>
       </section>

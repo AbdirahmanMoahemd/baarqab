@@ -28,7 +28,7 @@ const PlaceOrderScreen = ({ history }) => {
   }
 
   cart.itemsPrice = addDecimals(
-    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+    cart.cartItems.reduce((acc, item) => item.newPrice > 0 ? (acc + item.newPrice * item.qty) :(acc + item.price * item.qty), 0)
   )
   cart.shippingPrice = addDecimals(1)
   cart.totalPrice = ( 
@@ -102,7 +102,7 @@ const PlaceOrderScreen = ({ history }) => {
          <>
         <Header />
         <div className="cart-page-new">
-          <div class="cart-page">
+          <div class="place-page">
                             <div class="container-pages-cart">
                            
                                 <div class="col-cart">
@@ -150,11 +150,11 @@ const PlaceOrderScreen = ({ history }) => {
                             <div class="p-col-4 p-md-4 p-lg-3 p-fluid">
                                                         
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Quantity</div>
-                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.qty} x ${item.price}</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.newPrice > 0 ? (`${item.qty} x ${item.price}`) : (`${item.qty} x ${item.price}`)}</div>
                             </div>
                             <div class="p-col-8 p-md-4 p-lg-4 p-fluid">
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Total:</div>
-                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">${item.qty * item.price}</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">${item.newPrice > 0 ?item.qty * item.newPrice: item.qty * item.price}</div>
                             </div>
                           </div>
                         </>

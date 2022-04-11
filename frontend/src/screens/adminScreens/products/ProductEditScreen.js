@@ -27,6 +27,8 @@ const ProductEditScreen = ({ match, history }) => {
     const [price, setPrice] = useState(0)
     const [countInStock, setCountInStock] = useState(0)
     const [isFeatured, setisFeatured] = useState(true)
+    const [isDiscounted, setisDiscounted] = useState(true)
+    const [newPrice, setNewPrice] = useState(0)
     const [url1,setUrl1] = useState('')
     const [url2,setUrl2] = useState('')
     const [url3,setUrl3] = useState('')
@@ -100,6 +102,9 @@ const ProductEditScreen = ({ match, history }) => {
             setPrice(product.price)
             setCountInStock(product.countInStock)
             setisFeatured(product.isFeatured)
+            setisDiscounted(product.isDiscounted)
+            setNewPrice(product.newPrice)
+
         }  
          }
         
@@ -322,7 +327,10 @@ const ProductEditScreen = ({ match, history }) => {
             subcategory, 
             price,
             countInStock,
-            isFeatured
+            isFeatured,
+            isDiscounted,
+            newPrice,
+
         }))
     }
     const leftContents = (
@@ -414,6 +422,15 @@ const ProductEditScreen = ({ match, history }) => {
                                              <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                     <label htmlFor="color">isFeatured</label><br />
                                                      <InputSwitch checked={isFeatured} className="p-mt-1"   onChange={(e) => setisFeatured(e.value)} />
+                                                </div>
+                                                 <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                                    <label htmlFor="color">isDiscounted</label><br />
+                                                     <InputSwitch checked={isDiscounted} className="p-mt-1"   onChange={(e) => setisDiscounted(e.value)} />
+                                                </div>
+                                                <div class="p-col-12 p-md-6 p-lg-4">
+                                                    <label htmlFor="color">New Price</label><br />
+                                                     <input value={newPrice} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                     onChange={(e) => setNewPrice(e.target.value)} />
                                                 </div>
                                                 <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="color">Colors</label><br />

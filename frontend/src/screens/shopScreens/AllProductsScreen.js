@@ -19,11 +19,9 @@ import { getProductsByFilter } from '../../actions/filterActions';
 import { Form } from 'react-bootstrap';
 
 const AllProductsScreen = ({ match }) => {
-  const catId = match.params.id
   const keyword = match.params.keyword
   const [categoryIds, setCategoryIds] = useState([]);
   let updatedCategoryIds;
-  console.log()
   
 
     const dispatch = useDispatch()
@@ -43,7 +41,7 @@ const AllProductsScreen = ({ match }) => {
     useEffect(() => {
       dispatch(listCategories())
      
-    }, [dispatch])
+    }, [dispatch]) 
     
   const handleCategory = e => {
 		resetState();
@@ -72,10 +70,10 @@ const AllProductsScreen = ({ match }) => {
    
   const resetState = () => {
     
-		setCategoryIds([catId]);
+		setCategoryIds([]);
 	};
   
-    
+     
   
     return (
        <>

@@ -15,10 +15,30 @@ export const getProducts = asyncHandler(async (req, res) => {
     }, 
   } : {}
 
-  const products = await Product.find({ ...keyword }).populate('category');
+  const products = await Product.find({ ...keyword, }).populate('category');
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
 
     res.json({products})   
+  
+})
+
+
+export const getNewArravelProducts = asyncHandler(async (req, res) => {
+  
+ 
+
+  const products = await Product.find({ }).populate('category').limit(12);
+  products.sort((a, b) => (a._id > b._id) ? -1 : 1)
+
+    res.json({products})   
+  
+})
+export const getDiscProducts = asyncHandler (async (req, res) => {
+  
+  const products = await Product.find({ isDiscounted: true })
+ 
+  res.json({products})
+ 
   
 })
 
@@ -99,6 +119,8 @@ export const createProduct = asyncHandler (async (req, res) => {
     subcategory: req.body.subcategory,
     description: req.body.description,
     price: req.body.price,
+    isDiscounted: req.body.isDiscounted,
+    newPrice: req.body.newPrice,
     countInStock: req.body.countInStock,
     numReviews: req.body.numReviews,
     isFeatured: req.body.isFeatured
@@ -116,7 +138,7 @@ export const createProduct = asyncHandler (async (req, res) => {
 // @access  Private/Admin
 export const updateProduct = asyncHandler (async (req, res) => {
   
-  const { name, image,images,colors, sizes, description, brand, category,subcategory, price, countInStock , isFeatured} = req.body
+  const { name, image,images,colors, sizes, description, brand, category,subcategory, price,isDiscounted,newPrice, countInStock , isFeatured} = req.body
   
   const product = await Product.findById(req.params.id)
 
@@ -133,6 +155,8 @@ export const updateProduct = asyncHandler (async (req, res) => {
     product.subcategory = subcategory
     product.isFeatured = isFeatured
     product.price = price 
+    product.isDiscounted = isDiscounted 
+    product.newPrice = newPrice 
     product.countInStock = countInStock
 
     const updatedProduct = await product.save()
@@ -221,5 +245,6 @@ export const getManProducts = asyncHandler (async (req, res) => {
  
   
 })
+
 
 

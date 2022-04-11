@@ -45,6 +45,8 @@
 //export default ShopCart
 
 import React, { useState } from "react"
+import { Link } from "react-router-dom"
+import Rating from "../Rating"
 
 const ShopCart = ({ shopItems, addToCart }) => {
   const [count, setCount] = useState(0)
@@ -59,16 +61,16 @@ const ShopCart = ({ shopItems, addToCart }) => {
           <div className='box'>
             <div className='product mtop'>
               <div className='img'>
-                <img src={shopItems.image} alt='' />
+                 <Link to={`product/${shopItems.id}`}>
+                  <img src={shopItems.image} alt='' />
+                  </Link>
               </div>
               <div className='product-details'>
                 <h3>{shopItems.name}</h3>
                 <div className='rate'>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
-                  <i className='fa fa-star'></i>
+                 <Rating
+                                value={shopItems.rating}
+                                />
                 </div>
                 <div className='price'>
                   <h4>${shopItems.price}.00 </h4>

@@ -3,6 +3,12 @@ import {
   PRODUCT_CREATE_REVIEW_REQUEST, PRODUCT_CREATE_REVIEW_SUCCESS, PRODUCT_CREATE_SUCCESS,
   PRODUCT_DELETE_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_SUCCESS,
   PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS,
+  PRODUCT_LIST_ARRAVEL_FAIL,
+  PRODUCT_LIST_ARRAVEL_REQUEST,
+  PRODUCT_LIST_ARRAVEL_SUCCESS,
+  PRODUCT_LIST_DISCOUNT_FAIL,
+  PRODUCT_LIST_DISCOUNT_REQUEST,
+  PRODUCT_LIST_DISCOUNT_SUCCESS,
   PRODUCT_LIST_FAIL, PRODUCT_LIST_FAIL2, PRODUCT_LIST_REQUEST, PRODUCT_LIST_REQUEST2, PRODUCT_LIST_SUCCESS, 
   PRODUCT_LIST_SUCCESS2, 
   PRODUCT_TOP_FAIL, PRODUCT_TOP_REQUEST, PRODUCT_TOP_SUCCESS, PRODUCT_UPDATE_FAIL, PRODUCT_UPDATE_REQUEST, PRODUCT_UPDATE_SUCCESS
@@ -29,7 +35,49 @@ export const listProducts = (keyword = '') => async (dispatch) => {
                 error.message,
        })  
     }
-}  
+}
+export const listNewArravelProducts = () => async (dispatch) => {
+    try {
+        dispatch({ type: PRODUCT_LIST_ARRAVEL_REQUEST })
+
+        const { data } = await axios.get(`/api/products/new`)
+
+        dispatch({
+            type: PRODUCT_LIST_ARRAVEL_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: PRODUCT_LIST_ARRAVEL_FAIL,
+            payload: error.response && error.response.data.message ?
+                error.response.data.message :
+                error.message,
+       })  
+    }
+} 
+
+export const listDisProducts = () => async (dispatch) => {
+    try {
+        dispatch({ type: PRODUCT_LIST_DISCOUNT_REQUEST })
+
+        const { data } = await axios.get(`/api/products/dis`)
+
+        dispatch({
+            type: PRODUCT_LIST_DISCOUNT_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: PRODUCT_LIST_DISCOUNT_FAIL,
+            payload: error.response && error.response.data.message ?
+                error.response.data.message :
+                error.message,
+       })  
+    }
+}
+
 
 export const listProducts2 = () => async (dispatch) => {
     try {
@@ -134,7 +182,7 @@ export const deleteProduct = (id) => async (
 }
 
 
-export const createProduct = (name, category, subcategory, brand, description, price,
+export const createProduct = (name, category, subcategory, brand, description, price,isDiscounted,newPrice,
   countInStock,isFeatured,image, images, colors, sizes) => async (
   dispatch,
   getState
@@ -154,7 +202,7 @@ export const createProduct = (name, category, subcategory, brand, description, p
       },
     }
 
-      const { data } = await axios.post(`/api/products`, {name, category,subcategory, brand, description, price,
+      const { data } = await axios.post(`/api/products`, {name, category,subcategory, brand, description, price,isDiscounted,newPrice,
   countInStock,isFeatured,image, images, colors, sizes}, config)
 
     dispatch({

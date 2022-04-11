@@ -31,12 +31,15 @@
   padding: 3rem 8rem;
   background-color: #eee;
 }
+.place-page,
 .cart-page {
+  width: 100%;
   padding-top: 30px;
   margin-bottom: -20px;
   padding: 3rem 8rem;
   background-color: #eee;
 }
+
 .checkout-page {
   width: 100%;
   font-size: 1.2rem;
@@ -370,7 +373,7 @@ p-toast {
   max-width: 1080px;
   margin: auto;
   padding-left: 25px;
-  padding-top: 80px;
+  padding-top: 50px;
   margin-bottom: 40px;
 
 }
@@ -423,9 +426,7 @@ p-toast {
   flex-basis: 50%;
   min-width: 300px;
 }
-.pro-info {
-  padding-top: -150px;
-}
+
 
 .col-2-d img {
   max-width: 100%;
@@ -434,8 +435,8 @@ p-toast {
 
 .col-2-d h1 {
   font-size: 1.3rem;
-  line-height: 60px;
-  margin: 15px 0;
+  line-height: 30px;
+  margin: 10px 0;
 }
 
 .col-2-d p {
@@ -777,12 +778,25 @@ p-toast {
   }
 
   .products-page,
-  .cart-page,
   .checkout-page {
 
     padding: 3rem 10rem;
     background-color: #eee;
   }
+  .cart-page {
+  width: 100%;
+  padding-top: 30px;
+  padding: 0rem 0rem 3rem 0rem;
+  background-color: #eee;
+}
+.place-page{
+  width: 100%;
+  height: auto;
+  padding-top: 30px;
+  padding: 0rem 0rem 35rem 0rem;
+  background-color: #eee;
+}
+
 
 
   .product-box-products {
@@ -945,7 +959,9 @@ p-toast {
   }
 
   .small-container {
-    padding-left: 0px;
+  margin: auto;
+  padding-top: 40px;
+  padding-left: 0px;
   }
   .icons .num-cart-product {
     position: absolute;

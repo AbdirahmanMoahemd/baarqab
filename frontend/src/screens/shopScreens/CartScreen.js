@@ -80,7 +80,7 @@ const CartScreen = ({ match, location, history }) => {
                                                     </div>
                                                     <div class="p-col-6 p-md-4 p-lg-6 ">
                                                         <div class="cart-item-name p-ml-3">{item.name}</div>
-                                                        <div class="cart-item-price p-ml-3">${item.price}</div>
+                                                        <div class="cart-item-price p-ml-3">${item.newPrice > 0 ? item.newPrice : item.price}</div>
                                                         <div class="cart-item-remove p-ml-3">
                                                             <Button icon="pi pi-trash "  onClick={() => removeFromCartHandler(item.product)}/>
                                                         </div>
@@ -100,7 +100,8 @@ const CartScreen = ({ match, location, history }) => {
                                                         </div>
                                                         <div class="cart-item-subtotal">
                                                             Subtotal: 
-                                                            <span class="cart-item-subtotal-value"> ${(item.qty * item.price).
+                                                            <span class="cart-item-subtotal-value"> ${item.newPrice > 0 ? (item.qty * item.newPrice).
+                                                                toFixed(2)  :(item.qty * item.price).
                                                                 toFixed(2)}
                                                             </span>
                                                         </div> 
@@ -124,7 +125,7 @@ const CartScreen = ({ match, location, history }) => {
                     <div class="to-checkout">
                         <div class="summary-price">
                             <span>Total Price</span>
-                            <span>${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).
+                            <span>${cartItems.reduce((acc, item) => item.newPrice > 0 ? (acc + item.qty * item.newPrice): (acc + item.qty * item.price), 0).
                                 toFixed(2)}</span>
                         </div>
                         <div class="checkout-button" >

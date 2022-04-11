@@ -64,12 +64,12 @@ li {
   text-align-last: right;
 }
 
-input,
+/* input,
 button {
   border: none;
   outline: none;
   background-color: none;
-}
+} */
 
 .row {
   width: 50%;
@@ -173,11 +173,17 @@ button {
 
 .category-new-box{
   background: #fff;
-  padding: 20px;
-  position: relative;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: rgb(3 0 71 / 9%) 0px 1px 3px;
   margin: 10px;
+  width: 200px;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+
 }
 
 .product h3 {
@@ -329,6 +335,12 @@ button {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 30px;
+}
+.category-new-box{
+  
+  margin-left: 20%;
+ 
+
 }
 }
 

@@ -3,12 +3,13 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Tdata from "./Tdata"
+import { Link } from "react-router-dom"
 
-const TopCart = () => {
+const TopCart = ({categories}) => {
   const settings = {
     dots: false,
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     responsive: [{
@@ -23,15 +24,17 @@ const TopCart = () => {
   return (
     <>
       <Slider {...settings}>
-        {Tdata.map((value, index) => {
+        {categories.map((value) => {
           return (
             <>
-              <div className='box category-new-box' key={index}>
-                <div className='nametop d_flex'>
-                  <span className='tright'>{value.desc}</span>
-                </div>
+              <div className='box category-new-box' key={value.id}>
+                <Link to='/products'>
                 <div className='img-cat'>
-                  <img src={value.cover} alt='' />
+                  <img src={value.icon} alt='' />
+                  </div>
+                  </Link>
+                <div className='nametop'>
+                  <span className='tright'>{value.name}</span>
                 </div>
               </div>
             </>

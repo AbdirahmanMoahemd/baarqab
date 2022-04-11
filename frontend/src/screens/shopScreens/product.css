@@ -9,7 +9,20 @@
 }
 .img-display {
   overflow: hidden;
-  
+  width: 350px;
+  height: 370px;
+}
+.price-flex {
+    display: flex;
+    height: 50px;
+    
+}
+
+.dis-price {
+  padding-left: 30px;
+}
+.prices-flex {
+ padding: 10px;
 }
 .img-showcase {
   display: flex;
