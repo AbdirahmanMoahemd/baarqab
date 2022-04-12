@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 
-const SearchBox =  ({ history }) => {
+const SearchBoxxx =  ({ history }) => {
     const [keyword, setKeyword] = useState('')
 
     const submitHandler = (e) => {
@@ -25,4 +25,4 @@ const SearchBox =  ({ history }) => {
   )
 }
 
-export default SearchBox
+export default SearchBoxxx

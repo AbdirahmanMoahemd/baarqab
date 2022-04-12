@@ -6,7 +6,7 @@ import { InputText } from 'primereact/inputtext';
 import { useDispatch, useSelector } from 'react-redux'
 import $ from 'jquery';
 import { Route } from 'react-router-dom'
-import SearchBox from "./SearchBox";
+import SearchBoxxx from "./SearchBoxxx";
 
 const Search = () => { 
   // fixed Header
@@ -37,7 +37,7 @@ const userLogin = useSelector(state => state.userLogin)
             </Link>
           </div>
           <Navbar />
-           <Route render={({ history }) => <SearchBox history={history} />}/> 
+           <Route render={({ history }) => <SearchBoxxx history={history} />}/> 
           <div className='icon f_flex '>
             {userInfo ? (
               <Link to='/profile' >
