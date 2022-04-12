@@ -1,23 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import Header from "../../common/header/Header"
 import Footer from "../../common/footer/Footer"
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { addToCart, removeFromCart } from '../../actions/cartActions'
-
-import { Messages } from 'primereact/messages';
-import { Message } from 'primereact/message';
-import { InputNumber } from 'primereact/inputnumber';
-import { Button } from 'primereact/button';
 import '../../css/login.css';
-import pimg1 from '../../images/imgae/apple.png';
-import { InputMask } from 'primereact/inputmask';
-import { InputText } from 'primereact/inputtext';
-import OrderSummaryScreen from './oderSummaryScreen'
-import countryList from 'react-select-country-list'
-import { Dropdown } from 'primereact/dropdown';
-import { updateUserProfile } from '../../actions/userActions'
-import { USER_UPDATE_RESET } from '../../constants/userConstants'
 import { getUserDetails } from '../../actions/userActions'
 import { saveShippingAddress } from '../../actions/cartActions'
 
@@ -82,7 +67,7 @@ const CheckoutScreen = ({  history }) => {
         <>
              <Header />
              <>
-                <div className="login-page">
+                <div className="login-page sh-page">
                 
                 <div className="login-page-mt">
  <div className="form">

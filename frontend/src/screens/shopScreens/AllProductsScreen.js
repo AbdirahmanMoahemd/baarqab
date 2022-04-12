@@ -6,17 +6,9 @@ import Message from '../../components/Message.js'
 import Header from "../../common/header/Header"
 import Footer from "../../common/footer/Footer"
 import '../../css/products.css'
-import { Checkbox } from 'primereact/checkbox';
-import pimg1 from '../../images/imgae/apple.png';
-import pimg2 from '../../images/imgae/chili.png';
-import pimg3 from '../../images/imgae/onion.png';
-import pimg4 from '../../images/imgae/patato.png';
-import pimg5 from '../../images/imgae/garlic.png';
-import pimg6 from '../../images/imgae/tamato.png';
 import { listProducts } from '../../actions/productAction'
 import { listCategories } from '../../actions/categoryAction' 
 import { getProductsByFilter } from '../../actions/filterActions';
-import { Form } from 'react-bootstrap';
 
 const AllProductsScreen = ({ match }) => {
   const keyword = match.params.keyword

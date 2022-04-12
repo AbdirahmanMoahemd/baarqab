@@ -9,8 +9,6 @@ import {
     orderListReducer, orderDeliverReducer, orderPayReducer2
 } from './reducers/orderReducers'
 import { slideListReducer, slideDeleteReducer, sildeDetailsReducer, slideUpdateReducer } from './reducers/slideReducers'
-import { testimonialDeleteReducer, testimonialDetailsReducer, TestimonialListReducer, testimonialRegisterReducer, testimonialUpdateReducer } from './reducers/testimonialReducers.js'
-import { promotionDeleteReducer, promotionDetailsReducer, promotionListReducer, promotionRegisterReducer, promotionUpdateReducer } from './reducers/promotionReducers.js'
 
 import {
     categoryListReducer,
@@ -26,21 +24,9 @@ import {
     subcategoryDeleteReducer,
     subcategoryUpdateReducer
 } from './reducers/subcategoryReducers'
-import {
-    colorListReducer ,
-    colorDetailsReducer,
-    colorDeleteReducer ,
-    colorCreateReducer ,
-    colorUpdateReducer 
-} from './reducers/colorReducers'
 
-import {
-    sizeListReducer ,
-    sizeDetailsReducer,
-    sizeDeleteReducer ,
-    sizeCreateReducer, 
-    sizeUpdateReducer ,
-} from './reducers/sizeReducers'
+
+
 
 
 
@@ -55,16 +41,6 @@ const reducer = combineReducers({
     subcategoryCreate: subcategoryCreateReducer,
     subcategoryDelete: subcategoryDeleteReducer,
     subcategoryUpdate: subcategoryUpdateReducer,
-    colorList:  colorListReducer,
-    colorDetails: colorDetailsReducer,
-    colorDelete: colorDeleteReducer,
-    colorCreate: colorCreateReducer,
-    colorUpdate: colorUpdateReducer,
-    sizeList: sizeListReducer ,
-    sizeDetails: sizeDetailsReducer,
-    sizeCreate: sizeCreateReducer ,
-    sizeDelete: sizeDeleteReducer, 
-    sizeUpdate: sizeUpdateReducer ,
     productList: productListReducer,
     productList2: productListReducer2,
     productDetails: productDetailsReducer,
@@ -97,16 +73,7 @@ const reducer = combineReducers({
     slideDelete: slideDeleteReducer,
     sildeDetails: sildeDetailsReducer,
     slideUpdate: slideUpdateReducer,
-    testimonialList: TestimonialListReducer,
-    testimonialDelete: testimonialDeleteReducer,
-    testimonialRegister: testimonialRegisterReducer,
-    testimonialDetails: testimonialDetailsReducer,
-    testimonialUpdate: testimonialUpdateReducer,
-    promotionList: promotionListReducer,
-    promotionDelete: promotionDeleteReducer,
-    promotionRegister: promotionRegisterReducer,
-    promotionDetails: promotionDetailsReducer,
-    promotionUpdate: promotionUpdateReducer, 
+    
 
 })
 

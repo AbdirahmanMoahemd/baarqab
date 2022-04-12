@@ -6,8 +6,7 @@ import Message from '../../../components/Message.js'
 import { listUsers, deleteUser } from '../../../actions/userActions.js'
 import AdminScreen from '../AdminScreen.js'
 import { Card } from 'primereact/card';
-import { Toolbar } from 'primereact/toolbar';
-import { Button } from 'primereact/button';
+
 
 const UserListScreen = ({ history }) => {
 

@@ -3,9 +3,7 @@ import emailjs from 'emailjs-com'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import { createOrder } from  '../../actions/orderActions' 
-import { CART_SAVE_PAYMENT_METHOD, CART_SAVE_PAYMENT_METHOD_RESET } from '../../constants/cartConstants'
 import { ORDER_DETAILS_REQUEST, ORDER_DETAILS_RESET, ORDER_DETAILS_SUCCESS } from '../../constants/orderConstants'
-
 import Header from "../../common/header/Header"
 import { Button } from 'primereact/button';
 import { RemoveCartFun } from '../../actions/userActions'
@@ -30,6 +28,8 @@ const PlaceOrderScreen = ({ history }) => {
   cart.itemsPrice = addDecimals(
     cart.cartItems.reduce((acc, item) => item.newPrice > 0 ? (acc + item.newPrice * item.qty) :(acc + item.price * item.qty), 0)
   )
+  const itemsPri = cart.itemsPrice;
+
   cart.shippingPrice = addDecimals(1)
   cart.totalPrice = ( 
     Number(cart.itemsPrice) +
@@ -51,7 +51,7 @@ const PlaceOrderScreen = ({ history }) => {
   }, [history, success])
     var today = new Date(),
     todydate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-  console.log(todydate)
+  
   
   function sendEmail(e) {
     e.preventDefault();
@@ -84,7 +84,7 @@ const PlaceOrderScreen = ({ history }) => {
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
-        itemsPrice: cart.itemsPrice,
+        itemsPrice: itemsPri,
         shippingPrice: cart.shippingPrice,
         totalPrice: cart.totalPrice,
         date: todydate
@@ -150,7 +150,7 @@ const PlaceOrderScreen = ({ history }) => {
                             <div class="p-col-4 p-md-4 p-lg-3 p-fluid">
                                                         
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Quantity</div>
-                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.newPrice > 0 ? (`${item.qty} x ${item.price}`) : (`${item.qty} x ${item.price}`)}</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.newPrice > 0 ? (`${item.qty} x ${item.newPrice}`) : (`${item.qty} x ${item.price}`)}</div>
                             </div>
                             <div class="p-col-8 p-md-4 p-lg-4 p-fluid">
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Total:</div>

@@ -7,22 +7,12 @@ import Message from '../../components/Message'
 import {
   listProductDetails, createProductReview, listProducts2
 } from '../../actions/productAction'
-
 import Header from "../../common/header/Header"
-import Footer from "../../common/footer/Footer"
-import { listColors } from '../../actions/colorActions.js'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../../constants/productConstants'
 import Meta from '../../components/Meta'
-import pimg1 from '../../images/imgae/apple.png';
-import pimg2 from '../../images/imgae/chili.png';
-import pimg3 from '../../images/imgae/onion.png';
-import pimg4 from '../../images/imgae/patato.png';
-import pimg5 from '../../images/imgae/garlic.png';
-import pimg6 from '../../images/imgae/tamato.png';
 import { InputNumber } from 'primereact/inputnumber';
 import './product.css'
 
-import Carousel from 'react-bootstrap/Carousel'
  
  
 
@@ -45,8 +35,7 @@ const ProductScreen = ({ history, match }) => {
     const productDetails = useSelector((state) => state.productDetails)
     const { loading, error, product } = productDetails
     
-    const colorList = useSelector(state => state.colorList) 
-    const { loading:colorLoading, error:colorError, colors } = colorList
+    
 
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
@@ -79,7 +68,6 @@ const ProductScreen = ({ history, match }) => {
     }
         dispatch(listProductDetails(match.params.id))
         dispatch(listProducts2())
-        dispatch(listColors())
     }, [dispatch, match, successProductReview])
 
     const addToCartHandler = () => {

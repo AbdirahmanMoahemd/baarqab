@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Loader  from '../../../components/Loader.js'
 import Message from '../../../components/Message.js'
 import { listProductDetails, updateProduct } from '../../../actions/productAction.js'
@@ -10,7 +9,6 @@ import AdminScreen from '../AdminScreen.js'
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
-import { Dropdown } from 'primereact/dropdown';
 import { listCategories } from '../../../actions/categoryAction'
 import { listSubCategories } from '../../../actions/subcategoryActions'
 import { InputSwitch } from 'primereact/inputswitch';
@@ -444,7 +442,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                 </div>
                                                     <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image:</label><br />
-                                                        <input style={{width: "100%"}} value={image} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={image} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                         onChange={(e) => setImage(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -454,7 +452,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                 </div>
                                              <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image1:</label><br />
-                                                        <input style={{width: "100%"}} value={url1} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url1} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl1(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -464,7 +462,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                 </div>
                                              <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image2:</label><br />
-                                                        <input style={{width: "100%"}} value={url2} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url2} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl2(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -474,7 +472,7 @@ const ProductEditScreen = ({ match, history }) => {
                                              </div>
                                              <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image3:</label><br />
-                                                        <input style={{width: "100%"}} value={url3} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url3} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl3(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -484,7 +482,7 @@ const ProductEditScreen = ({ match, history }) => {
                                                 </div>
                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image4:</label><br />
-                                                        <input style={{width: "100%"}} value={url4} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url4} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl4(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"

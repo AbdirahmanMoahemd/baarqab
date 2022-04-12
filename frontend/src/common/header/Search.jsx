@@ -32,7 +32,9 @@ const userLogin = useSelector(state => state.userLogin)
       <section className= 'search' >
         <div className='container c_flex container-menu'>
           <div className='logo'>
+          <Link to='/'>
             <img src={logo} alt=''/>
+            </Link>
           </div>
           <Navbar />
            <Route render={({ history }) => <SearchBox history={history} />}/> 

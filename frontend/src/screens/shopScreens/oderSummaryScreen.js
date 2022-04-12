@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react'
-
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart, removeFromCart } from '../../actions/cartActions'
-import { Messages } from 'primereact/messages';
-import { Message } from 'primereact/message';
-import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import '../../css/cart.css';
 import '../../css/order-summary.css';
-import pimg1 from '../../images/imgae/apple.png';
 
 const OrderSummaryScreen = ({ match, location, history }) => {
 

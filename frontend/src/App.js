@@ -5,7 +5,6 @@ import './css/App.css';
 import { useDispatch, useSelector } from 'react-redux'
 import HomeScreen from './screens/shopScreens/HomeScreen';
 import ProductScreen from './screens/shopScreens/ProductScreen';
-import ProductsScreen from './screens/shopScreens/ProductsScreen';
 import LoginScreen from './screens/shopScreens/LoginScreen';
 import RegisterScreen from './screens/shopScreens/RegisterScreen';
 import ProfileScreen from './screens/shopScreens/ProfileScreen';
@@ -13,7 +12,7 @@ import PlaceOrderScreen from './screens/shopScreens/PlaceOrderScreen';
 import PaymentScreen from './screens/shopScreens/PaymentScreen';
 import OrderScreen from './screens/shopScreens/OrderScreen';
 import CartScreen from './screens/shopScreens/CartScreen';
-import OrderListScreen from './screens/OrderListScreen';
+import OrderListScreen from './screens/adminScreens/OrderListScreen';
 import AboutUsScreen from './screens/shopScreens/AboutUsScreen';
 import AllProductsScreen from './screens/shopScreens/AllProductsScreen';
 import CheckoutScreen from './screens/shopScreens/checkoutScreen';
@@ -29,18 +28,10 @@ import CategoryEditScreen from './screens/adminScreens/category/CategoryEditScre
 import SubCategoryListScreen from './screens/adminScreens/subcategory/SubCategoryListScreen';
 import SubCategoryCreateScreen from './screens/adminScreens/subcategory/SubCategoryCreateScreen';
 import SubCategoryEditScreen from './screens/adminScreens/subcategory/SubCategoryEditScreen';
-import colorListScreen from './screens/adminScreens/colors/colorListScreen';
-import colorEditScreen from './screens/adminScreens/colors/colorEditScreen';
-import colorCreateScreen from './screens/adminScreens/colors/colorCreateScreen';
-import sizeCreateScreen from './screens/adminScreens/sizes/sizeCreateScreen';
-import SizeEditScreen from './screens/adminScreens/sizes/sizeEditScreen';
-import sizeListScreen from './screens/adminScreens/sizes/sizeListScreen';
 import UserEditScreen from './screens/adminScreens/users/UserEditScreen'
 import UserListScreen from './screens/adminScreens/users/UserListScreen'
 
-
 import ScrollToTop from './components/ScrollToTop';
-import Cart from './common/Cart/Cart';
 
 
 const App = () => {
@@ -61,7 +52,6 @@ const App = () => {
       <ScrollToTop>
       <Route path='/product/:id' component={ProductScreen} exact />
       </ScrollToTop>
-      <Route path='/dhar' component={ProductsScreen} exact />
       <Route path='/cart/:id?' component={CartScreen} exact />
       {userInfo && userInfo.isAdmin ? (
         <>
@@ -72,12 +62,6 @@ const App = () => {
           <Route path='/admin/subcategory' component={SubCategoryListScreen} exact /> 
           <Route path='/admin/subcategory/create/new' component={SubCategoryCreateScreen} exact /> 
           <Route path='/admin/subcategory/:id' component={SubCategoryEditScreen} exact /> 
-          <Route path='/admin/colors' component={colorListScreen} exact /> 
-          <Route path='/admin/colors/:id' component={colorEditScreen} exact /> 
-          <Route path='/admin/colors/create/new' component={colorCreateScreen} exact />
-          <Route path='/admin/sizes' component={sizeListScreen} exact /> 
-          <Route path='/admin/sizes/:id' component={SizeEditScreen} exact /> 
-          <Route path='/admin/sizes/create/new' component={sizeCreateScreen} exact /> 
           <Route path='/admin/user/:id/edit' component={UserEditScreen} exact />
           <Route path='/admin/product/create/new' component={ProductCreateScreen} exact />
           <Route path='/admin/product/:id' component={ProductEditScreen} exact />

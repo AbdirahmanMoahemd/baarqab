@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PayPalButton } from 'react-paypal-button-v2'
-import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../../components/Message'
 import Loader from '../../components/Loader'
@@ -15,9 +14,6 @@ import {
 import {
   ORDER_PAY_RESET, 
   ORDER_DELIVER_RESET,
-  ORDER_DETAILS_RESET,
-  ORDER_DETAILS_SUCCESS,
-  ORDER_DETAILS_REQUEST,
   ORDER_PAY_RESET2,
 } from '../../constants/orderConstants'
 
@@ -54,10 +50,10 @@ const OrderScreen = ({ history, match }) => {
     } 
 
     order.itemsPrice = addDecimals(
-      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)
+      order.orderItems.reduce((acc, item) => item.newPrice > 0 ? (acc + item.newPrice * item.qty) :(acc + item.price * item.qty), 0)
     )
   }
-  
+  const itemsPri = cart.itemsPrice;
       
   useEffect(() => {
     
@@ -224,11 +220,11 @@ axios(config)
                             <div class="p-col-4 p-md-4 p-lg-3 p-fluid">
                                                         
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Quantity</div>
-                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.qty} x ${item.price}</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">{item.qty} x {itemsPri}</div>
                             </div>
                             <div class="p-col-8 p-md-4 p-lg-4 p-fluid">
                               <div style={{ fontSize: '1.1rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">Total:</div>
-                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">${item.qty * item.price}</div>
+                              <div style={{ fontSize: '.9rem', fontWeight: '600', marginBottom: '15px' }} class=" p-ml-3">${itemsPri}</div>
                             </div>
                           </div>
                         </>
@@ -242,7 +238,7 @@ axios(config)
                      <center> <strong>Order Summary</strong></center>
                     <div class="summary-price">
                         <span>Items</span>
-                         <span>${order.itemsPrice}</span>
+                         <span>${itemsPri}</span>
                     </div>
                     <div class="summary-price"> 
                         <span>Packing & Shipping</span>

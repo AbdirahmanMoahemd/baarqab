@@ -30,10 +30,8 @@ const handleNavigation = useCallback(
       else {
         isScorlling=false
       }
-      console.log(y);
     } else if (y + 14 < window.scrollY) {
       isScorlling=true
-      console.log("scrolling down");
     }
     setY(window.scrollY);
   }, [y]
@@ -42,7 +40,6 @@ const handleNavigation = useCallback(
 useEffect(() => {
   setY(window.scrollY);
   window.addEventListener("scroll", handleNavigation);
-console.log(isScorlling)
   return () => {
     window.removeEventListener("scroll", handleNavigation);
   };
