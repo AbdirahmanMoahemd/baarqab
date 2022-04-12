@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import logo from "../../components/assets/images/baarqab.png"
+import logo from "./baarqab.png"
 import { Link } from "react-router-dom"
 import Navbar from "./Navbar"
 import { InputText } from 'primereact/inputtext';

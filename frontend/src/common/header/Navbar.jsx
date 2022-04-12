@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { VscChromeClose } from "react-icons/vsc";
 import styled from 'styled-components';
-import logo from "../../components/assets/images/logo.svg"
 import SearchBoxx from "./SearchBoxx";
 import { Route } from 'react-router-dom'
 
