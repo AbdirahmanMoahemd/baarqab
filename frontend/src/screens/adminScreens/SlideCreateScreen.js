@@ -4,15 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
-import { getSlideDetails , updateSlide} from '../../actions/slideActions'
-import { SLIDE_UPDATE_RESET } from '../../constants/slideConstants'
+import { createSlide } from '../../actions/slideActions'
+import { SLIDE_CREATE_RESET } from '../../constants/slideConstants'
 import AdminScreen from './AdminScreen.js'
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
 
-const SlidesEditScreen = ({ match, history }) => {
-    const slideId = match.params.id
+const SlidesCreateScreen = ({  history }) => {
     
     const [image, setImage] = useState('')
     const [uploading, setUploading] = useState(false)
@@ -21,29 +20,20 @@ const SlidesEditScreen = ({ match, history }) => {
 
     const dispatch = useDispatch() 
 
-    const sildeDetails = useSelector(state => state.sildeDetails)
-    const { loading, error, slide } = sildeDetails
+    
 
-    const slideUpdate = useSelector(state => state.slideUpdate)
-    const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = slideUpdate
+    const slideCreate = useSelector(state => state.slideCreate)
+    const { loading:loadingCreate, error:errorCreate, success:successCreate } = slideCreate
 
 
     useEffect(() => {
-        if (successUpdate) {
-            dispatch({ type: SLIDE_UPDATE_RESET })
+        if (successCreate) {
+            dispatch({ type: SLIDE_CREATE_RESET })
             history.push('/admin/slidelist')
         }
-        
-          if (!slide.image || slide._id !== slideId) {
-            dispatch(getSlideDetails(slideId))
-        }
-        else {
-            setImage(slide.image)
-            
-        }  
          
         
-    }, [dispatch, history , slideId, slide, successUpdate ]) 
+    }, [dispatch, history, successCreate ]) 
 
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
@@ -66,20 +56,17 @@ const SlidesEditScreen = ({ match, history }) => {
         }
     }
 
-    const submitHandler = (e)  => {
-        e.preventDefault()
-        dispatch(updateSlide({
-            _id: slideId,
-            image,
-
-        }))
-    }
+    const submitHandler = (e) => {
+           
+         e.preventDefault() 
+         dispatch(createSlide(image))
+        }
 
      const leftContents = (
     <React.Fragment>
             <div >
             <Button 
-            label='update'
+            label='create'
             className="p-button-primary p-mr-2"
                     icon="pi pi-plus"
             type="submit"
@@ -101,7 +88,7 @@ const SlidesEditScreen = ({ match, history }) => {
                 <AdminScreen />
                 <div className="main-content">
                  <main>
-                     <Card title="Sliders" subTitle="You can edit sliders here">
+                     <Card title="Sliders" subTitle="You can create sliders here">
                           <form onSubmit={submitHandler}>
                           <div className="p-grid mb-5">
                                 <div class="p-col-12">
@@ -110,9 +97,7 @@ const SlidesEditScreen = ({ match, history }) => {
                          </div>
                         <div class="p-grid" > 
                                  <div class="p-col-12">
-                                     {loadingUpdate && <Loader />}
-                                    {errorUpdate && <Message>{errorUpdate}</Message>}
-                                     {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                                     {loadingCreate ? <Loader /> : errorCreate ? <Message variant='danger'>{errorCreate}</Message> : (
                                          <div class="p-fluid p-formgrid p-grid" >
                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image:</label><br />
@@ -143,4 +128,4 @@ const SlidesEditScreen = ({ match, history }) => {
     )
 }
 
-export default SlidesEditScreen
+export default SlidesCreateScreen

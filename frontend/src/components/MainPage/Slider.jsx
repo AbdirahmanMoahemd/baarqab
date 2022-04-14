@@ -1,12 +1,12 @@
 import React from "react"
 import SlideCard from "./SlideCard"
 
-const SliderHome = () => {
+const SliderHome = ({Sdata}) => {
   return (
     <>
       <section className='homeSlide'>
         <div className='container'>
-          <SlideCard />
+          <SlideCard Sdata={Sdata} />
         </div>
       </section>
     </>

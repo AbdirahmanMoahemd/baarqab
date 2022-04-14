@@ -8,7 +8,7 @@ import {
     orderCreateReducer, orderDetailsReducer, orderPayReducer, orderReducerCount, orderMyListReducer,
     orderListReducer, orderDeliverReducer, orderPayReducer2
 } from './reducers/orderReducers'
-import { slideListReducer, slideDeleteReducer, sildeDetailsReducer, slideUpdateReducer } from './reducers/slideReducers'
+import { slideListReducer, slideDeleteReducer,slideCreateReducer,sildeDetailsReducer, slideUpdateReducer } from './reducers/slideReducers'
 
 import {
     categoryListReducer,
@@ -24,6 +24,14 @@ import {
     subcategoryDeleteReducer,
     subcategoryUpdateReducer
 } from './reducers/subcategoryReducers'
+import {
+    packagesListReducer,
+    packagesDeleteReducer,
+    packagesDetailsReducer,
+    packagesUpdateReducer,
+    packagesCreateReducer
+} from './reducers/packageReducers'
+
 
 
 
@@ -73,6 +81,12 @@ const reducer = combineReducers({
     slideDelete: slideDeleteReducer,
     sildeDetails: sildeDetailsReducer,
     slideUpdate: slideUpdateReducer,
+    slideCreate: slideCreateReducer, 
+    packagesList: packagesListReducer,
+    packagesDelete: packagesDeleteReducer,
+    packagesDetails: packagesDetailsReducer,
+    packagesUpdate: packagesUpdateReducer,
+    packagesCreate:packagesCreateReducer
     
 
 })

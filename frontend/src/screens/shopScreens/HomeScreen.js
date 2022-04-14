@@ -23,6 +23,10 @@ import Discount from "../../components/discount/Discount"
 import Shop from "../../components/shops/Shop"
 import Annocument from "../../components/annocument/Annocument"
 import Wrapper from "../../components/wrapper/Wrapper"
+import { listSlides } from '../../actions/slideActions'
+import { listPackages } from '../../actions/packageActions'
+
+
 
 const HomeScreen = ({ match , CartItem}) => {
     const keyword = match.params.keyword
@@ -36,17 +40,23 @@ const HomeScreen = ({ match , CartItem}) => {
     const dispatch = useDispatch()
  
     const productList = useSelector(state => state.productList)
-    const { loading, error, products } = productList
+  const { loading, error, products } = productList
+  
+    const slideList = useSelector((state) => state.slideList)
+    const { loading:loadingSlider, error:errorSlider, slides } = slideList
 
     const producDistList = useSelector(state => state.producDistList)
     const { loading:loadingDis, error:errorDis, products:productsDis } = producDistList
   
     const productArravelList = useSelector(state => state.productArravelList)
-    const { loading:loadingProductArravelList, error:errorProductArravelList, products:productsArravelList } = productArravelList
+    const { loading:loadingProductArravelList, error:errorProductArravelList, products:productsNewArravelList } = productArravelList
 
 
     const categoryList = useSelector(state => state.categoryList) 
-    const { loading: loadingcat, error: errorCat, categories } = categoryList
+  const { loading: loadingcat, error: errorCat, categories } = categoryList
+  
+  const packagesList = useSelector(state => state.packagesList) 
+    const { loading: loadingPackage, error: errorPackage, packages } = packagesList
 
     const subcategoryList = useSelector(state => state.subcategoryList) 
     const { loading: loadingSubCat, error: errorSubCat, subcategories}  = subcategoryList
@@ -59,7 +69,11 @@ const HomeScreen = ({ match , CartItem}) => {
         dispatch(listNewArravelProducts())
         dispatch(listDisProducts())
         dispatch(listCategories())
-        dispatch(listSubCategories())
+      dispatch(listSubCategories())
+      dispatch(listSlides()) 
+        dispatch(listPackages())
+      
+      
     }, [dispatch])
   
     const handleCategory = e => {
@@ -98,12 +112,12 @@ const HomeScreen = ({ match , CartItem}) => {
       <>
         <Header />
         <Meta />
-        <Home CartItem={CartItem} />
+        <Home  Sdata={slides}/>
         <TopCate categories={categories} />
-        <NewArrivals productItems={productsArravelList} />
+        <NewArrivals productItems={productsNewArravelList} />
         <Discount productItems={productsDis}/>
       <FlashDeals productItems={products} />
-      <Shop shopItems={products} /> 
+      <Shop packages={packages}  /> 
       <Annocument />
       <Wrapper />
                  

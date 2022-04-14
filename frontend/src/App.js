@@ -16,6 +16,9 @@ import OrderListScreen from './screens/adminScreens/OrderListScreen';
 import AboutUsScreen from './screens/shopScreens/AboutUsScreen';
 import AllProductsScreen from './screens/shopScreens/AllProductsScreen';
 import CheckoutScreen from './screens/shopScreens/checkoutScreen';
+import SliderListScreen from './screens/adminScreens/SliderListScreen';
+import SlidesEditScreen from './screens/adminScreens/SlidesEditScreen';
+import SlideCreateScreen from './screens/adminScreens/SlideCreateScreen';
 
 
 import AdminHome from './screens/adminScreens/AdminHome';
@@ -30,6 +33,9 @@ import SubCategoryCreateScreen from './screens/adminScreens/subcategory/SubCateg
 import SubCategoryEditScreen from './screens/adminScreens/subcategory/SubCategoryEditScreen';
 import UserEditScreen from './screens/adminScreens/users/UserEditScreen'
 import UserListScreen from './screens/adminScreens/users/UserListScreen'
+import PackageListScreen from './screens/adminScreens/package/packageListScreen'
+import PackageCreateScreen from './screens/adminScreens/package/packageCreateScreen'
+import PackageEditScreen from './screens/adminScreens/package/packageEditScreen'
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -55,6 +61,12 @@ const App = () => {
       <Route path='/cart/:id?' component={CartScreen} exact />
       {userInfo && userInfo.isAdmin ? (
         <>
+          <Route path='/admin/packages/create/new' component={PackageCreateScreen} exact />
+          <Route path='/admin/packages/:id/edit' component={PackageEditScreen} exact />
+          <Route path='/admin/packages' component={PackageListScreen} exact />
+          <Route path='/admin/slidelist' component={SliderListScreen} exact />
+          <Route path='/admin/slide/create/new' component={SlideCreateScreen} exact />
+          <Route path='/admin/slide/:id/edit' component={SlidesEditScreen} exact />
           <Route path='/admin' component={AdminHome} exact /> 
           <Route path='/admin/category' component={CategoryListScreen} exact /> 
           <Route path='/admin/category/create/new' component={CategoryCreateScreen} exact /> 

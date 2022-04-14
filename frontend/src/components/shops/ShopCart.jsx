@@ -48,7 +48,7 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import Rating from "../Rating"
 
-const ShopCart = ({ shopItems, addToCart }) => {
+const ShopCart = ({ shopItems}) => {
   const [count, setCount] = useState(0)
   const increment = () => {
     setCount(count + 1)
@@ -56,7 +56,7 @@ const ShopCart = ({ shopItems, addToCart }) => {
 
   return (
     <>
-      {shopItems.map((shopItems, index) => {
+      {shopItems.map((shopItems) => {
         return (
           <div className='box'>
             <div className='product mtop'>
@@ -77,7 +77,7 @@ const ShopCart = ({ shopItems, addToCart }) => {
                   {/* step : 3  
                      if hami le button ma click garryo bahne 
                     */}
-                  <button onClick={() => addToCart(shopItems)}>
+                  <button>
                     <i className='fa fa-plus'></i>
                   </button>
                 </div>

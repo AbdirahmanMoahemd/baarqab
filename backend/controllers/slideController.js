@@ -45,22 +45,32 @@ export const getSlideById = asyncHandler(async (req, res) => {
 
 })
 
+export const createSlide = asyncHandler (async (req, res) => {
+    let slide = new Slide({
+        image: req.body.image,
+       
+    })
+    slide = await slide.save();
+
+    if(!slide)
+    return res.status(400).send('the slide cannot be created!')
+
+    res.send(slide);
+}) 
+
 
 // @desc    Update a product
 // @route   PUT /api/products/:id
 // @access  Private/Admin
 export const updateslides = asyncHandler (async (req, res) => {
   
-  const { title, image, comment1, comment2 } = req.body
+  const {  image } = req.body
   
   const slides = await Slide.findById(req.params.id)
 
   if (slides) {
       
-    slides.title = title
     slides.image = image
-    slides.comment1 = comment1
-    slides.comment2 = comment2
     
 
     const updatedslides = await slides.save()

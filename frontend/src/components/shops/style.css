@@ -17,6 +17,7 @@
   padding: 5px 10px;
   transition: 0.5s;
   border-radius: 5px;
+  
 }
 .shop .category img {
   width: auto;
@@ -46,6 +47,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
+}
+.shop .product .img {
+  width: 240px;
+  height: 240px;
 }
 .shop .product img {
   width: 100%;

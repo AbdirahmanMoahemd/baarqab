@@ -2,10 +2,10 @@ import React from "react"
 import "./Home.css"
 import SliderHome from "./Slider"
 
-const Home = () => {
+const Home = ({Sdata}) => {
   return (
     <>
-          <SliderHome />
+          <SliderHome Sdata={Sdata} />
     </>
   )
 }

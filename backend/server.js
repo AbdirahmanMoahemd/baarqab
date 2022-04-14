@@ -11,10 +11,6 @@ import filterRoutes from './routes/filter.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import slidesRoutes from './routes/slidesRoutes.js'
-import testimonialRoutes from './routes/testimonialRoutes.js' 
-import promotionRoutes from './routes/promotionRoutes.js'
-import colorRoutes from './routes/colorRoutes.js'
-import sizeRoutes from './routes/sizeRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 import uploadRoutes7 from './routes/uploadRoutes-7.js'
 import uploadRoutes6 from './routes/uploadRoutes-6.js'
@@ -24,7 +20,8 @@ import uploadRoutes4 from './routes/uploadRoutes-4.js'
 import uploadRoutes5 from './routes/uploadRoutes-5.js'
 import iconupload from './routes/iconuploader.js'
 import subcategory from './routes/subcategory.js'
-import products  from './data/products.js' 
+import slideImageRoutes from './routes/slideImageRoutes.js'
+import packagesRoutes from './routes/packagesRoutes.js'
 
 dotenv.config()
 connectDB()  
@@ -42,13 +39,9 @@ app.use(express.json())
 
 app.use('/api/products', productRoutes)
 app.use('/api/category', categoryRoutes)
-app.use('/api/colors', colorRoutes)
-app.use('/api/sizes', sizeRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/slides', slidesRoutes)
-app.use('/api/testimonials', testimonialRoutes)
-app.use('/api/promotions', promotionRoutes) 
 app.use('/api/upload', uploadRoutes)
 app.use('/api/upload7', uploadRoutes7)
 app.use('/api/upload6', uploadRoutes6)
@@ -58,8 +51,11 @@ app.use('/api/upload4', uploadRoutes4)
 app.use('/api/upload5', uploadRoutes5)
 app.use('/api/upload5', uploadRoutes5)
 app.use('/api/iconupload', iconupload)
+app.use('/api/slideupload', slideImageRoutes)
 app.use('/api/subcategory', subcategory)
 app.use('/api/filter', filterRoutes); 
+app.use('/api/packages', packagesRoutes); 
+
 
 app.get('/api/config/paypal', (req, res) =>
     res.send(PAYPAL_CLIENT_ID)

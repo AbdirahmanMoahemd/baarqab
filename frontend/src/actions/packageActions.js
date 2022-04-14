@@ -1,27 +1,27 @@
 import axios from 'axios'
 import {
-  SLIDE_DELETE_FAIL, SLIDE_DELETE_REQUEST, SLIDE_DELETE_SUCCESS,
-  SLIDE_LIST_FAIL, SLIDE_LIST_REQUEST, SLIDE_LIST_SUCCESS,
-  SLIDE_UPDATE_FAIL, SLIDE_UPDATE_RESET, SLIDE_UPDATE_SUCCESS, SLIDE_UPDATE_REQUEST,
-  SLIDE_DETAILS_FAIL, SLIDE_DETAILS_SUCCESS, SLIDE_DETAILS_REQUEST, SLIDE_DETAILS_RESET, SLIDE_CREATE_SUCCESS, SLIDE_CREATE_REQUEST, SLIDE_CREATE_FAIL
-} from "../constants/slideConstants"
+  PACKAGE_DELETE_FAIL, PACKAGE_DELETE_REQUEST, PACKAGE_DELETE_SUCCESS,
+  PACKAGE_LIST_FAIL, PACKAGE_LIST_REQUEST, PACKAGE_LIST_SUCCESS,
+  PACKAGE_UPDATE_FAIL, PACKAGE_UPDATE_RESET, PACKAGE_UPDATE_SUCCESS, PACKAGE_UPDATE_REQUEST,
+  PACKAGE_DETAILS_FAIL, PACKAGE_DETAILS_SUCCESS, PACKAGE_DETAILS_REQUEST, PACKAGE_DETAILS_RESET, PACKAGE_CREATE_SUCCESS, PACKAGE_CREATE_REQUEST, PACKAGE_CREATE_FAIL
+} from "../constants/packageConstants.js"
 
 
 
-export const listSlides = () => async (dispatch) => {
+export const listPackages = () => async (dispatch) => {
     try {
-        dispatch({ type: SLIDE_LIST_REQUEST })
+        dispatch({ type: PACKAGE_LIST_REQUEST })
 
-        const { data } = await axios.get('/api/slides')
+        const { data } = await axios.get('/api/packages')
 
         dispatch({
-            type: SLIDE_LIST_SUCCESS,
+            type: PACKAGE_LIST_SUCCESS,
             payload: data
         })
 
     } catch (error) {
         dispatch({
-            type: SLIDE_LIST_FAIL,
+            type: PACKAGE_LIST_FAIL,
             payload: error.response && error.response.data.message ?
                 error.response.data.message :
                 error.message,
@@ -30,10 +30,10 @@ export const listSlides = () => async (dispatch) => {
 }
 
 
-export const deleteSlide = (id) => async (dispatch, getState) => {
+export const deletePackges = (id) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: SLIDE_DELETE_REQUEST,
+      type: PACKAGE_DELETE_REQUEST,
     })
 
     const {
@@ -46,14 +46,14 @@ export const deleteSlide = (id) => async (dispatch, getState) => {
       }, 
     }
 
-    await axios.delete(`/api/slides/${id}`, config)
+    await axios.delete(`/api/packages/${id}`, config)
 
     dispatch({
-      type: SLIDE_DELETE_SUCCESS,
+      type: PACKAGE_DELETE_SUCCESS,
     })
   } catch (error) {
     dispatch({
-      type: SLIDE_DELETE_FAIL,
+      type: PACKAGE_DELETE_FAIL,
         payload:
             error.response && error.response.data.message ?
             error.response.data.message :
@@ -64,10 +64,10 @@ export const deleteSlide = (id) => async (dispatch, getState) => {
 
 
 
-export const getSlideDetails = (id) => async (dispatch, getState) => {
+export const getPackageDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: SLIDE_DETAILS_REQUEST,
+      type: PACKAGE_DETAILS_REQUEST,
     })
 
     const {
@@ -81,15 +81,15 @@ export const getSlideDetails = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/slides/${id}`, config)
+    const { data } = await axios.get(`/api/packages/${id}`, config)
 
     dispatch({
-      type: SLIDE_DETAILS_SUCCESS,
+      type: PACKAGE_DETAILS_SUCCESS,
       payload: data,
     })
   } catch (error) {
     dispatch({
-      type: SLIDE_DETAILS_FAIL,
+      type: PACKAGE_DETAILS_FAIL,
         payload:
             error.response && error.response.data.message ?
             error.response.data.message :
@@ -97,13 +97,13 @@ export const getSlideDetails = (id) => async (dispatch, getState) => {
     })
   }
 }
-export const updateSlide = (slide) => async (
+export const updatePackages = (packages) => async (
   dispatch,
   getState
 ) => {
   try {
     dispatch({
-      type: SLIDE_UPDATE_REQUEST,
+      type: PACKAGE_UPDATE_REQUEST,
     })
 
     const {
@@ -117,15 +117,15 @@ export const updateSlide = (slide) => async (
       },
     }
 
-      const { data } = await axios.put(`/api/slides/${slide._id}`, slide, config)
+      const { data } = await axios.put(`/api/packages/${packages._id}`, packages, config)
 
     dispatch({
-        type: SLIDE_UPDATE_SUCCESS,
+        type: PACKAGE_UPDATE_SUCCESS,
         payload: data,
     })
   } catch (error) {
     dispatch({
-      type: SLIDE_UPDATE_FAIL,
+      type: PACKAGE_UPDATE_FAIL,
       payload:
         error.response && error.response.data.message
         ? error.response.data.message
@@ -136,13 +136,13 @@ export const updateSlide = (slide) => async (
 
 
 
-export const createSlide = ( image ) => async (
+export const createPackage = ( packageName, category,isFeatured,icon ) => async (
   dispatch,
   getState
 ) => {
   try {
     dispatch({
-      type: SLIDE_CREATE_REQUEST,
+      type: PACKAGE_CREATE_REQUEST,
     })
 
     const {
@@ -155,15 +155,15 @@ export const createSlide = ( image ) => async (
       },
     }
 
-      const { data } = await axios.post(`/api/slides`, { image }, config)
+      const { data } = await axios.post(`/api/packages`, { packageName, category,isFeatured,icon }, config)
 
     dispatch({
-        type: SLIDE_CREATE_SUCCESS,
+        type: PACKAGE_CREATE_SUCCESS,
         payload: data,
     })
   } catch (error) {
     dispatch({
-      type: SLIDE_CREATE_FAIL,
+      type: PACKAGE_CREATE_FAIL,
       payload:
         error.response && error.response.data.message
         ? error.response.data.message

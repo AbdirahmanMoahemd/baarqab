@@ -1,10 +1,9 @@
 import React from "react"
-import Sdata from "./Sdata"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-const SlideCard = () => {
+const SlideCard = ({Sdata}) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -23,7 +22,7 @@ const SlideCard = () => {
             <>
               <div className='box d_flex top slide-color' key={index}>
                 <div className='right'>
-                  <img src={value.cover} alt='' />
+                  <img src={value.image} alt='' />
                 </div>
                 
               </div>
