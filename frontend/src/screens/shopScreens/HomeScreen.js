@@ -11,7 +11,6 @@ import Message from "../../components/Message";
 import { listProducts2,listNewArravelProducts, listDisProducts } from '../../actions/productAction'
 import { listSubCategories } from '../../actions/subcategoryActions' 
 import { listCategories } from '../../actions/categoryAction'
-import { getProductsByFilter } from '../../actions/filterActions';
 
 
 
@@ -56,8 +55,7 @@ const HomeScreen = ({ match , CartItem}) => {
     const subcategoryList = useSelector(state => state.subcategoryList) 
     const { loading: loadingSubCat, error: errorSubCat, subcategories}  = subcategoryList
     
-    const settingsList = useSelector(state => state.settingsList) 
-    const { loading: loadingSettings, error: errorSettings, settings}  = settingsList
+    
     
 
     useEffect(() => { 
@@ -69,7 +67,6 @@ const HomeScreen = ({ match , CartItem}) => {
       dispatch(listSubCategories())
       dispatch(listSlides()) 
         dispatch(listPackages())
-        dispatch(listsettings())
       
       
     }, [dispatch])
@@ -90,7 +87,7 @@ const HomeScreen = ({ match , CartItem}) => {
       <FlashDeals productItems={products} />
       <Shop packages={packages}  /> 
       <Annocument />
-      <Wrapper data={settings} />
+      {/* <Wrapper data={settings} /> */}
                  
         {/* WhatsApp icon */}
       <a

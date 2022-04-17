@@ -64,3 +64,25 @@ export const updateSettings = asyncHandler (async (req, res) => {
 
   
 })
+
+
+export const createSettings = asyncHandler (async (req, res) => {
+    let settings = new Settings({
+        phoneNumber : req.body.phoneNumber,
+        serviceTitle1 : req.body.serviceTitle1,
+        serviceDecs1 : req.body.serviceDecs1,
+        serviceTitle2 : req.body.serviceTitle2,
+        serviceDecs2 : req.body.serviceDecs2,
+        serviceTitle3 : req.body.serviceTitle3,
+        serviceDecs3 : req.body.serviceDecs3,
+        about : req.body.about,
+        aboutImg : req.body.aboutImg,
+       
+    })
+    settings = await settings.save();
+
+    if(!settings)
+    return res.status(400).send('the settings cannot be created!')
+
+    res.send(settings);
+}) 

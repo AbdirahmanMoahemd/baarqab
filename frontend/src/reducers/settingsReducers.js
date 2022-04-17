@@ -55,3 +55,17 @@ export const settingsUpdateReducer = (state = { settings: {} } , action) => {
     }
 }
 
+export const settingsCreateReducer = (state = {} , action) => {
+    switch (action.type) {
+        case SETTINGS_CREATE_REQUEST:
+            return { loading: true}
+        case SETTINGS_CREATE_SUCCESS:
+            return { loading: false, success: true, settings: action.payload }
+        case SETTINGS_CREATE_FAIL:
+            return { loading: false, error: action.payload }
+        case SETTINGS_CREATE_RESET:
+            return {}
+        default:
+            return state
+    }
+}

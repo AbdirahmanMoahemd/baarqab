@@ -4,23 +4,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loader from '../../../components/Loader'
 import Message from '../../../components/Message'
-import {  getSettingsDetails, updateSettings} from '../../../actions/settingsActions'
+import {  createSettings} from '../../../actions/settingsActions'
 import AdminScreen from '../AdminScreen'
 import { ColorPicker } from 'primereact/colorpicker';
 import { Button } from 'primereact/button';
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
-import { SETTINGS_UPDATE_RESET } from '../../../constants/settingsConstants'
+import { SETTINGS_CREATE_RESET } from '../../../constants/settingsConstants'
 import { listCategories } from '../../../actions/categoryAction'
 import { InputSwitch } from 'primereact/inputswitch';
 import { InputTextarea } from 'primereact/inputtextarea';
 
+const SettingsCreateReducer = ({history}) => {
 
-
-const SettingsEditScreen = ({history,match }) => {
-  const settingsId = match.params.id
-   
-    
     const [serviceTitle1, setServiceTitle1] = useState('')
     const [serviceDecs1, setServiceDecs1] = useState('')
     const [serviceTitle2, setServiceTitle2] = useState('')
@@ -33,38 +29,20 @@ const SettingsEditScreen = ({history,match }) => {
     const [uploading, setUploading] = useState(false)
     const dispatch = useDispatch()
 
+     const settingsCreat = useSelector(state => state.settingsCreat)
+    const { loading: loadingCreate, error: errorCreate,success: successCreate } = settingsCreat
+
     
-
-    const settingsDetails = useSelector(state => state.settingsDetails)
-    const { loading, error, settings } = settingsDetails
-
-    const settingsUpdate = useSelector(state => state.settingsUpdate)
-    const { loading:loadingUpdate, error:errorUpdate, success:successUpdate } = settingsUpdate
     
     
     useEffect(() => {
-        if (successUpdate) {
-            dispatch({ type: SETTINGS_UPDATE_RESET })
+        if (successCreate) {
+            dispatch({ type: SETTINGS_CREATE_RESET })
             history.push('/admin/settings')
         }
-        else {
-            if (!settings.phoneNumber || settings.id !== settingsId) {
-                dispatch(getSettingsDetails(settingsId))
-            }
-            else {
-                setServiceTitle1(settings.serviceTitle1)
-                setServiceDecs1(settings.serviceDecs1)
-                setServiceTitle2(settings.serviceTitle2)
-                setServiceDecs2(settings.serviceDecs2)
-                setServiceTitle3(settings.serviceTitle3)
-                setServiceDecs3(settings.serviceDecs3)
-                setPhoneNumber(settings.phoneNumber)
-                setAbout(settings.about)
-                setAboutImg(settings.aboutImg)
-            }
-        }
     
-    }, [ dispatch, history, successUpdate, settingsId,settings])
+    }, [ dispatch, history, successCreate])
+
     const uploadFileHandler = async (e) => {
         const file = e.target.files[0]
         const formData = new FormData()
@@ -87,24 +65,14 @@ const SettingsEditScreen = ({history,match }) => {
     }
     
 
-    const updateCategoryFun = () => {
-    dispatch(updateSettings({
-            _id: settingsId,
-            serviceTitle1,
-            serviceDecs1,
-            serviceTitle2,
-            serviceDecs2,
-            serviceTitle3,
-            serviceDecs3,
-            phoneNumber,
-            about,
-            aboutImg
-        }))
-    }
+    
      const submitHandler = (e) => {
            
          e.preventDefault() 
-             updateCategoryFun();
+             dispatch(createSettings(
+            phoneNumber, serviceTitle1, serviceDecs1, serviceTitle2,
+        serviceDecs2, serviceTitle3, serviceDecs3,about, aboutImg
+        ))
     }
     
     
@@ -113,22 +81,24 @@ const SettingsEditScreen = ({history,match }) => {
     <React.Fragment>
             <div >
             <Button 
-            label='update'
+            label='Create'
             className="p-button-primary p-mr-2"
                     icon="pi pi-plus"
             type="submit"
-            ></Button>
+                ></Button>
+            <Link to={'/admin/settings'}>
             <Button 
             label="Cancle"
             className="p-button-secondary"
             icon="pi pi-arrow-circle-left"
-            ></Button>
+                    ></Button>
+            </Link>
           </div> 
     </React.Fragment>
 );
 
-     return (
-        <>
+  return (
+    <>
              <AdminScreen />
              <div className="main-content">
                  <main>
@@ -141,9 +111,8 @@ const SettingsEditScreen = ({history,match }) => {
                          </div>
                         <div class="p-grid" > 
                                  <div class="p-col-12">
-                                     {loadingUpdate && <Loader />}
-                                    {errorUpdate && <Message>{errorUpdate}</Message>}
-                                     {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
+                                     {loadingCreate && <Loader />}
+                                     {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
                                          <div class="p-fluid p-formgrid p-grid" >
                                              <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                  <label htmlFor="name">Service Title1</label><br />
@@ -197,7 +166,6 @@ const SettingsEditScreen = ({history,match }) => {
                                                 </div>
                                             
                                          </div>
-                                     )}
                                 </div>
                         </div>
                         </form>
@@ -208,8 +176,7 @@ const SettingsEditScreen = ({history,match }) => {
              </main>
               </div>
         </>    
-     )
-
+  )
 }
 
-export default SettingsEditScreen
+export default SettingsCreateReducer

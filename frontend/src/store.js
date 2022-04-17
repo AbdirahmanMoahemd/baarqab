@@ -33,8 +33,9 @@ import {
 } from './reducers/packageReducers'
 
 import {
-    settingsDetailsReducer,
     settingsListReducer,
+    settingsDetailsReducer,
+    settingsCreateReducer,
     settingsUpdateReducer
 } from './reducers/settingsReducers'
 
@@ -92,9 +93,10 @@ const reducer = combineReducers({
     packagesDetails: packagesDetailsReducer,
     packagesUpdate: packagesUpdateReducer,
     packagesCreate: packagesCreateReducer,
-    settingsDetails:settingsDetailsReducer,
     settingsList:settingsListReducer,
-    settingsUpdate:settingsUpdateReducer
+    settingsDetails:settingsDetailsReducer,
+    settingsUpdate:settingsUpdateReducer,
+    settingsCreat:settingsCreateReducer,
     
 
 })

@@ -35,7 +35,25 @@ const SettingsListScreen = ({history}) => {
         dispatch, history, userInfo])
     
      
-    
+     const leftContents = (
+    <React.Fragment>
+            <div >
+                <Link to={'/admin/settings/create/new'}>
+            <Button 
+            label="New"
+            className="p-button-success  p-mr-2"
+            icon="pi pi-plus"
+            ></Button>
+                </Link>
+            <Button 
+            label="Refresh"
+            className="p-button-primary"
+            icon="pi pi-refresh"
+            onClick={() => window.location.reload(false)}
+            ></Button>
+          </div> 
+    </React.Fragment>
+);
         return (
         <>
             <AdminScreen/>
@@ -46,7 +64,7 @@ const SettingsListScreen = ({history}) => {
            <Card title="Settings" subTitle="List of all settings">
     <div className="p-grid">
       <div className="p-col-12">
-       
+       <Toolbar left={leftContents}/>
          
       </div>
     </div>

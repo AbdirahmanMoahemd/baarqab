@@ -7,17 +7,20 @@ import "./style.css"
 const Footer = ({  }) => {
     
      const dispatch = useDispatch()
-  
-  const settingsList = useSelector(state => state.settingsList) 
-    const { loading, error, settings}  = settingsList
 
-   useEffect(() => { 
-      
-       
+    
+    
+   
+    
+    const settingsList = useSelector(state => state.settingsList) 
+    const { loading, error, settings } = settingsList
+
+    
+    
+    useEffect(() => {
         dispatch(listsettings())
-      
-      
-    }, [dispatch])
+       
+    }, [ dispatch])
   return (
     <>
       <footer>
@@ -49,12 +52,12 @@ const Footer = ({  }) => {
         </div>
         <div class="footer-links">
                       <strong>Contact</strong>
-                      {settings.map((val, index)=>{
+                      {settings.map(setting => (
                           <ul>
-                              <li><a href="#">Phone : {val.phoneNumber}</a></li>
+                              <li><a href="#">Phone : {setting.phoneNumber}</a></li>
                 <li><a href="#">Email : info.baarqab@gmail.com</a></li>
             </ul>
-            })}
+                      ))}
             
         </div> 
         </div>  

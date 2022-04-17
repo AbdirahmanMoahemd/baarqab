@@ -11,7 +11,6 @@ import Loader  from '../../components/Loader.js'
 import Message from '../../components/Message.js'
 
 const AboutUsScreen = () => {
-   const dispatch = useDispatch()
     let sent = false
     function sendEmail(e) {
       e.preventDefault();
@@ -27,25 +26,28 @@ const AboutUsScreen = () => {
       });
     e.target.reset()
   }
-  const settingsList = useSelector(state => state.settingsList) 
-    const { loading, error, settings } = settingsList
-  console.log(settings)
+    const dispatch = useDispatch()
 
-   useEffect(() => { 
-      
-       
+    
+    
+   
+    
+    const settingsList = useSelector(state => state.settingsList) 
+    const { loading, error, settings } = settingsList
+
+    
+    
+    useEffect(() => {
         dispatch(listsettings())
-      
-      
-    }, [dispatch])
+       
+    }, [ dispatch])
 
     return (
         <>
         <Header />
         {loading ? (<Loader />) : error ? (<Message variant='danger'>{error}</Message>) : (
          <>
-          {
-            settings.map((val, index) => {
+          {settings.map(setting => (
               <div class="section-about">
                 <div class="container-about">
                   <div class="content-section-about">
@@ -56,7 +58,7 @@ const AboutUsScreen = () => {
                     <div class="content-about" >
                       <h3>BAARQAB SOUQ</h3>
                 
-                      <p>{val.about}</p>
+                      <p>{setting.about}</p>
          
 					
 				
@@ -69,14 +71,13 @@ const AboutUsScreen = () => {
                   </div>
            
                   <div class="image-section-about">
-                    <img src={val.aboutImg} />
+                    <img src={setting.aboutImg} />
                   </div>
            
            
                 </div>
               </div>
-            })
-            }
+          ))}
           </>
           )}
 			{/* WhatsApp icon */}

@@ -38,6 +38,7 @@ import PackageCreateScreen from './screens/adminScreens/package/packageCreateScr
 import PackageEditScreen from './screens/adminScreens/package/packageEditScreen'
 import SettingsListScreen from './screens/adminScreens/settings/SettingsListScreen'
 import SettingsEditScreen from './screens/adminScreens/settings/SettingsEditScreen'
+import SettingsCreateReducer from './screens/adminScreens/settings/SettingsCreateReducer'
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -65,6 +66,7 @@ const App = () => {
         <>
           <Route path='/admin/settings' component={SettingsListScreen} exact />
           <Route path='/admin/settings/:id/edit' component={SettingsEditScreen} exact />
+          <Route path='/admin/settings/create/new' component={SettingsCreateReducer} exact />
           
           <Route path='/admin/packages/create/new' component={PackageCreateScreen} exact />
           <Route path='/admin/packages/:id/edit' component={PackageEditScreen} exact />

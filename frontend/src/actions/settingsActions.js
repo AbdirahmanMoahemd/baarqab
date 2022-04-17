@@ -102,4 +102,42 @@ export const updateSettings = (settings) => async (
 }
 
 
+export const createSettings = ( phoneNumber, serviceTitle1, serviceDecs1, serviceTitle2,
+        serviceDecs2, serviceTitle3, serviceDecs3,about, aboutImg ) => async (
+  dispatch,
+  getState
+) => {
+  try {
+    dispatch({
+      type: SETTINGS_CREATE_REQUEST,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`
+      },
+    }
+
+      const { data } = await axios.post(`/api/settings`, { phoneNumber, serviceTitle1, serviceDecs1, serviceTitle2,
+        serviceDecs2, serviceTitle3, serviceDecs3,about, aboutImg }, config)
+
+    dispatch({
+        type: SETTINGS_CREATE_SUCCESS,
+        payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: SETTINGS_CREATE_FAIL,
+      payload:
+        error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message
+    })
+  }
+}
+
 
