@@ -1,32 +1,44 @@
 import React, { useRef, useEffect , useState} from "react";
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector, } from 'react-redux'
-import { listsettings } from '../../actions/settingsActions'
+import { listsettings } from '../../actions/settingsActions.js'
 
 const Head = () => {
   const dispatch = useDispatch()
   
   const settingsList = useSelector(state => state.settingsList) 
-    const { loading, error, settings}  = settingsList
+    const { loading, error, settings } = settingsList
 
-   useEffect(() => { 
-      
+    useEffect(() => {
        
         dispatch(listsettings())
-      
-      
-    }, [dispatch])
+       
+    }, [
+      dispatch])
+  
+  var newdata = []
+  settings.map((val) => {
+    newdata = [
+    {
+      phone: val.phoneNumber,
+      },
+      {
+      phone: val.phoneNumber,
+    },
+    
+  ]
+  })
   return (
     <>
       <section className='head'>
         <div className='container flex-all '>
           <div className='left  left-flex'>
-              {settings.map((val, index) => {
-                <div key={index}>
+              {newdata.map((val) => {
+                <div key={val.id}>
                <i className='fa fa-phone'></i>
-                  <label> {val.serviceTitle1}</label>
+                  <label> {val.phone}</label>
             </div>
-            })}
+            })} 
             <div>
             <i className='fa fa-envelope'></i>
               <label>info.baarqab@gmail.com</label>

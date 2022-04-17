@@ -8,7 +8,7 @@ import $ from 'jquery';
 import { Route } from 'react-router-dom'
 import SearchBoxxx from "./SearchBoxxx";
 
-const Search = () => { 
+const Search = () => {  
   // fixed Header
   $(window).scroll(function () {
             if($(document).scrollTop() > 25) {

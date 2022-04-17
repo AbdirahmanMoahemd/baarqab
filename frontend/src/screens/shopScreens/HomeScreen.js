@@ -30,18 +30,12 @@ import { listsettings } from '../../actions/settingsActions'
 
 
 const HomeScreen = ({ match , CartItem}) => {
-    const keyword = match.params.keyword
-  const [categoryIds, setCategoryIds] = useState([]);
-  let updatedCategoryIds;
- 
-   
-    const [activeIndex, setActiveIndex] = useState(0);
-  
 
+ 
     const dispatch = useDispatch()
  
     const productList = useSelector(state => state.productList)
-  const { loading, error, products } = productList
+    const { loading, error, products } = productList
   
     const slideList = useSelector((state) => state.slideList)
     const { loading:loadingSlider, error:errorSlider, slides } = slideList
@@ -80,35 +74,8 @@ const HomeScreen = ({ match , CartItem}) => {
       
     }, [dispatch])
   
-    const handleCategory = e => {
-		resetState();  
-
-		const currentCategoryChecked = e.target.value;
-		const allCategoriesChecked = [...categoryIds];
-		const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked);
-
-		
-		if (indexFound === -1) {  
-			// add
-
-			updatedCategoryIds = [...categoryIds, currentCategoryChecked];
-			setCategoryIds(updatedCategoryIds);
-		} else {
-			// remove
-			updatedCategoryIds = [...categoryIds];
-			updatedCategoryIds.splice(indexFound, 1);
-      setCategoryIds(updatedCategoryIds);
-      
-		}
-    dispatch(
-      getProductsByFilter({ type: 'category', query: updatedCategoryIds }),
-		);
-  };
-   
-  const resetState = () => {
     
-		setCategoryIds([]);
-	};
+   
   
 
   
@@ -134,7 +101,7 @@ const HomeScreen = ({ match , CartItem}) => {
       >
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>
-        <Footer />
+        <Footer  />
       </>
     );
 }

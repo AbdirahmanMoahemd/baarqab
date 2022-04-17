@@ -8,4 +8,4 @@ router.route('/:id').get(protect, admin, getSettingsById).
     put(protect, admin, updateSettings)
  
 
-export default router  
+export default router   

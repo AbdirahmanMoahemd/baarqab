@@ -94,8 +94,8 @@ const SubCategoryListScreen = ({ match, history }) => {
                                     <tbody>
                                        {subcategories.map(subcategory => (
                                             <tr key={subcategory.id}>
-                                               <td>{subcategory.name}</td>
-                                               <td>{subcategory.category.name}</td>
+                                                <td>{subcategory.name}</td>
+                                               <td>{subcategory.category ? subcategory.category.name : 'not found'}</td>
                                                 <td>
                                                    <Button 
                                                     icon="pi pi-trash"

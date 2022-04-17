@@ -96,7 +96,9 @@ const CategoryListScreen = ({ match, history }) => {
                                        {categories.map(category => (
                                             <tr key={category.id}>
                                                <td>{category.name}</td>
-                                               <td>{category.icon}</td>
+                                               <td className="product-per-image">
+                                                    <img style={{width: "100%"}} src={category.icon} />
+                                               </td> 
                                                <td>{category.color} </td>
                                                 <td>
                                                    <Button 

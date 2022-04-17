@@ -35,7 +35,7 @@ const OrderListScreen = ({ history }) => {
                                  <Card title="Oders" subTitle="List of all oders">
                                 <div className="p-grid">
                                     <div className="p-col-12">
-                                        
+                                         
                                     </div>
                                 </div>
                                 <div className ="p-grid">
@@ -91,10 +91,20 @@ const OrderListScreen = ({ history }) => {
                            </div>
                 </div>
                 
-               </Card>
-                    </main>
+                    </Card>
+                       <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>   
+                </main>
+              
              </div>    
-                        
+                   
+              
         </>
     
     )

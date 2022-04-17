@@ -109,18 +109,20 @@ const SubCategoryEditScreen = ({ match, history }) => {
                                                  <input value={name} id="name" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
                                                      onChange={(e) => setName(e.target.value)} />
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 ">
+                                              <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="icon">Category</label><br />
-                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"3%", width: "80%"}}
-                                                        onChange={(e) => setCategory(e.target.value)} className="p-mt-2" >
+                                                    
+                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                onChange={(e) => setCategory(e.target.value)} >
+                                                    <option>Select Category here</option>
                                                         {categories.map(cat => (
                                                             <>
                                                              <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
-                                                        </>
+                                                            </>
                                                         ))}
                                                     
                                                     </select>
-                                             </div>
+                                        </div> 
                                             
                                          </div>
                                      )}

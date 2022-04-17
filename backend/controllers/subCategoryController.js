@@ -4,7 +4,7 @@ import SubCategory from '../models/subcategory.js'
 
 export const  getSubCategories = asyncHandler(async (req, res) => {
 
-    const subcategories = await SubCategory.find().populate('category');;
+    const subcategories = await SubCategory.find().populate('category');
 
     if(!subcategories) {
         res.status(500).json({success: false})
@@ -13,7 +13,7 @@ export const  getSubCategories = asyncHandler(async (req, res) => {
 })
 
 export const getSubCategoryById = asyncHandler (async (req, res) => {
-  const subcategory = await SubCategory.findById(req.params.id).populate('category');
+  const subcategory = await SubCategory.findById(req.params.id).populate('category')
 
     if (subcategory) { 
         res.json(subcategory) 

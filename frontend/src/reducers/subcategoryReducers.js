@@ -21,7 +21,7 @@ import {
 
 
 
-export const subcategoryListReducer = (state = { subcategories: [ { category: [] } ] }, action) => {
+export const subcategoryListReducer = (state = { subcategories: [{ category: [] } ] }, action) => {
     switch (action.type) {
         case SUBCATEGORY_LIST_REQUEST:
             return { loading: true, subcategories: [] }
@@ -38,7 +38,7 @@ export const subcategoryListReducer = (state = { subcategories: [ { category: []
 }
 
 
-export const subcategoryDetailsReducer = (state = { subcategory:{category: []} }, action) => {
+export const subcategoryDetailsReducer = (state = { subcategory:{ category: [] } }, action) => {
     switch (action.type) {
         case SUBCATEGORY_DETAILS_REQUEST: 
             return { loading: true, ...state}

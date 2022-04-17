@@ -51,9 +51,9 @@ const AboutUsScreen = () => {
                   <div class="content-section-about">
                     <div class="title-about">
                       <h1>About Us</h1>
-                    </div>
+                    </div>  
              
-                    <div class="content-about" key={index}>
+                    <div class="content-about" >
                       <h3>BAARQAB SOUQ</h3>
                 
                       <p>{val.about}</p>
@@ -68,7 +68,7 @@ const AboutUsScreen = () => {
                     </div>
                   </div>
            
-                  <div class="image-section-about" key={index}>
+                  <div class="image-section-about">
                     <img src={val.aboutImg} />
                   </div>
            

@@ -178,7 +178,16 @@ const AdminHome = ({ history }) => {
                 </>
                     )}
             </main>
-      </div>  
+            </div>  
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </>
     )
 }

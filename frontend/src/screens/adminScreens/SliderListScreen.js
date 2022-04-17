@@ -93,7 +93,9 @@ const SliderListScreen = ({ history }) => {
                                     <tbody>
                                        {slides.map(slide => (
                                             <tr key={slide.id}>
-                                               <td>{slide.image}</td>
+                                               <td >
+                                                    <img style={{width: "100%"}} src={slide.image} />
+                                               </td> 
                                                 <td>
                                                    <Button 
                                                     icon="pi pi-trash"
@@ -120,7 +122,16 @@ const SliderListScreen = ({ history }) => {
     </div>
   </Card>
         </main>
-    </div> 
+            </div> 
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         
         </>
     )
