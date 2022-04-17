@@ -33,7 +33,7 @@ const AllProductsScreen = ({ match }) => {
     useEffect(() => {
       dispatch(listCategories())
      
-    }, [dispatch]) 
+    }, [dispatch,keyword]) 
     
   const handleCategory = e => {
 		resetState();

@@ -25,7 +25,7 @@ const ProductEditScreen = ({ match, history }) => {
     const [price, setPrice] = useState(0)
     const [countInStock, setCountInStock] = useState(0)
     const [isFeatured, setisFeatured] = useState(true)
-    const [isDiscounted, setisDiscounted] = useState(true)
+    const [isDiscounted, setisDiscounted] = useState(false)
     const [newPrice, setNewPrice] = useState(0)
     const [url1,setUrl1] = useState('')
     const [url2,setUrl2] = useState('')

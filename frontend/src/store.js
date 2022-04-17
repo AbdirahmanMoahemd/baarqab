@@ -32,6 +32,11 @@ import {
     packagesCreateReducer
 } from './reducers/packageReducers'
 
+import {
+    settingsDetailsReducer,
+    settingsListReducer,
+    settingsUpdateReducer
+} from './reducers/settingsReducers'
 
 
 
@@ -86,7 +91,10 @@ const reducer = combineReducers({
     packagesDelete: packagesDeleteReducer,
     packagesDetails: packagesDetailsReducer,
     packagesUpdate: packagesUpdateReducer,
-    packagesCreate:packagesCreateReducer
+    packagesCreate: packagesCreateReducer,
+    settingsDetails:settingsDetailsReducer,
+    settingsList:settingsListReducer,
+    settingsUpdate:settingsUpdateReducer
     
 
 })

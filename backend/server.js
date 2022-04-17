@@ -22,6 +22,7 @@ import iconupload from './routes/iconuploader.js'
 import subcategory from './routes/subcategory.js'
 import slideImageRoutes from './routes/slideImageRoutes.js'
 import packagesRoutes from './routes/packagesRoutes.js'
+import settingsRoutes from './routes/settingsRoutes.js'
 
 dotenv.config()
 connectDB()  
@@ -55,6 +56,7 @@ app.use('/api/slideupload', slideImageRoutes)
 app.use('/api/subcategory', subcategory)
 app.use('/api/filter', filterRoutes); 
 app.use('/api/packages', packagesRoutes); 
+app.use('/api/settings', settingsRoutes); 
 
 
 app.get('/api/config/paypal', (req, res) =>

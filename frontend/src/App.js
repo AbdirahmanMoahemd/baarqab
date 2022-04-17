@@ -36,6 +36,8 @@ import UserListScreen from './screens/adminScreens/users/UserListScreen'
 import PackageListScreen from './screens/adminScreens/package/packageListScreen'
 import PackageCreateScreen from './screens/adminScreens/package/packageCreateScreen'
 import PackageEditScreen from './screens/adminScreens/package/packageEditScreen'
+import SettingsListScreen from './screens/adminScreens/settings/SettingsListScreen'
+import SettingsEditScreen from './screens/adminScreens/settings/SettingsEditScreen'
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -61,6 +63,9 @@ const App = () => {
       <Route path='/cart/:id?' component={CartScreen} exact />
       {userInfo && userInfo.isAdmin ? (
         <>
+          <Route path='/admin/settings' component={SettingsListScreen} exact />
+          <Route path='/admin/settings/:id/edit' component={SettingsEditScreen} exact />
+          
           <Route path='/admin/packages/create/new' component={PackageCreateScreen} exact />
           <Route path='/admin/packages/:id/edit' component={PackageEditScreen} exact />
           <Route path='/admin/packages' component={PackageListScreen} exact />

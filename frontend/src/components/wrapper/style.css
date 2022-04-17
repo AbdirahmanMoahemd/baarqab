@@ -22,3 +22,19 @@
   margin-top: 20px;
   color: grey;
 }
+.grid22 {
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+
+}
+
+@media (max-width: 768px) {
+  .grid22 {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-around;
+  align-items:center;
+
+}
+}

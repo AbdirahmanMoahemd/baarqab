@@ -182,8 +182,8 @@ export const deleteProduct = (id) => async (
 }
 
 
-export const createProduct = (name, category, subcategory, brand, description, price,isDiscounted,newPrice,
-  countInStock,isFeatured,image, images, colors, sizes) => async (
+export const createProduct = (name, category, subcategory, brand, description, price,
+  countInStock,isFeatured,isDiscounted,newPrice,image, images, colors, sizes) => async (
   dispatch,
   getState
 ) => {

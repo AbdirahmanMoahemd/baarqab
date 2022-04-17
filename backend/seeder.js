@@ -4,14 +4,8 @@ import colors from 'colors'
 import users from './data/users.js'
 import products from './data/products.js'
 import slides from './data/slide.js'
-import promotions from './data/promotion.js'
-import testimonials from './data/testimonials.js'
-import User from './models/userModel.js'
-import Testimonials from './models/testimonialsModel.js'
-import Slide from './models/slidesModel.js'
-import Oder from './models/oderModel.js'
-import Promotions from './models/promotionModel.js'
-import Product from './models/productModel.js'
+import Settings from './models/settingsModel.js'
+
 import connectDB from './config/db2.js'
 
 
@@ -26,17 +20,17 @@ const importData = async () => {
         // await User.deleteMany()
         // await Slide.deleteMany()
 
-        const createUsers = await User.insertMany(users)
+        // const createUsers = await User.insertMany(users)
 
         // const adminUser = createUsers[0]._id
         // const sampleProducts = products.map(product => {
         //     return {...product, user: adminUser}
         // })
 
-        // await Product.insertMany(sampleProducts)
+        await Settings.insertMany(products)
 
         // await Slide.insertMany(slides)
-         await Promotions.insertMany(promotions)
+        //  await Promotions.insertMany(promotions)
        // await Testimonials.insertMany(testimonials)
 
         // const adminUser2 = createUsers[0]._id

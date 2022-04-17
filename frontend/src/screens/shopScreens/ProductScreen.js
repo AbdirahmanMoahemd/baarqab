@@ -134,9 +134,9 @@ const ProductScreen = ({ history, match }) => {
              <div class="col-2-d pro-info">
                  <p style={{fontSize: '1.5rem'}}>Home / {product.name}</p>
                  <h1 className='product-new-name'>Name: {product.name}</h1>
-                    <div className='price-flex'><h4>Price:<span className='prices-flex'><span style={{ textDecorationLine: 'line-through', }}>${product.price}</span> {product.isDiscounted && <span className='dis-price'>${product.newPrice}</span>}</span></h4></div>
+                    <div className='price-flex'><h4>Price:<span className='prices-flex'> {product.isDiscounted ? <><span style={{ textDecorationLine: 'line-through', }}>${product.price}</span> <span className='dis-price'>${product.newPrice}</span></> : <>${product.price}</>}</span></h4></div>
                                 <h4><Rating
-                                value={product.rating}
+                                value={product.rating} 
                                 text={` ${product.numReviews} reviews`}
                                 /></h4>
                                 {product.colors[0] != null ?

@@ -66,7 +66,12 @@ const AdminScreen = ({ history }) => {
                     <Link to="/admin/userlist"><span className="las la-users"></span>
                         <span>Users</span>
                     </Link> 
-                </li>        
+                        </li>  
+                 <li>
+                    <Link to="/admin/settings"><span className="las la-cog"></span>
+                        <span>Settings</span>
+                    </Link> 
+                </li>          
                 <li>
                     <Link to="/admin" onClick={logoutHandler}><span ><i className="fa fa-sign-out"></i></span>
                         <span>Logout</span>

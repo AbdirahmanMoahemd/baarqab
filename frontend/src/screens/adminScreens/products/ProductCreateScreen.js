@@ -26,6 +26,8 @@ const ProductEditScreen = ({ match, history }) => {
     const [countInStock, setCountInStock] = useState(0)
     const [isFeatured, setisFeatured] = useState(true)
     const [image, setImage] = useState('')
+    const [isDiscounted, setisDiscounted] = useState(false)
+    const [newPrice, setNewPrice] = useState(0)
     const [url1,setUrl1] = useState('')
     const [url2,setUrl2] = useState('')
     const [url3,setUrl3] = useState('')
@@ -153,7 +155,7 @@ const ProductEditScreen = ({ match, history }) => {
 
          e.preventDefault() 
        dispatch(createProduct(name, category,subcategory, brand, description,
-       price, countInStock, isFeatured, image, images, Colors, Sizes))
+       price, countInStock, isFeatured,isDiscounted,newPrice, image, images, Colors, Sizes))
         }
    
     
@@ -316,12 +318,12 @@ const ProductEditScreen = ({ match, history }) => {
                                          <div class="p-fluid p-formgrid p-grid" >
                                              <div class="p-col-12 p-md-6 p-lg-4">
                                                  <label htmlFor="name">Name</label><br />
-                                                 <input value={name} id="name" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                 <input value={name} id="name" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setName(e.target.value)} placeholder='Name' required/>
                                              </div>
-                                                <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="icon">Category</label><br />
-                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                    <select name="" value={category} required style={{ height: "35px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setCategory(e.target.value)} >
                                                     <option>Select Category here</option>
                                                         {categories.map(cat => (
@@ -332,9 +334,9 @@ const ProductEditScreen = ({ match, history }) => {
                                                     
                                                     </select>
                                         </div>  
-                                        <div class="p-col-12 p-md-6 p-lg-4 ">
+                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="icon">Sub Category</label><br />
-                                                    <select name="" value={subcategory} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                    <select name="" value={subcategory} required style={{ height: "35px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setSubCategory(e.target.value)} >
                                                     <option>Select Sub Category here</option>
                                                         {subcategories.map(subcat => (
@@ -345,43 +347,52 @@ const ProductEditScreen = ({ match, history }) => {
                                                     
                                                     </select>
                                             </div>  
-                                            <div class="p-col-12 p-md-6 p-lg-4">
+                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Brand</label><br />
-                                                     <input value={brand} id="icon" type="text" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={brand} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setBrand(e.target.value)} placeholder='Brand' required />
                                             </div>
-                                            <div class="p-col-12 p-md-6 p-lg-4 ">
+                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Description</label><br />
-                                                     <input  value={description} id="icon" type="text" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input  value={description} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setDescription(e.target.value)} placeholder='Description' required />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Price</label><br /> 
-                                                     <input value={price} id="icon" type="text" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={price} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setPrice(e.target.value)} placeholder='Price'  />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 ">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">CountInStock</label><br />
-                                                     <input value={countInStock} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={countInStock} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setCountInStock(e.target.value)} placeholder='Count In Stock' />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2 mt-3">
                                                     <label htmlFor="color">isFeatured</label><br />
                                                      <InputSwitch checked={isFeatured} className="p-mt-1" onChange={(e) => setisFeatured(e.value)} />
                                         </div>
-                                         <div class="p-col-12 p-md-6 p-lg-4 ">
+                                        <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                                    <label htmlFor="color">isDiscounted</label><br />
+                                                     <InputSwitch checked={isDiscounted} className="p-mt-1"   onChange={(e) => setisDiscounted(e.value)} />
+                                                </div>
+                                                <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                                    <label htmlFor="color">New Price</label><br />
+                                                     <input value={newPrice} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
+                                                     onChange={(e) => setNewPrice(e.target.value)} />
+                                                </div>
+                                         <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Colors<span style={{fontSize: '.7rem'}}>(optional)</span></label><br />
-                                                     <input value={temColor} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={temColor} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setTemColor(e.target.value)} placeholder='Enter colors like this red,blue,green' />
                                         </div>
-                                        <div class="p-col-12 p-md-6 p-lg-4 ">
+                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Sizes<span style={{fontSize: '.7rem'}}>(optional)</span></label><br />
-                                                     <input value={temSize} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={temSize} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                      onChange={(e) => setTemSizes(e.target.value)} placeholder='Enter sizes like this XXL,XL,M' />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 ">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                     <label htmlFor="color">Select an image:</label><br />
-                                                     <input value={image} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     <input value={image} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
                                                         onChange={(e) => setImage(e.target.value)} required />
                                                     
                                                     <input type="file" id="myfile" name="myfile" 
@@ -389,9 +400,9 @@ const ProductEditScreen = ({ match, history }) => {
                                                         />
                                                     {uploading && <Loader/>}
                                         </div>
-                                        <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3 ">
                                                         <label htmlFor="color">Select an image1:</label><br />
-                                                        <input  value={url1} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url1} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl1(e.target.value)} required />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -399,9 +410,9 @@ const ProductEditScreen = ({ match, history }) => {
                                                         />
                                                     {uploading0 && <Loader/>}
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                         <label htmlFor="color">Select an image2:</label><br />
-                                                        <input  value={url2} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url2} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl2(e.target.value)} required />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -409,9 +420,9 @@ const ProductEditScreen = ({ match, history }) => {
                                                         /> 
                                                     {uploading1 && <Loader/>}
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                         <label htmlFor="color">Select an image3:</label><br />
-                                                        <input  value={url3} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url3} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl3(e.target.value)} required />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
@@ -419,9 +430,9 @@ const ProductEditScreen = ({ match, history }) => {
                                                         /> 
                                                     {uploading2 && <Loader/>}
                                                 </div>
-                                            <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                         <label htmlFor="color">Select an image4:</label><br />
-                                                        <input  value={url4} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        <input  value={url4} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
                                                         onChange={(e) => setUrl4(e.target.value)} required />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
