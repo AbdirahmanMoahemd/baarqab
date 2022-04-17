@@ -1,7 +1,23 @@
-import React from "react"
+import React, { useRef, useEffect , useState} from "react";
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector, } from 'react-redux'
+import { listsettings } from '../../actions/settingsActions'
 import "./style.css"
 
-const Footer = () => {
+const Footer = ({  }) => {
+    
+     const dispatch = useDispatch()
+  
+  const settingsList = useSelector(state => state.settingsList) 
+    const { loading, error, settings}  = settingsList
+
+   useEffect(() => { 
+      
+       
+        dispatch(listsettings())
+      
+      
+    }, [dispatch])
   return (
     <>
       <footer>
@@ -32,11 +48,14 @@ const Footer = () => {
             </ul>
         </div>
         <div class="footer-links">
-            <strong>Contact</strong>
-            <ul>
-                <li><a href="#">Phone : +252 610 872270</a></li>
+                      <strong>Contact</strong>
+                      {settings.map((val, index)=>{
+                          <ul>
+                              <li><a href="#">Phone : {val.phoneNumber}</a></li>
                 <li><a href="#">Email : info.baarqab@gmail.com</a></li>
             </ul>
+            })}
+            
         </div> 
         </div>  
     </footer> 
