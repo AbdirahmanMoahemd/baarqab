@@ -29,11 +29,11 @@ const AllProductsScreen = ({ match }) => {
     useEffect(() => {
      dispatch(listProducts(keyword))
      
-    }, [dispatch, ]) 
+    }, [dispatch,keyword ]) 
     useEffect(() => {
       dispatch(listCategories())
      
-    }, [dispatch,keyword]) 
+    }, [dispatch]) 
     
   const handleCategory = e => {
 		resetState();
