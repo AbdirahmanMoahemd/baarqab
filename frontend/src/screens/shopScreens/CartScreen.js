@@ -8,6 +8,7 @@ import { Message } from 'primereact/message';
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
 import '../../css/cart.css';
+import WhatsApplink from '../../common/whatsApplink'
 import '../../css/order-summary.css';
 
 const CartScreen = ({ match, location, history }) => {
@@ -144,14 +145,7 @@ const CartScreen = ({ match, location, history }) => {
                 }
             </div>
             {/* WhatsApp icon */}
-      <a
-        href="https://wa.me/252610872270"
-        class="whatsapp_float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+      <WhatsApplink/>
             <Footer/>
         </> 
     )

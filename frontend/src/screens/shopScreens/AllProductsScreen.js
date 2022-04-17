@@ -9,6 +9,8 @@ import '../../css/products.css'
 import { listProducts } from '../../actions/productAction'
 import { listCategories } from '../../actions/categoryAction' 
 import { getProductsByFilter } from '../../actions/filterActions';
+import WhatsApplink from '../../common/whatsApplink'
+
 
 const AllProductsScreen = ({ match }) => {
   const keyword = match.params.keyword
@@ -129,14 +131,7 @@ const AllProductsScreen = ({ match }) => {
           </div>
             )} 
             {/* WhatsApp icon */}
-      <a
-        href="https://wa.me/252610872270"
-        class="whatsapp_float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+     <WhatsApplink/>
           <Footer/>
            </>
                     

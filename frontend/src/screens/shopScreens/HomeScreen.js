@@ -26,6 +26,7 @@ import Wrapper from "../../components/wrapper/Wrapper"
 import { listSlides } from '../../actions/slideActions'
 import { listPackages } from '../../actions/packageActions'
 import { listsettings } from '../../actions/settingsActions'
+import WhatsApplink from '../../common/whatsApplink'
 
 
 
@@ -93,14 +94,7 @@ const HomeScreen = ({ match , CartItem}) => {
       <Wrapper data={settings} />
                  
         {/* WhatsApp icon */}
-      <a
-        href="https://wa.me/252610872270"
-        class="whatsapp_float"
-        target="_blank" 
-        rel="noopener noreferrer"
-      >
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+      <WhatsApplink/>
         <Footer  />
       </>
     );

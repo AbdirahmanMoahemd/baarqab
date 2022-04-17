@@ -11,6 +11,7 @@ import { USER_UPDATE_RESET } from '../../constants/userConstants'
 import { mylistOrders } from '../../actions/orderActions'
 import Header from "../../common/header/Header"
 import { Card } from 'primereact/card';
+import whatsApplink from '../../common/whatsApplink'
 
 
 const ProfileScreen = ({ location, history }) => {
@@ -225,92 +226,3 @@ export default ProfileScreen
 
 
 
-
-
-{/* <div className="form" >
-                <div className="login-form profile-form" >
-                    
-                    <strong>User Profile</strong>
-                    {message && <Message variant='danger'>{message}</Message>}
-                    {error && <Message variant='danger'>{error}</Message>}
-                    {loading && <Loader />}
-                    {success && <Message variant='success'>Profile Updated</Message>}
-                    <form onSubmit={submitHandler}>
-                        <input type="name" value={name} placeholder="Name"
-                            name="name" required
-                            onChange={(e) => setName(e.target.value)}
-                        /> 
-                        <input type="email" value={email} placeholder="Exmaple@gmail.com"
-                             name="email" required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <input type="password" value={password}
-                            placeholder="password" name="password" required
-                            onChange={(e)=> setPassword(e.target.value)}    
-                        />
-                        <input type="password" value={confirmpassword}
-                            placeholder="confirm password" name="confirmpassword" required
-                            onChange={(e)=> setConfirmPassword(e.target.value)}    
-                        />
-                                <button type="submit" value="">Update</button>
-                                <button type="submit" value="" onClick={logoutHandler}>Logout</button>
-                        
-                    </form>
-                   
-                </div>
-                <p className="wt"> .</p>
-                <p className="wt"> .</p>
-                        <p className="wt"> .</p>
-                       
-
-                
-                
-                            
-                            
-            </div>   */}
-
-
-
-//  <div className="cart-page-pro">
-//                         <center> <strong>My Orders</strong></center>
-//                         {loadingOrders ? <Loader /> : errorOrders ? <Message variant="danger">{errorOrders}</Message> :
-//                         <>
-//                             <table>
-//                                 <tbody> 
-//                                     <tr>
-//                                         <th>ID</th>
-//                                         <th>DATE</th>
-//                                         <th>TOTAL</th>
-//                                         <th>PAID</th> 
-//                                         <th>DELIVERED</th>
-//                                         <th></th>
-//                                     </tr>
-//                                     {orders.map(order => (
-//                                         <tr key={order._id}>
-//                                             <td>{order._id.substring(0, 5)}</td>
-//                                     <td>{order.createdAt.substring(0, 10)}</td>
-//                                     <td>{order.totalPrice}</td>
-//                                     <td>{order.isPaid ? order.paidAt.substring(0, 10) : (
-//                                         <i className='fa fa-times' style={{color: 'red'}}></i>
-//                                     )}</td>
-//                                     <td>{order.isDelivered ? order.deliveredAt.substring(0, 10) : (
-//                                         <i className='fa fa-times' style={{color: 'red'}}></i>
-//                                     )}</td>
-//                                     <td>
-//                                         <Link to={`/order/${order._id}`}>
-//                                             Details
-//                                         </Link>
-//                                     </td>
-//                                         </tr>
-                                 
-//                                    )) }
-                                    
-//                                 </tbody>
-//                             </table>
-    
-//                         </>
-//                         }
-                       
-        
-//     </div>
-       

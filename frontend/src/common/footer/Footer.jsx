@@ -54,7 +54,7 @@ const Footer = ({  }) => {
                       <strong>Contact</strong>
                       {settings.map(setting => (
                           <ul>
-                              <li><a href="#">Phone : {setting.phoneNumber}</a></li>
+                              <li><a href="#">Phone : +{setting.phoneNumber}</a></li>
                 <li><a href="#">Email : info.baarqab@gmail.com</a></li>
             </ul>
                       ))}

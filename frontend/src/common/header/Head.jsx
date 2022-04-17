@@ -24,7 +24,7 @@ const Head = () => {
               {settings.map((val) => (
                 <div>
                <i className='fa fa-phone'></i>
-                  <label> {val.phoneNumber}</label>
+                  <label> +{val.phoneNumber}</label>
             </div>
               ))}
             <div>

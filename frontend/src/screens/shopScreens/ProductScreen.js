@@ -12,6 +12,7 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../../constants/productConstants'
 import Meta from '../../components/Meta'
 import { InputNumber } from 'primereact/inputnumber';
 import './product.css'
+import WhatsApplink from '../../common/whatsApplink'
 
  
  
@@ -306,14 +307,7 @@ const ProductScreen = ({ history, match }) => {
                     </> 
             )}
             {/* WhatsApp icon */}
-      <a
-        href="https://wa.me/252610872270"
-        class="whatsapp_float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+     <WhatsApplink/>
             
             </>
                     

@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import '../../css/login.css';
 import { getUserDetails } from '../../actions/userActions'
 import { saveShippingAddress } from '../../actions/cartActions'
+import WhatsApplink from '../../common/whatsApplink'
 
 
 
@@ -103,14 +104,7 @@ const CheckoutScreen = ({  history }) => {
 
          </>
          {/* WhatsApp icon */}
-      <a
-        href="https://wa.me/252610872270"
-        class="whatsapp_float"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <i class="fa fa-whatsapp whatsapp-icon"></i>
-      </a>
+      <WhatsApplink/>
              <Footer/>
         </>
      )
