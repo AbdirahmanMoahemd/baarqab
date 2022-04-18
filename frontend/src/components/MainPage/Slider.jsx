@@ -5,7 +5,7 @@ const SliderHome = ({Sdata}) => {
   return (
     <>
       <section className='homeSlide'>
-        <div className='container'>
+        <div className='container container-2'>
           <SlideCard Sdata={Sdata} />
         </div>
       </section>

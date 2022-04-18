@@ -19,15 +19,15 @@ const Head = () => {
   return (
     <>
       <section className='head'>
-        <div className='container flex-all '>
+        <div className='container container-2 flex-all '>
           <div className='left  left-flex'>
               {settings.map((val) => (
-                <div>
+                <div className='phone-icon'>
                <i className='fa fa-phone'></i>
                   <label> +{val.phoneNumber}</label>
             </div>
               ))}
-            <div>
+            <div className='phone-icon'>
             <i className='fa fa-envelope'></i>
               <label>info.baarqab@gmail.com</label>
               </div>

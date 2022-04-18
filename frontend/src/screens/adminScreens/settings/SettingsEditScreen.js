@@ -31,6 +31,9 @@ const SettingsEditScreen = ({history,match }) => {
     const [about, setAbout] = useState('')
     const [aboutImg, setAboutImg] = useState('')
     const [uploading, setUploading] = useState(false)
+    const [whatsAppPhoneNumber, setWhatsAppPhoneNumber] = useState('')
+
+
     const dispatch = useDispatch()
 
     
@@ -61,6 +64,7 @@ const SettingsEditScreen = ({history,match }) => {
                 setPhoneNumber(settings.phoneNumber)
                 setAbout(settings.about)
                 setAboutImg(settings.aboutImg)
+                setWhatsAppPhoneNumber(settings.whatsAppPhoneNumber)
             }
         }
     
@@ -98,7 +102,8 @@ const SettingsEditScreen = ({history,match }) => {
             serviceDecs3,
             phoneNumber,
             about,
-            aboutImg
+            aboutImg,
+            whatsAppPhoneNumber
         }))
     }
      const submitHandler = (e) => {
@@ -179,6 +184,11 @@ const SettingsEditScreen = ({history,match }) => {
                                                  <label htmlFor="name">PhoneNumber</label> <br />
                                                  <input value={phoneNumber} id="name" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
                                                      onChange={(e) => setPhoneNumber(e.target.value)} />
+                                             </div>
+                                              <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                                 <label htmlFor="name">WhatsApp PhoneNumber</label> <br />
+                                                 <input value={whatsAppPhoneNumber} id="name" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
+                                                     onChange={(e) => setWhatsAppPhoneNumber(e.target.value)} />
                                              </div>
                                              <div class="p-col-12 p-md-6 p-lg-4 mt-3">
                                                  <label htmlFor="name">About</label> <br />

@@ -23,7 +23,7 @@ const WhatsApplink = () => {
     <>
             {settings.map(setting => (
                 <a
-                    href={`https://wa.me/${setting.phoneNumber}`}
+                    href={`https://wa.me/${setting.whatsAppPhoneNumber}`}
                     class="whatsapp_float"
                     target="_blank"
                     rel="noopener noreferrer"

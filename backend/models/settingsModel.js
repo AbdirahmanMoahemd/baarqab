@@ -5,7 +5,10 @@ const settingsSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    
+    whatsAppPhoneNumber: {
+        type: String,
+        required: true,
+    },
     serviceTitle1: {
         type: String,
         required: true,

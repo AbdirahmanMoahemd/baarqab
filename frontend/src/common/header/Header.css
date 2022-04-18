@@ -9,7 +9,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
   color: #fff;
   width: 100%;
 }
@@ -222,5 +221,8 @@
   max-width: 93%;
   margin: auto;
 
+}
+.phone-icon i{ 
+  font-size:10px;
 }
 }

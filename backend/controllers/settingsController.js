@@ -34,7 +34,7 @@ export const getSettingsById = asyncHandler(async (req, res) => {
 export const updateSettings = asyncHandler (async (req, res) => {
   
     const { phoneNumber, serviceTitle1, serviceDecs1, serviceTitle2,
-        serviceDecs2, serviceTitle3, serviceDecs3,about, aboutImg } = req.body
+        serviceDecs2, serviceTitle3, serviceDecs3,about, aboutImg,whatsAppPhoneNumber } = req.body
   
   const settings = await Settings.findById(req.params.id)
 
@@ -43,12 +43,13 @@ export const updateSettings = asyncHandler (async (req, res) => {
     settings.phoneNumber = phoneNumber
     settings.serviceTitle1 = serviceTitle1
     settings.serviceDecs1 = serviceDecs1
-    settings.serviceTitle2 = serviceTitle2
+    settings.serviceTitle2 = serviceTitle2 
     settings.serviceDecs2 = serviceDecs2
     settings.serviceTitle3 = serviceTitle3
     settings.serviceDecs3 = serviceDecs3
     settings.about = about
     settings.aboutImg = aboutImg
+    settings.whatsAppPhoneNumber = whatsAppPhoneNumber
     
 
     const updatedSettings = await settings.save()

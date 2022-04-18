@@ -298,6 +298,10 @@ li {
   max-width: 80%;
   margin: auto;
 }
+.container-2{
+  max-width: 90%;
+  margin: auto;
+}
   .heading  h1 {
   font-size: 18px;
   margin: 5px;
