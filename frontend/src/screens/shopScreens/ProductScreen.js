@@ -204,7 +204,7 @@ const ProductScreen = ({ history, match }) => {
                  <button  class="btn" disabled={product.countInStock === 0} onClick={addToCartHandler}>Add to cart</button>
                  <h3>Product Details <i class="fa fa-indent"></i></h3>
                  <br/>
-                 <p>{product.decription}.</p>
+                 <p>{product.description}.</p>
              </div>
          </div> 
      </div>
