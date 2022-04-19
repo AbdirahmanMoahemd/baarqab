@@ -15,7 +15,7 @@ export const getProducts = asyncHandler(async (req, res) => {
     }, 
   } : {}
 
-  const products = await Product.find({ ...keyword, }).populate('category');
+  const products = await Product.find({ ...keyword, }).populate('category').populate('subcategory');
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
 
     res.json({products})   
@@ -27,7 +27,7 @@ export const getNewArravelProducts = asyncHandler(async (req, res) => {
   
  
 
-  const products = await Product.find({ }).populate('category').limit(12);
+  const products = await Product.find({ }).populate('category').populate('subcategory').limit(12);
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
 
     res.json({products})   
@@ -35,7 +35,7 @@ export const getNewArravelProducts = asyncHandler(async (req, res) => {
 })
 export const getDiscProducts = asyncHandler (async (req, res) => {
   
-  const products = await Product.find({ isDiscounted: true })
+  const products = await Product.find({ isDiscounted: true }).populate('category').populate('subcategory')
  
   res.json({products})
  

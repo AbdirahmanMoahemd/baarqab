@@ -10,12 +10,17 @@ import { listProducts } from '../../actions/productAction'
 import { listCategories } from '../../actions/categoryAction' 
 import { getProductsByFilter } from '../../actions/filterActions';
 import WhatsApplink from '../../common/whatsApplink'
+import { listSubCategories } from '../../actions/subcategoryActions'
 
 
 const AllProductsScreen = ({ match }) => {
   const keyword = match.params.keyword
+
   const [categoryIds, setCategoryIds] = useState([]);
+  const [subcategoryIds, setSubCategoryIds] = useState([]);
+
   let updatedCategoryIds;
+  let updatedSubCategoryIds;
   
 
     const dispatch = useDispatch()
@@ -26,7 +31,11 @@ const AllProductsScreen = ({ match }) => {
 
 
     const productList = useSelector(state => state.productList) 
-    const { loading, error, products} = productList
+    const { loading, error, products } = productList
+  
+    const subcategoryList = useSelector(state => state.subcategoryList) 
+    const {  subcategories } = subcategoryList
+
     
     useEffect(() => {
      dispatch(listProducts(keyword))
@@ -36,12 +45,18 @@ const AllProductsScreen = ({ match }) => {
       dispatch(listCategories())
      
     }, [dispatch]) 
+  useEffect(() => {
+      dispatch(listSubCategories())
+     
+    }, [dispatch]) 
     
   const handleCategory = e => {
 		resetState();
 
 		const currentCategoryChecked = e.target.value;
-		const allCategoriesChecked = [...categoryIds];
+    
+    const allCategoriesChecked = [...categoryIds];
+    
 		const indexFound = allCategoriesChecked.indexOf(currentCategoryChecked);
 
 		
@@ -56,7 +71,6 @@ const AllProductsScreen = ({ match }) => {
       setCategoryIds(updatedCategoryIds);
       
 		}
-    console.log(updatedCategoryIds)
     dispatch(
       getProductsByFilter({ type: 'category', query: updatedCategoryIds }),
 		);
@@ -65,6 +79,36 @@ const AllProductsScreen = ({ match }) => {
   const resetState = () => {
     
 		setCategoryIds([]);
+  };
+
+  const handleCategory2 = e => {
+		resetState2();
+
+    const currentSubCategoryChecked = e.target.value;
+    
+    const allSubCategoriesChecked = [...subcategoryIds];
+    
+		const indexFound2 = allSubCategoriesChecked.indexOf(currentSubCategoryChecked);
+
+		
+		if (indexFound2 === -1) { 
+			// add
+			updatedSubCategoryIds = [...subcategoryIds, currentSubCategoryChecked];
+			setSubCategoryIds(updatedSubCategoryIds);
+		} else {
+			// remove
+			updatedSubCategoryIds = [...subcategoryIds];
+			updatedSubCategoryIds.splice(indexFound2, 1);
+      setSubCategoryIds(updatedSubCategoryIds);
+		}
+    dispatch(
+      getProductsByFilter({ type: 'subcategory',query2:updatedSubCategoryIds,  }),
+		);
+  };
+  
+  const resetState2 = () => {
+    
+		setSubCategoryIds([]);
 	};
   
      
@@ -79,8 +123,10 @@ const AllProductsScreen = ({ match }) => {
           <div className="all-products-page  background">
              <div className="all-products-page-con container">
                 <div className="containter-pro-1">
-                   <div className="containter-pro-1-title"><h3>Category</h3></div>
-                   <div className="containter-pro-1-body">
+                   <div className="containter-pro-1-title"><h2>Filter</h2></div>
+                <div className="containter-pro-1-body">
+                  <br/>
+                  <h4>Categories</h4>
                         <div className="p-grid  p-mt-4 p-mb-5">
                                     <div className="p-col-12">
                                             {categories &&
@@ -94,16 +140,40 @@ const AllProductsScreen = ({ match }) => {
                                                     checked={categoryIds.includes(category.id)}
                                                     onChange={handleCategory}
                                                     id="defaultUnchecked" />
-                                             <label class="custom-control-label p-ml-2" for="defaultUnchecked">{category.name}</label>
-                                                    </div>
+                                             <label class="custom-control-label ml-2" for="defaultUnchecked">{category.name}</label>
+                                                    </div> 
                                                     </div>
                                             ))}
                                     </div>
                       </div>
                    </div>
+                <div className="containter-pro-1-body">
+                  <br/>
+                  <h4>Sub Categories</h4>
+                        <div className="p-grid  p-mt-4 p-mb-5">
+                                    <div className="p-col-12">
+                                            {subcategories &&
+                                            subcategories.map(subcategory => (
+                                            <div key={subcategory.id} >
+                                            <div class="custom-control custom-checkbox">
+                                                  <input type="checkbox"
+                                                    class="custom-control-input"
+                                                    name='category'
+                                                    value={subcategory.id}
+                                                   checked={subcategoryIds.includes(subcategory.id)}
+                                                    onChange={handleCategory2}
+                                                    id="defaultUnchecked" />
+                                             <label class="custom-control-label ml-2" for="defaultUnchecked">{subcategory.name}</label>
+                                                    </div>
+                                                    </div>
+                                            ))}
+                                    </div>
+                  </div>
+                  <br/>
+                   </div>
                 </div> 
                 <div className="containter-pro-2">
-                   <h3>Products</h3>
+                   <h2>Products</h2>
                         <div class="products-container">
                   { products &&
                     products.map(product => (
@@ -120,9 +190,7 @@ const AllProductsScreen = ({ match }) => {
                                         <i class="fas fa-shopping-bag"></i> Add Cart
                                          </a>
                                     </Link>
-                                    <a href="#" class="like-btn">
-                                        <i class="far fa-heart"></i>
-                                    </a>
+                                   
                                 </div>
                             ))}
         </div>
