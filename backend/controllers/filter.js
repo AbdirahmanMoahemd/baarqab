@@ -11,10 +11,10 @@ export const searchByQueryType = asyncHandler( async (req, res) => {
 
 		switch (type) {
 			case 'category':
-				products = await Product.find({ category: query }).populate('category').populate('subcategory');
+				products = await Product.find({ category: query });
 				break;
 			case 'subcategory':
-				products = await Product.find({  subcategory:query2 }).populate('category').populate('subcategory');
+				products = await Product.find({  subcategory:query2 });
 				break;
 		} 
 

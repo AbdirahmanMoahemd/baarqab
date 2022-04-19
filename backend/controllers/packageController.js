@@ -5,7 +5,7 @@ import Package from '../models/packageModel.js'
 // @route   GET /api/users
 // @access  Private/Admin
 export const getPackages = asyncHandler(async (req, res) => {
-    const packages = await Package.find({ }).populate('category');
+    const packages = await Package.find({}).populate('category');
     
     res.json(packages)
 
