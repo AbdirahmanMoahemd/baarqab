@@ -21,10 +21,7 @@ const SlideCard = ({Sdata}) => {
           return (
             <>
               <div className='box d_flex top slide-color' key={index}>
-                <div className='right'>
                   <img src={value.image} alt='' />
-                </div>
-                
               </div>
             </>
           )

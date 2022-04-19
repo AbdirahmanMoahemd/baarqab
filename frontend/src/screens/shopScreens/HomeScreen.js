@@ -26,6 +26,7 @@ import Wrapper from "../../components/wrapper/Wrapper"
 import { listSlides } from '../../actions/slideActions'
 import { listPackages } from '../../actions/packageActions'
 import { listsettings } from '../../actions/settingsActions'
+import { listTopProducts } from '../../actions/productAction'
 import WhatsApplink from '../../common/whatsApplink'
 
 
@@ -49,9 +50,9 @@ const HomeScreen = ({ match , CartItem}) => {
 
 
     const categoryList = useSelector(state => state.categoryList) 
-  const { loading: loadingcat, error: errorCat, categories } = categoryList
+    const { loading: loadingcat, error: errorCat, categories } = categoryList
   
-  const packagesList = useSelector(state => state.packagesList) 
+    const packagesList = useSelector(state => state.packagesList) 
     const { loading: loadingPackage, error: errorPackage, packages } = packagesList
 
     const subcategoryList = useSelector(state => state.subcategoryList) 
@@ -60,6 +61,9 @@ const HomeScreen = ({ match , CartItem}) => {
     const settingsList = useSelector(state => state.settingsList) 
     const { loading: loadingSettings, error: errorSettings, settings}  = settingsList
     
+    const productTop = useSelector(state => state.productTop)
+  const { loading: loadingProductTop, error: errorProductTop, products:productTopList } = productTop  
+  
 
     useEffect(() => { 
       
@@ -71,6 +75,7 @@ const HomeScreen = ({ match , CartItem}) => {
       dispatch(listSlides()) 
         dispatch(listPackages())
         dispatch(listsettings())
+        dispatch(listTopProducts())
       
       
     }, [dispatch])
@@ -88,7 +93,7 @@ const HomeScreen = ({ match , CartItem}) => {
         <TopCate categories={categories} />
         <NewArrivals productItems={productsNewArravelList} />
         <Discount productItems={productsDis}/>
-      <FlashDeals productItems={products} />
+      <FlashDeals productItems={productTopList} />
       <Shop packages={packages}  /> 
       <Annocument />
       <Wrapper data={settings} />

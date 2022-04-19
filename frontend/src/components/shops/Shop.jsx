@@ -23,7 +23,7 @@ const Shop = ({ packages }) => {
     }, [dispatch])
   return (
     <>
-       {packages.map((packageitem) => {
+       {packages.filter(pro => pro.isFeatured === true).map((packageitem) => {
        return (
       <section className='shop background'>
         <div className='container'>

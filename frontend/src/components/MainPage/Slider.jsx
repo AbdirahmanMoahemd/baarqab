@@ -7,7 +7,7 @@ const SliderHome = ({Sdata}) => {
       <section className='homeSlide'>
         <div className='container container-2'>
           <SlideCard Sdata={Sdata} />
-        </div>
+        </div>  
       </section>
     </>
   )

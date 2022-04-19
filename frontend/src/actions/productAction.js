@@ -296,7 +296,7 @@ export const createProductReview = (productId, review) => async (
 }
 
 
-export const listTopProducts = (keyword = '', pageNumber = '') => async (dispatch) => {
+export const listTopProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_TOP_REQUEST })
 
