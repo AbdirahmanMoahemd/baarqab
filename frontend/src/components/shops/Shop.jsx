@@ -14,6 +14,7 @@ const Shop = ({ packages }) => {
  
     const productList = useSelector(state => state.productList)
   const { loading, error, products } = productList
+  console.log('p:' , products)
   useEffect(() => { 
       
         dispatch(listProducts2())
@@ -33,7 +34,8 @@ const Shop = ({ packages }) => {
               <div className='product-content  grid1'>
                
             <>
-      {products.map((shopItems) => (
+      {products.filter(pro => pro.category.name === packageitem.category.name).map((shopItems) => {
+        return (
 
           <div className='box'>
             <div className='product '>
@@ -62,7 +64,7 @@ const Shop = ({ packages }) => {
             </div>
           </div>
         )
-      )}
+      })}
     </>
             </div>
         </div>
