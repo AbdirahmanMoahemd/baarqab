@@ -32,6 +32,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.d_flex-slide{
+  display: flex;
+  justify-content: center;
+}
 
 .c_flex {
   display: flex;
