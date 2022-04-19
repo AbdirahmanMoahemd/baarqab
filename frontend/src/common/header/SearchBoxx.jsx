@@ -16,7 +16,7 @@ const SearchBoxx = ({ history }) => {
     return (
       <form onSubmit={submitHandler}>
     <div class="search_box-dd-2">
-                <input type="search" placeholder="Search here ..."
+                <input type="search" placeholder="Search Products ..."
                  onChange={(e) => setKeyword(e.target.value)}    />
                 <span class="fa fa-search" onClick={submitHandler}></span>
             </div>
