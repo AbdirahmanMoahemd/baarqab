@@ -136,7 +136,7 @@ export const updatePackages = (packages) => async (
 
 
 
-export const createPackage = ( packageName, category,isFeatured,icon ) => async (
+export const createPackage = ( packageName, category,icon,isFeatured ) => async (
   dispatch,
   getState
 ) => {
@@ -155,7 +155,7 @@ export const createPackage = ( packageName, category,isFeatured,icon ) => async 
       },
     }
 
-      const { data } = await axios.post(`/api/packages`, { packageName, category,isFeatured,icon }, config)
+      const { data } = await axios.post(`/api/packages`, { packageName, category,icon,isFeatured }, config)
 
     dispatch({
         type: PACKAGE_CREATE_SUCCESS,
