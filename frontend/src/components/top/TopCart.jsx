@@ -27,7 +27,7 @@ const TopCart = ({categories}) => {
           return (
             <>
               <div className='box category-new-box' key={value.id}>
-                <Link to='/products'>
+                <Link to={`/category/${value.id}`}>
                 <div className='img-cat'>
                   <img src={value.icon} alt='' />
                   </div>

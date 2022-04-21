@@ -54,6 +54,25 @@ export const getProducts2 = asyncHandler(async (req, res) => {
   products.sort((a, b) => (a._id > b._id) ? -1 : 1)
     res.json({products})     
 })
+
+
+// @desc    Fetch all products
+// @route   GET /api/products
+// @access  Public
+export const getProductsBySub = asyncHandler(async (req, res) => {
+  
+	const { query} = req.body;
+    
+
+  let products = await Product.find({ subcategory: query }).populate('category').populate('subcategory');
+
+  products.sort((a, b) => (a._id > b._id) ? -1 : 1)
+  if (products.length === 0) {
+			products = await Product.find({}).populate('category').populate('subcategory');
+		}
+    res.json({products})     
+})
+
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public

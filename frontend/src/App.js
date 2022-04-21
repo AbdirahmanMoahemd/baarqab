@@ -12,6 +12,7 @@ import PlaceOrderScreen from './screens/shopScreens/PlaceOrderScreen';
 import PaymentScreen from './screens/shopScreens/PaymentScreen';
 import OrderScreen from './screens/shopScreens/OrderScreen';
 import CartScreen from './screens/shopScreens/CartScreen';
+import CategoryScreen from './screens/shopScreens/CategoryScreen';
 import OrderListScreen from './screens/adminScreens/OrderListScreen';
 import AboutUsScreen from './screens/shopScreens/AboutUsScreen';
 import AllProductsScreen from './screens/shopScreens/AllProductsScreen';
@@ -92,6 +93,7 @@ const App = () => {
       <Route path='/page/:pageNumber' component={HomeScreen} exact />
       <Route path='/search/:keyword' component={AllProductsScreen} exact />
       <Route path='/products' component={AllProductsScreen} exact />
+      <Route path='/category/:id' component={CategoryScreen} exact />
       <Route path='/products/:id' component={AllProductsScreen} exact />
      <ScrollToTop>
         <Route path='/' component={HomeScreen} exact /> 

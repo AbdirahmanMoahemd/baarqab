@@ -100,6 +100,27 @@ export const listProducts2 = () => async (dispatch) => {
     }
 }
 
+export const getProductsBySub = (arg) => async (dispatch) => {
+	try {
+		dispatch({ type: PRODUCT_LIST_REQUEST })
+		const { data } = await axios.post('/api/products/search/sub', arg);
+
+		dispatch({
+			type: PRODUCT_LIST_SUCCESS,
+			payload: data,
+		});
+	} catch (error) {
+        dispatch({
+            type: PRODUCT_LIST_FAIL,
+            payload: error.response && error.response.data.message ?
+                error.response.data.message :
+                error.message,
+       })  
+    }
+};
+
+
+
 export const listProductsCount = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST2 })

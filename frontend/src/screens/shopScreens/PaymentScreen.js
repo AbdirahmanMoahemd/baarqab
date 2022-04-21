@@ -36,8 +36,8 @@ const PaymentScreen = ({ history }) => {
                     <form onSubmit={submitHandler}>
                        
                             <div class="custom-control custom-checkbox">
-                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Paypal   </label>
-                                <input type="radio" value='payPal' class="custom-control-input" id="defaultUnchecked" name="radio"
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Cash On Delivery   </label>
+                                <input type="radio" value='cash' class="custom-control-input" id="defaultUnchecked" name="radio"
                                 onChange={(e) =>  setPaymentMethod(e.target.value)}/>
                                              
                             </div>

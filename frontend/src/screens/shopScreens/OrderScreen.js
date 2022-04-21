@@ -85,9 +85,8 @@ const OrderScreen = ({ history, match }) => {
       }
     }
   }, [dispatch,history, orderId, successPay, successDeliver, order, userInfo, successPay2])
-  const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult)
-    dispatch(payOrder(orderId, paymentResult))
+  const successPaymentHandler = () => {
+    dispatch(payOrder2(orderId))
   }
   
   // var amount  
@@ -249,28 +248,27 @@ axios(config)
                             <span>Total Price</span>
                             <span>${order.totalPrice}</span>
                         </div>
-                     {order.paymentMethod === 'payPal' ?
+                     {order.paymentMethod === 'cash' ?
                   <>
-                    {!order.isPaid && (
-                      <>
-                        {loadingPay && <Loader />}
-                        {!sdkReady ? (
-                          <Loader />
-                        ) : (
-                            <PayPalButton
-                              amount={order.totalPrice}
-                              onSuccess={successPaymentHandler}
-                            />
-                          )}
-                      </>
+                            {!order.isPaid && (
+                              <>
+                              <p style={{color: 'blue'}}>Thanks so much for your order! </p>
+                              <p style={{color: 'blue'}}>
+                        we will contact you as soon as possible
+                                </p>
+                                 {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
+                                <>
+                                   <div class="checkout-button" >
+                            <Button label="Mark as paid"   onClick={successPaymentHandler}  />
+                        </div>
+                                  </>
+                     ) }
+                                </>
                     )}</> :
                           <>
                     
                             <center>
-                              {userInfo && userInfo.isAdmin && !order.isPaid && !order.isDelivered && (
-                                <>
-                                  </>
-                     ) }
+                             
                       {loadingPay2 && <Loader />}
                               {userInfo  && !order.isPaid && !order.isDelivered && (
                                 <div class="checkout-button" >
