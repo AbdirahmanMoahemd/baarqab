@@ -126,7 +126,7 @@ const CategoryScreen = ({ match }) => {
                 </div> 
                         <div className="containter-pro-2">
                             {categories.filter(cat => cat.id === catId).map((cat) => (
-                                <h2>{cat.name}({categories.filter(cat => cat.id === catId).length})</h2>
+                                <h2>{cat.name}({products.filter(cat => cat.category._id === catId).length})</h2>
                             ))}
                   
                         <div class="products-container">
