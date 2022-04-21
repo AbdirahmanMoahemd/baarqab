@@ -137,9 +137,10 @@ const AdminHome = ({ history }) => {
                                         <table className="table" >
                                     <thead>
                                         <tr>
-                                            <td>NAME</td>
+                                                            <td>NAME</td>
+                                                            <td>PAYMENT METHOD</td>
                                                                  <td>PAID</td>
-                                                                 <td>DELIVERED</td>
+                                                            <td>DELIVERED</td>
                                                                 <td></td>
                                         </tr>
                                     </thead>
@@ -147,6 +148,7 @@ const AdminHome = ({ history }) => {
                                        {orders.filter(order => order.date === todydate).map(order => (
                                             <tr key={order.id}>
                                                <td>{order.user && order.user.name}</td>
+                                               <td>{order.paymentMethod}</td>
                                                <td>{order.isPaid ? (
                                                    order.paidAt.substring(0, 10)
                                                ) : (
