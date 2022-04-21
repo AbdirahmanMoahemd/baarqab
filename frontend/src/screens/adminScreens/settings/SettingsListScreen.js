@@ -41,7 +41,7 @@ const SettingsListScreen = ({history}) => {
                 <Link to={'/admin/settings/create/new'}>
             <Button 
             label="New"
-            className="p-button-success  p-mr-2"
+            className="p-button-success  mr-2"
             icon="pi pi-plus"
             ></Button>
                 </Link>

@@ -82,7 +82,7 @@ const SettingsCreateReducer = ({history}) => {
             <div >
             <Button 
             label='Create'
-            className="p-button-primary p-mr-2"
+            className="p-button-primary mr-2"
                     icon="pi pi-plus"
             type="submit"
                 ></Button>

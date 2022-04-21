@@ -10,10 +10,11 @@ import AdminScreen from '../AdminScreen'
 import { Card } from 'primereact/card';
 import { Toolbar } from 'primereact/toolbar';
 import { Button } from 'primereact/button';
+import { listProducts2 } from '../../../actions/productAction'
 
 
 const CategoryListScreen = ({ match, history }) => {
-
+     const [isExist, setIsExist] = useState(true)
      const dispatch = useDispatch()
 
     
@@ -21,6 +22,9 @@ const CategoryListScreen = ({ match, history }) => {
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
     
+    const productList = useSelector(state => state.productList) 
+    const { products} = productList
+
     const categoryList = useSelector(state => state.categoryList) 
     const { loading, error, categories } = categoryList
 
@@ -32,14 +36,27 @@ const CategoryListScreen = ({ match, history }) => {
             history.push('/login') 
         }
         dispatch(listCategories())
+        dispatch(listProducts2())
        
     }, [
         dispatch, history, userInfo, successDelete])
     
-     const deleteHandler = (id) => {
-        if (window.confirm('Are you sure to delete this category')) {
-            dispatch(deleteCategory(id))
-        }
+    const deleteHandler = (id,name) => {
+
+         if (window.confirm('Make sure you deleted all products belongs this category.')) {
+             if (window.confirm('Are you sure to delete this category')) {
+                 dispatch(deleteCategory(id))
+            }
+            
+        } 
+  
+        
+           
+        
+        
+       
+           
+        
         
     }
     
@@ -49,7 +66,7 @@ const CategoryListScreen = ({ match, history }) => {
                 <Link to={'/admin/category/create/new'}>
             <Button 
             label="New"
-            className="p-button-success  p-mr-2"
+            className="p-button-success  mr-2"
             icon="pi pi-plus"
             ></Button>
                 </Link>
@@ -104,7 +121,7 @@ const CategoryListScreen = ({ match, history }) => {
                                                    <Button 
                                                     icon="pi pi-trash"
                                                     className="p-button-danger p-mr-2"
-                                                    onClick={() => deleteHandler(category.id)}
+                                                    onClick={() => deleteHandler(category.id,category.name )}
                                                 ></Button>
                                              <Link to={`/admin/category/${category.id}`}> 
                                             <Button 

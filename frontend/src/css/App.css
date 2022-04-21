@@ -12,6 +12,14 @@
   cursor: pointer;
 }
 
+.checkout-button Button {
+            width: 100% !important;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+        }
+
 
 :root {
   --orange: #ff7800;

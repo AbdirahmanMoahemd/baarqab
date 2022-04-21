@@ -67,23 +67,23 @@ const CartScreen = ({ match, location, history }) => {
                                 <div>
                                 <h4>My Cart: {itemqty} Item(s)</h4>
                              </div>
-                        <div class="cart-shipping p-mb-5">
+                        <div class="cart-shipping mb-5">
                                      
                                         </div>
                                         {cartItems.map(item => (
-                                            <div class="cart-item p-mb-5" key={item.product}>
-                                                <div class="p-grid p-fluid">
+                                            <div class="cart-item mb-5" key={item.product}>
+                                                <div class="grid fluid">
                                                     <div class="p-col-6 p-md-4 p-lg-2 cart-item-image">
-                                                        <img style={{ width: "100%", height: "100%" }} className="p-mt-4" src={item.image} />
+                                                        <img style={{ width: "100%", height: "100%" }} className="mt-4" src={item.image} />
                                                     </div>
-                                                    <div class="p-col-6 p-md-4 p-lg-6 ">
-                                                        <div class="cart-item-name p-ml-3">{item.name}</div>
-                                                        <div class="cart-item-price p-ml-3">${item.newPrice > 0 ? item.newPrice : item.price}</div>
-                                                        <div class="cart-item-remove p-ml-3">
+                                                    <div class="col-6 md-4 lg-6 ">
+                                                        <div class="cart-item-name ml-3">{item.name}</div>
+                                                        <div class="cart-item-price ml-3">${item.newPrice > 0 ? item.newPrice : item.price}</div>
+                                                        <div class="cart-item-remove ml-3">
                                                             <Button icon="pi pi-trash "  onClick={() => removeFromCartHandler(item.product)}/>
-                                                        </div>
+                                                         </div>
                                                     </div>
-                                                    <div class="p-col-12 p-md-4 p-lg-4 p-fluid">
+                                                     <div class="p-col-12 p-md-4 p-lg-4 p-fluid">
                                                         <div class="p-field cart-item-quantity " >
                                                             <InputNumber value={item.qty} style={{ marginRight: "10px" }} showButtons buttonLayout="horizontal"
                                                                 decrementButtonClassName="p-button-danger"

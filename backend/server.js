@@ -28,7 +28,7 @@ dotenv.config()
 connectDB()  
 const app = express()
 
-const PAYPAL_CLIENT_ID = 'ATe2evqLhzMwvul-WeBEi3kKXeVFeVXIUBtorMlmeWnmIPH8elu1q-Kd2YTgDrDPBy_Fjwvm_PMTY9ah'
+const PAYPAL_CLIENT_ID = 'Aco1TcQKB5upzXYFcbOP1Z5alYYCESWJs4AQwdESCwIpZL3q_vmqcF_rX3PiVm3VAHtsx4lNM0ZX2Yq6'
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }

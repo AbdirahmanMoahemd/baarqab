@@ -67,7 +67,7 @@ const SlidesCreateScreen = ({  history }) => {
             <div >
             <Button 
             label='create'
-            className="p-button-primary p-mr-2"
+            className="p-button-primary mr-2"
                     icon="pi pi-plus"
             type="submit"
             ></Button>

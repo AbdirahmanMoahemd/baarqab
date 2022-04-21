@@ -81,7 +81,7 @@ const PackageEditScreen = ({ match, history }) => {
             <div >
             <Button 
             label='update'
-            className="p-button-primary p-mr-2"
+            className="p-button-primary mr-2"
                     icon="pi pi-plus"
             type="submit"
             ></Button>

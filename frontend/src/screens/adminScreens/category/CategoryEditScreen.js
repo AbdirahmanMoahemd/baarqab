@@ -94,7 +94,7 @@ const CategoryEditScreen = ({ match, history }) => {
             <div >
             <Button 
             label='update'
-            className="p-button-primary p-mr-2"
+            className="p-button-primary mr-2"
                     icon="pi pi-plus"
             type="submit"
             ></Button>
@@ -125,12 +125,12 @@ const CategoryEditScreen = ({ match, history }) => {
                                     {errorUpdate && <Message>{errorUpdate}</Message>}
                                      {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                                          <div class="p-fluid p-formgrid p-grid" >
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-2">
                                                  <label htmlFor="name">Name</label><br />
                                                  <input value={name} id="name" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
                                                      onChange={(e) => setName(e.target.value)} />
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-2">
                                                  <label htmlFor="icon">Icon</label><br />
                                                  <input value={icon} id="icon" type="text" style={{fontSize: ".9rem", height: "30px",width: "80%"}}
                                                      onChange={(e) => setIcon(e.target.value)} />
@@ -139,7 +139,7 @@ const CategoryEditScreen = ({ match, history }) => {
                                                         />
                                                     {uploading && <Loader/>}
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                             <div class="p-col-12 p-md-6 p-lg-4 mt-2">
                                                  <label htmlFor="color">Color</label><br />
                                                  <ColorPicker value={color} style={{fontSize: ".9rem", height: "30px",width: "80%"}} onChange={(e) => setColor(e.value)} />
                                              </div>
