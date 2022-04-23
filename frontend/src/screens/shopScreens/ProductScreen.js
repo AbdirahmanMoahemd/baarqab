@@ -261,10 +261,12 @@ const ProductScreen = ({ history, match }) => {
                              {products.filter(pro => pro.category.name === product.category.name).map(filteredproduct => (
                         
                              <div className='box'>
-            <div className='product mtop'>
+                                 <div className='product mtop'>
+                <Link to={filteredproduct.id}>                   
               <div className='img'>
                 <img src={filteredproduct.image} alt='' />
-              </div>
+                                     </div>
+                                     </Link> 
               <div className='product-details'>
                 <h3>{filteredproduct.name}</h3>
                 <div className='rate'>

@@ -226,7 +226,6 @@ const ProductEditScreen = ({ match, history }) => {
         let size10 = ''
         let size11 = ''
         let size12 = ''
-        let size13 = ''
 
         let color1 = '' 
         let color2 = ''
@@ -240,7 +239,6 @@ const ProductEditScreen = ({ match, history }) => {
         let color10 = ''
         let color11 = ''
         let color12 = ''
-        let color13 = ''
         
         if (temColor != '' || temSize != '') {
             color1 = temColor.split(',')[0] 
@@ -255,7 +253,6 @@ const ProductEditScreen = ({ match, history }) => {
             color10 = temColor.split(',')[9]
             color11 = temColor.split(',')[10]
             color12 = temColor.split(',')[11]
-            color13 = temColor.split(',')[13]
             
             size1 = temSize.split(',')[0]   
             size2 = temSize.split(',')[1]
@@ -269,7 +266,6 @@ const ProductEditScreen = ({ match, history }) => {
             size10 = temSize.split(',')[9]
             size11 = temSize.split(',')[10]
             size12 = temSize.split(',')[11]
-            size13 = temSize.split(',')[13]
             
         } else {
             setColors([null])
@@ -372,128 +368,124 @@ const ProductEditScreen = ({ match, history }) => {
                                          <div class="p-fluid p-formgrid p-grid" >
                                              <div class="p-col-12 p-md-6 p-lg-4">
                                                  <label htmlFor="name">Name</label><br />
-                                                 <input value={name} id="name" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setName(e.target.value)} placeholder='Name' required/>
+                                                 <input value={name} id="name" type="text" style={{width: "80%", height: "30px"}}
+                                                 className="p-mt-2"    onChange={(e) => setName(e.target.value)} />
                                              </div>
-                                                <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                               <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="icon">Category</label><br />
-                                                    <select name="" value={category} required style={{ height: "35px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                    
+                                                    <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setCategory(e.target.value)} >
                                                     <option>Select Category here</option>
                                                         {categories.map(cat => (
                                                             <>
-                                                             <option value={cat.id}>{cat.name}</option>
+                                                             <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
                                                             </>
                                                         ))}
                                                     
                                                     </select>
-                                        </div>  
-                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                        </div> 
+                                                <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="icon">Sub Category</label><br />
-                                                    <select name="" value={subcategory} required style={{ height: "35px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
+                                                    <select name="" value={subcategory} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setSubCategory(e.target.value)} >
                                                     <option>Select Sub Category here</option>
                                                         {subcategories.map(subcat => (
                                                             <>
                                                              <option value={subcat.id}>{subcat.name}</option>
-                                                             </>
+                                                            </> 
                                                         ))}
                                                     
                                                     </select>
-                                            </div>  
-                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Brand</label><br />
-                                                     <input value={brand} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setBrand(e.target.value)} placeholder='Brand' required />
-                                            </div>
-                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Description</label><br />
-                                                     <input  value={description} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setDescription(e.target.value)} placeholder='Description' required />
+                                        </div> 
+                                             <div class="p-col-12 p-md-6 p-lg-4">
+                                                    <label htmlFor="color">Price</label><br />
+                                                     <input value={price} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                     onChange={(e) => setPrice(e.target.value)} />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Price</label><br /> 
-                                                     <input value={price} id="icon" type="text" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setPrice(e.target.value)} placeholder='Price'  />
-                                                </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                     <label htmlFor="color">CountInStock</label><br />
-                                                     <input value={countInStock} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setCountInStock(e.target.value)} placeholder='Count In Stock' />
+                                                     <input value={countInStock} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                     onChange={(e) => setCountInStock(e.target.value)} />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2 mt-3">
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                                    <label htmlFor="color">Description</label><br />
+                                                     <input value={description} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                     onChange={(e) => setDescription(e.target.value)} />
+                                                </div>
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                     <label htmlFor="color">isFeatured</label><br />
-                                                     <InputSwitch checked={isFeatured} className="p-mt-1" onChange={(e) => setisFeatured(e.value)} />
-                                        </div>
-                                        <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                                     <InputSwitch checked={isFeatured} className="p-mt-1"   onChange={(e) => setisFeatured(e.value)} />
+                                                </div>
+                                                 <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                     <label htmlFor="color">isDiscounted</label><br />
                                                      <InputSwitch checked={isDiscounted} className="p-mt-1"   onChange={(e) => setisDiscounted(e.value)} />
                                                 </div>
-                                                <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                                <div class="p-col-12 p-md-6 p-lg-4">
                                                     <label htmlFor="color">New Price</label><br />
-                                                     <input value={newPrice} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
+                                                     <input value={newPrice} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
                                                      onChange={(e) => setNewPrice(e.target.value)} />
                                                 </div>
-                                         <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Colors<span style={{fontSize: '.7rem'}}>(optional)</span></label><br />
-                                                     <input value={temColor} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setTemColor(e.target.value)} placeholder='Enter colors like this red,blue,green' />
+                                                <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                    <label htmlFor="color">Colors</label><br />
+                                                     <input value={temColor} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     onChange={(e) => setTemColor(e.target.value)} placeholder='Cnter colors like this red,blue,green' />
                                         </div>
-                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Sizes<span style={{fontSize: '.7rem'}}>(optional)</span></label><br />
-                                                     <input value={temSize} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                     onChange={(e) => setTemSizes(e.target.value)} placeholder='Enter sizes like this XXL,XL,M' />
+                                        <div class="p-col-12 p-md-6 p-lg-4 ">
+                                                    <label htmlFor="color">Sizes</label><br />
+                                                     <input value={temSize} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "30px",width: "80%"}}
+                                                     onChange={(e) => setTemSizes(e.target.value)} placeholder='XXL,XL,L' />
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
-                                                    <label htmlFor="color">Select an image:</label><br />
-                                                     <input value={image} id="icon" type="text" className="p-mt-1" style={{fontSize: ".8rem", height: "35px",width: "80%"}}
-                                                        onChange={(e) => setImage(e.target.value)} required />
+                                                    <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
+                                                        <label htmlFor="color">Select an image:</label><br />
+                                                        <input  value={image} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        onChange={(e) => setImage(e.target.value)} />
                                                     
-                                                    <input type="file" id="myfile" name="myfile" 
+                                                    <input type="file" id="myfile" name="myfile" className="p-mt-2"
                                                         onChange={uploadFileHandler}
                                                         />
                                                     {uploading && <Loader/>}
-                                        </div>
-                                        <div class="p-col-12 p-md-6 p-lg-4 mt-3 ">
+                                                </div>
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image1:</label><br />
-                                                        <input  value={url1} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
-                                                        onChange={(e) => setUrl1(e.target.value)} required />
+                                                        <input  value={url1} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        onChange={(e) => setUrl1(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
                                                         onChange={uploadFileHandler2}
                                                         />
                                                     {uploading0 && <Loader/>}
                                                 </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image2:</label><br />
-                                                        <input  value={url2} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
-                                                        onChange={(e) => setUrl2(e.target.value)} required />
+                                                        <input  value={url2} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        onChange={(e) => setUrl2(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
                                                         onChange={uploadFileHandler3}
                                                         /> 
                                                     {uploading1 && <Loader/>}
                                              </div>
-                                             <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                             <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image3:</label><br />
-                                                        <input  value={url3} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
-                                                        onChange={(e) => setUrl3(e.target.value)} required />
+                                                        <input  value={url3} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        onChange={(e) => setUrl3(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
                                                         onChange={uploadFileHandler4}
                                                         /> 
                                                     {uploading2 && <Loader/>}
                                                 </div>
-                                            <div class="p-col-12 p-md-6 p-lg-4 mt-3">
+                                            <div class="p-col-12 p-md-6 p-lg-4 p-mt-2">
                                                         <label htmlFor="color">Select an image4:</label><br />
-                                                        <input  value={url4} id="icon" type="text" style={{width: "80%", height: "35px"}} className="p-mt-2"
-                                                        onChange={(e) => setUrl4(e.target.value)} required />
+                                                        <input  value={url4} id="icon" type="text" style={{width: "80%", height: "30px"}} className="p-mt-2"
+                                                        onChange={(e) => setUrl4(e.target.value)} />
                                                     
                                                     <input type="file" id="myfile" name="myfile" className="p-mt-2"
                                                         onChange={uploadFileHandler5}
                                                         /> 
                                                     {uploading3 && <Loader/>}
-                                             </div>
+                                             </div>    
                                          </div>
                                      )}
                                 </div>
