@@ -56,6 +56,17 @@ export const getProducts2 = asyncHandler(async (req, res) => {
 })
 
 
+export const getProductsByCat = asyncHandler(async (req, res) => {
+  
+	const { query} = req.body;
+    
+
+  let products = await Product.find({ category: query }).populate('category').populate('subcategory');
+
+  products.sort((a, b) => (a._id > b._id) ? -1 : 1)
+    res.json({products})     
+})
+
 // @desc    Fetch all products
 // @route   GET /api/products
 // @access  Public
@@ -72,6 +83,9 @@ export const getProductsBySub = asyncHandler(async (req, res) => {
 		}
     res.json({products})     
 })
+
+
+
 
 // @desc    Fetch all products
 // @route   GET /api/products

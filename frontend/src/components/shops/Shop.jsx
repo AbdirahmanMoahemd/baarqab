@@ -32,9 +32,9 @@ const Shop = ({ packages }) => {
             <h1>{packageitem.packageName}</h1>
             </div>
               <div className='product-content  grid1'>
-               
-            <>
-      {products.filter(pro => pro.category.name === packageitem.category.name).map((shopItems) => {
+              <>
+      
+      {products.filter(pro => pro.category ? pro.category.name === packageitem.category.name : null ).map((shopItems) => {
         return (
 
           <div className='box'>
@@ -65,7 +65,8 @@ const Shop = ({ packages }) => {
           </div>
         )
       })}
-    </>
+                 </>
+                 
             </div>
         </div>
           </section>

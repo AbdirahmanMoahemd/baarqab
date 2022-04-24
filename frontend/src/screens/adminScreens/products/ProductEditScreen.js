@@ -376,20 +376,19 @@ const ProductEditScreen = ({ match, history }) => {
                                                     
                                                     <select name="" value={category} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setCategory(e.target.value)} >
-                                                    <option>Select Category here</option>
+                                                    
                                                         {categories.map(cat => (
                                                             <>
                                                              <option value={cat.id}>{cat.id.substring(1, 1)}{cat.name}</option>
                                                             </>
                                                         ))}
-                                                    
+                                                     
                                                     </select>
                                         </div> 
                                                 <div class="p-col-12 p-md-6 p-lg-4 ">
                                                     <label htmlFor="icon">Sub Category</label><br />
                                                     <select name="" value={subcategory} required style={{ height: "30px", borderRadius:"0%", width: "80%", fontSize: ".8rem"}}
                                                 onChange={(e) => setSubCategory(e.target.value)} >
-                                                    <option>Select Sub Category here</option>
                                                         {subcategories.map(subcat => (
                                                             <>
                                                              <option value={subcat.id}>{subcat.name}</option>

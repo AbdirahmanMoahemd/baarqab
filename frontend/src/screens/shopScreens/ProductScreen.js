@@ -258,7 +258,7 @@ const ProductScreen = ({ history, match }) => {
      </div>
      <div class="small-container2">
                         <div class="product-container ">
-                             {products.filter(pro => pro.category.name === product.category.name).map(filteredproduct => (
+                             {products.filter(pro => pro.category? pro.category.name === product.category.name:null).map(filteredproduct => (
                         
                              <div className='box'>
                                  <div className='product mtop'>

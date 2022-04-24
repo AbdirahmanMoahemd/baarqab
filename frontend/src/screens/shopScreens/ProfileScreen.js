@@ -157,7 +157,14 @@ const ProfileScreen = ({ location, history }) => {
                                 <button type="submit" value="" onClick={logoutHandler}>Logout</button>
                         
                     </form>
-                    
+                    <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 </div>
                     
             </div> 
@@ -215,6 +222,14 @@ const ProfileScreen = ({ location, history }) => {
                                 </Card>
                    
                 </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
             </div>
            
         </>
