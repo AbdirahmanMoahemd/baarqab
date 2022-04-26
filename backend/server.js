@@ -27,9 +27,9 @@ import settingsRoutes from './routes/settingsRoutes.js'
 dotenv.config()
 connectDB()  
 const app = express()
-
+const NODE_ENV = 'production'
 const PAYPAL_CLIENT_ID = 'Aco1TcQKB5upzXYFcbOP1Z5alYYCESWJs4AQwdES_rX3PiVm3VAHtsx4lNM0ZX2Yq6'
-if (process.env.NODE_ENV === 'development') {
+if (NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
   
@@ -68,7 +68,7 @@ app.get('/api/config/paypal', (req, res) =>
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
-if (process.env.NODE_ENV === 'production') {
+if (NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '/frontend/build')))
     app.get('*', (req, res) => 
         res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
@@ -86,6 +86,6 @@ app.use(errorHandler)
 
 const PORT =  process.env.PORT || 5000
 
-app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold))
+app.listen(PORT, console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`.yellow.bold))
 
  
