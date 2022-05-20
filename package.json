@@ -28,6 +28,7 @@
     "mongoose": "^5.11.15",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "path": "^0.12.7",
     "primeicons": "^5.0.0"
   },
   "devDependencies": {
