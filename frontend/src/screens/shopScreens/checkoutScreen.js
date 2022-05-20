@@ -85,7 +85,7 @@ const CheckoutScreen = ({  history }) => {
                             onChange={(e) => setCity(e.target.value)}
                         />
                         <input type="phone" value={phoneNumber}
-                            placeholder="Phone Number" name="phoneNumber" required
+                            placeholder="Enter Country code + Phone Number" name="phoneNumber" required
                             onChange={(e)=> setPhoneNumber(e.target.value)}    
                         />
                         <input type="text" value={country}

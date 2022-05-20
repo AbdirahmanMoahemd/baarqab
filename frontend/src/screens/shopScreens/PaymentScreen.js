@@ -42,7 +42,7 @@ const PaymentScreen = ({ history }) => {
                                              
                             </div>
                             <div class="custom-control custom-checkbox ">
-                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Evc-Plus / ZAAD</label>
+                                <label class="custom-control-label p-mr-2" for="defaultUnchecked">Evc-Plus / ZAAD / SAHAL</label>
                                 <input type="radio" value='Evc-Plus' class="custom-control-input" id="defaultUnchecked" name="radio"
                                 onChange={(e) =>  setPaymentMethod(e.target.value)}/>
                             </div>

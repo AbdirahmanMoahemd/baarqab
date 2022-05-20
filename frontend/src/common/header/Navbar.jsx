@@ -82,30 +82,21 @@ useEffect(() => {
         
         {window.scrollY <= 120  ? <ResponsiveNav state={navbarState} scroll={isScorlling} >
           <ul>
-            <li>
-              <a href="/" onClick={() => setNavbarState(false)}>
-                Home
-              </a>
-            </li>
-
-            <li>
-              <a href="#recommend" onClick={() => setNavbarState(false)}>
-                Places
-              </a>
-            </li>
-            <li>
-              <a href="#testimonials" onClick={() => setNavbarState(false)}>
-                Testimonials
-              </a>
-            </li>
-            <li>
-              <a href="#services" onClick={() => setNavbarState(false)}>
-                About
-              </a>
-            </li>
+             <li>
+            <Link to='/' ><a >Home</a></Link>
+          </li>
           <li>
-       <Route render={({ history }) => <SearchBoxx history={history} />}/>
-        </li>
+            <Link to='/products'><a >Products</a></Link>
+          </li>
+
+          <li>
+            <Link to='/about'><a >About Us</a></Link>
+          </li>
+          {userInfo && userInfo.isAdmin && (
+                            <li>
+                                <Link to="/admin">Dashboard</Link>
+                            </li>
+          )}
           </ul>
           
         </ResponsiveNav> 
